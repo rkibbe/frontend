@@ -1,0 +1,22 @@
+<div class="card-container">
+    <div class="coverage-header">
+        <div class="right-section">
+            <mat-icon color="primary" (click)="close()">close</mat-icon>
+        </div>
+    </div>
+
+    <div style="text-align: center">
+        <webcam [height]="300" [width]="360" *ngIf="showWebcam" [trigger]="triggerObservable"
+            (imageCapture)="handleImage($event)" [allowCameraSwitch]="allowCameraSwitch"
+            [switchCamera]="nextWebcamObservable" [videoOptions]="videoOptions"
+            (cameraSwitched)="cameraWasSwitched($event)" (initError)="handleInitError($event)">
+        </webcam>
+    </div>
+    <div fxLayout="column">
+        <mat-button-toggle-group class="verti-button-toggle-group standard-two-choice mrtp32" color="primary"
+            aria-label="Font Style">
+            <mat-button-toggle (click)="showNextWebcam(true);" value="false">SWITCH</mat-button-toggle>
+            <mat-button-toggle (click)="triggerSnapshot();" value="true">CAPTURE</mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+</div>

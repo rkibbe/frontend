@@ -1,0 +1,28 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": [ "../node_modules/@types" ,"../src/index.d.ts"],
+    "types": [ "node" , "googlemaps" ,"jasmine"],
+    "paths": {
+      "@app/*": ["src/app/*"],
+      "@services/*": ["src/app/core/services/*"],
+      "@assets/*": ["src/assets/*"],
+      "@env/*": ["src/environments/*"],
+      "@testing/*": ["src/testing/*"],
+      "@shared/*": ["src/app/shared/*"],
+
+    },
+    "lib": [
+      "es2017",
+      "dom"
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+<section class="error-modal-container">
+  <div class="fixed-content">
+    <div class="right-close">
+      <mat-icon color="primary" (click)="close()">close</mat-icon>
+    </div>
+  </div>
+  <div class="container card-container">
+    <p>{{errorMessage}}</p>
+  </div>
+  <div class="close-btn">
+    <button mat-raised-button class="primary-button" (click)="close()">CLOSE</button>
+
+  </div>
+</section>

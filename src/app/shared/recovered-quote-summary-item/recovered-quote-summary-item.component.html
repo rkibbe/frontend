@@ -1,0 +1,10 @@
+<div class="quote-data">
+  <p class="quote-timestamp">{{ getQuoteTimestamp() }} &mdash; {{ getQuoteNumber() }}</p>
+  <p class="quote-info"><b>{{ getQuotePrice() }}</b></p>
+  <p class="quote-info">{{ getQuoteNames() }}</p>
+  <p class="quote-info car-info">{{ getQuoteCars() }}</p>
+</div>
+<button *ngIf="!isPreviousQuote" (click)="onContinueQuoteClick()" mat-raised-button color="primary" class="verti-next-btn continue-quote-btn">CONTINUE
+  THIS QUOTE</button>
+<a href="javascript:void(0)" *ngIf="isPreviousQuote" (click)="onContinueQuoteClick()" class="continue-quote-link">CONTINUE
+  THIS QUOTE ></a>

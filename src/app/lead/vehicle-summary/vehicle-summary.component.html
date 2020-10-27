@@ -1,0 +1,141 @@
+<!-- <verti-back-button></verti-back-button> -->
+<div class="summary-container">
+    <div class="inner-content" fxLayout="column">
+        <verti-page-image-title [title]="title"></verti-page-image-title>
+
+        <p class="subtitle-txt" *ngIf="!showAtleastMsg">
+            We didn’t find any vehicles listed at your address. Please enter your vehicle’s info.
+        </p>
+        <p class="subtitle-txt" *ngIf="showAtleastMsg">We found some vehicles associated with your address.</p>
+        <p class="subtitle-txt">
+            Add upto 4 vehicles to your quote
+        </p>
+        <mat-list>
+            <ng-template ngFor let-vehicle [ngForOf]="vehicleData">
+                <mat-divider></mat-divider>
+                <ng-container *ngIf="vehicle.isADPF; else nonAdpfSec">
+                    <mat-list-item
+                        (click)="isClickable(vehicle) && handleClick(vehicle)"
+                        mat-ripple
+                        [matRippleDisabled]="!isClickable(vehicle)"
+                        [matRippleUnbounded]="false"
+                        class="summary-list-item"
+                        [ngClass]="{
+                            'summary-list-item-not-included': !vehicle.isIncluded,
+                            'verti-clickable': isClickable(vehicle)
+                        }"
+                    >
+                        <verti-image-description-group class="summary-list-item-main-content">
+                            <div class="image-group includable-wrapper">
+                                <mat-icon *ngIf="vehicle.isIncluded" class="right-mark">check_circle</mat-icon>
+                                <ng-container *ngIf="vehicle.iconExisted; else noIcon">
+                                    <img class="vehicle-icon" src="./assets/img/{{ vehicle.bodyStyleCode }}.svg" />
+                                </ng-container>
+                                <ng-template #noIcon>
+                                    <img class="vehicle-icon" src="./assets/img/SD.svg" />
+                                </ng-template>
+                            </div>
+                            <span> {{ vehicle.year }} {{ vehicle.make }} </span>
+                            <small *ngIf="vehicle.isADPF">{{ vehicle.model }}, {{ vehicle.vinPrefix }}</small>
+                        </verti-image-description-group>
+
+                        <div class="summary-list-item-end-content">
+                            <ng-container *ngIf="vehicle.isIncluded; else notIncluded">
+                                <mat-icon class="summary-list-item-edit-btn" (click)="edit(vehicle.vehicleID, $event)"
+                                    >edit</mat-icon
+                                >
+                                <mat-icon class="summary-list-item-remove-btn">close</mat-icon>
+                            </ng-container>
+                            <ng-template #notIncluded>
+                                <mat-icon class="summary-list-item-include-btn" [class.max-limit]="maxVehicleLimit">
+                                    add_circle_outline</mat-icon
+                                >
+                            </ng-template>
+                        </div>
+                    </mat-list-item>
+                </ng-container>
+                <ng-template #nonAdpfSec>
+                    <mat-list-item
+                        *ngIf="vehicle && vehicle.model && vehicle.make"
+                        (click)="isClickable(vehicle) && handleClick(vehicle)"
+                        mat-ripple
+                        [matRippleDisabled]="!isClickable(vehicle)"
+                        [matRippleUnbounded]="false"
+                        class="summary-list-item"
+                        [ngClass]="{
+                            'summary-list-item-not-included': !vehicle.isIncluded,
+                            'verti-clickable': isClickable(vehicle)
+                        }"
+                    >
+                        <verti-image-description-group class="summary-list-item-main-content">
+                            <div class="image-group includable-wrapper">
+                                <mat-icon *ngIf="vehicle.isIncluded" class="right-mark">check_circle</mat-icon>
+                                <ng-container *ngIf="vehicle.iconExisted; else noIcon">
+                                    <img class="vehicle-icon" src="./assets/img/{{ vehicle.bodyStyleCode }}.svg" />
+                                </ng-container>
+                                <ng-template #noIcon>
+                                    <img class="vehicle-icon" src="./assets/img/SD.svg" />
+                                </ng-template>
+                            </div>
+                            <span> {{ vehicle.year }} {{ vehicle.make }} </span>
+                            <small *ngIf="!vehicle.isADPF">{{ vehicle.model }}, {{ vehicle.trim }}</small>
+                        </verti-image-description-group>
+                        <div class="summary-list-item-end-content">
+                            <ng-container *ngIf="vehicle.isIncluded; else notIncluded">
+                                <mat-icon
+                                    *ngIf="!vehicle.isADPF"
+                                    class="summary-list-item-edit-btn"
+                                    (click)="edit(vehicle.vehicleID, $event)"
+                                    >edit</mat-icon
+                                >
+                                <mat-icon class="summary-list-item-remove-btn">close</mat-icon>
+                            </ng-container>
+                            <ng-template #notIncluded>
+                                <mat-icon class="summary-list-item-include-btn" [class.max-limit]="maxVehicleLimit">
+                                    add_circle_outline</mat-icon
+                                >
+                            </ng-template>
+                        </div>
+                    </mat-list-item>
+                </ng-template>
+            </ng-template>
+            <mat-divider></mat-divider>
+            <mat-list-item
+                class="summary-list-item-add-btn"
+                [class.verti-clickable]="!maxVehicleLimit"
+                mat-ripple
+                [matRippleDisabled]="maxVehicleLimit"
+                [matRippleUnbounded]="false"
+                (click)="!maxVehicleLimit && addNewVehicle()"
+            >
+                <span fxLayout="row" *ngIf="!showAtleastMsg; else anotherVehicle">
+                    Add vehicle
+                    <mat-icon>add_circle_outline</mat-icon>
+                </span>
+                <ng-template #anotherVehicle>
+                    Add another vehicle
+                    <mat-icon>add_circle_outline</mat-icon>
+                </ng-template>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+        </mat-list>
+        <p *ngIf="maxVehicleLimit" class="summary-list-limit-msg">
+            We allow a maximum of 4 vehicles per quote online. Please call us at
+            <a color="primary" [attr.href]="'tel:' + contactNumber">
+                {{ contactNumber }}
+            </a>
+            if you need to add more.
+        </p>
+
+        <button
+            *ngIf="vehicleData && vehicleData.length"
+            [disabled]="disabledNextBtn"
+            mat-raised-button
+            class="verti-next-btn mrtp40"
+            (click)="saveDetails()"
+            color="primary"
+        >
+            Next
+        </button>
+    </div>
+</div>

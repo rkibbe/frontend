@@ -1,0 +1,20 @@
+<div class="page-image-title-contents" [style.flex-direction]="reversed ? 'column-reverse' : 'column'">
+    <img
+        *ngIf="imgsource"
+        class="img-fluid"
+        [src]="imgsource"
+        [style.width]="imgwidth || 'auto'"
+        [style.height]="imgheight || 'auto'"
+    />
+    <img
+        *ngIf="imgsource2"
+        class="imgsource2"
+        [src]="imgsource2"
+        [style.width]="imgwidth2 || 'auto'"
+        [style.height]="imgheight2 || 'auto'"
+    />
+    <mat-card-title class="card-title">
+        {{ title | translate }}
+        <span class="subTitle" *ngIf="subTitle">{{ subTitle }}</span>
+    </mat-card-title>
+</div>

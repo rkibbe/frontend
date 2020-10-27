@@ -1,0 +1,23 @@
+.snackbar_main {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(238, 202, 0, 0.5);
+    padding: 16px;
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 14.2px;
+    letter-spacing: 0.25px;
+    line-height: 20px;
+    font-weight: 400;
+    .para {
+        margin: 0;
+        padding: 0;
+    }
+    .snackbar_link {
+        text-decoration: none;
+        color: #ff7f00;
+        font-size: 14px;
+        letter-spacing: 1.25px;
+        line-height: 16px;
+        text-align: right;
+    }
+}

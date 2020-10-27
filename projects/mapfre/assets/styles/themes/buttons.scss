@@ -1,0 +1,52 @@
+@import '~@angular/material/theming';
+@import 'assets/styles/themes/common-theme-helpers.scss';
+
+@mixin verti-button-theme($theme) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+
+    .mat-button.mat-primary,
+    .mat-icon-button.mat-primary,
+    .mat-stroked-button.mat-primary {
+        color: mat-color($primary, darker);
+    }
+
+    .verti-button-toggle-group,
+    .verti-button-toggle-group-list {
+        .mat-button-toggle {
+            color: mat-color($primary, darker);
+            height: 48px; // works for IE and others
+            background-color: transparent;
+
+            &:hover {
+                background-color: mat-color($primary, lighter);
+                transition: $hover-transition;
+            }
+
+            &:not(.mat-button-toggle-checked) {
+                .mat-ripple-element {
+                    background-color: rgba(mat-color($primary), 0.12);
+                }
+            }
+
+            &.mat-button-toggle-checked {
+                background-color: mat-color($accent);
+                color: mat-color($accent, default-contrast);
+            }
+        }
+    }
+
+    .verti-clickable {
+        @include verti-clickable-element($primary);
+    }
+
+    .summary-list-item {
+        &.verti-clickable {
+            .summary-list-item-include-btn:not(.max-limit),
+            .summary-list-item-remove-btn,
+            .summary-list-item-edit-btn {
+                color: mat-color($primary);
+            }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+<div class="card-container">
+    <div class="coverage-header">
+        <div class="right-section">
+            <mat-icon color="primary" (click)="close()">close</mat-icon>
+        </div>
+    </div>
+    <div class="coverage-img">
+        <img src="./assets/img/camera-icon.svg" alt="" width="72px">
+    </div>
+    <mat-card-title class="card-title">Allow Verti to use this device’s camer?</mat-card-title>
+    <div fxLayout="column">
+        <mat-button-toggle-group class="verti-button-toggle-group standard-two-choice mrtp32" color="primary"
+            formControlName="ineligibleVehicle" aria-label="Font Style">
+            <mat-button-toggle value="true">ALLOW</mat-button-toggle>
+            <mat-button-toggle value="false">DENY</mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+</div>

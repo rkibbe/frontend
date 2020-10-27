@@ -1,0 +1,23 @@
+@import 'src/app/lead/default-review/default-review.component.scss-deep.scss';
+@import 'src/app/lead/ko-decline/ko-decline.component.scss-deep.scss';
+@import 'src/app/shared/image-description-group/image-description-group.component.scss-deep.scss';
+@import 'src/app/shared/review-all-details-modal/review-all-details-modal.component.scss-deep.scss';
+@import 'src/app/lead/vehicle-add/vehicle.component.scss-deep.scss';
+@import 'src/app/lead/rc-decline/rc-decline.component.scss-deep.scss';
+@import 'src/app/lead/price-change/price-change.component.scss-deep.scss';
+@import 'src/app/lead/minor-violation-questions/minor-violation-questions.component.scss-deep.scss';
+@import 'src/app/lead/final-price/final-price.component.scss-deep.scss';
+@import 'src/app/lead/driver-driving-history/driver-driving-history.component.scss-deep.scss';
+@import 'src/app/lead/quickquote/quickquote.component.scss-deep.scss';
+
+@include default-review-component-deep();
+@include ko-decline-component-deep();
+@include image-description-group-component-deep();
+@include review-all-details-modal-component-deep();
+@include vehicle-component-deep();
+@include rc-decline-component-deep();
+@include price-change-component-deep();
+@include minor-violation-questions-component-deep();
+@include final-price-component-deep();
+@include driver-driving-history-component-deep();
+@include quickquote-component-deep();

@@ -1,0 +1,19 @@
+.verti-next-btn {
+    @media all and (max-width: 375px) {
+        max-width: 248px !important;
+    }
+    .button-2txt {
+        display: block;
+        font-size: 0.75em !important;
+        text-transform: none;
+        white-space: normal;
+        line-height: 1.2em;
+    }
+}
+a.card-pnum {
+    color: #ff7f00;
+    font-size: 18.2px;
+    letter-spacing: 0.32px;
+    line-height: 24px;
+    //text-decoration: none;
+}

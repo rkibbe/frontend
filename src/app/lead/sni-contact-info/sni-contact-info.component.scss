@@ -1,0 +1,19 @@
+.address-checkbox {
+    font-size: 0.875rem;
+    color: rgba(0, 0, 0, 0.87);
+    letter-spacing: 0.015625em;
+}
+
+.button-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.cancel-anchor {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.078125rem;
+    align-self: center;
+}

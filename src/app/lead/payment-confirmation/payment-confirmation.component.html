@@ -1,0 +1,45 @@
+<div class="main-content" *ngIf="showContent">
+    <div class="inner-content" fxLayout="column">
+        <h1>Let's make it official!</h1>
+
+        <verti-credit-card [cardType]="cardType" [cardHolder]="cardHolder" [cardNumber]="cardNumber">
+        </verti-credit-card>
+
+        <h2>Today's payment:</h2>
+
+        <verti-big-price [price]="price"></verti-big-price>
+
+        <p *ngIf="!fullPay && nextPaymentDay; else noNextDate;">
+            Your next payment will be <b>automatically withdrawn</b> on {{nextPaymentMonthDate}}. Future payments will
+            happen on the {{nextPaymentDay | dateSuffix}}
+            of
+            the month for as long as your policy is active.
+        </p>
+        <ng-template #noNextDate>
+            <p *ngIf="!fullPay">
+                Your next payment will be <b>automatically withdrawn</b> on {{nextPaymentMonthDate}}. Future payments will
+                happen on the {{nextPaymentDay}}
+                of
+                the month for as long as your policy is active.
+            </p>
+        </ng-template>
+
+        <form (ngSubmit)="onSubmit()" fxLayout="column">
+            <mat-checkbox [formControl]="agreeCheckboxControl" class="payment-checkbox">
+                I have read and agree to the terms below.
+            </mat-checkbox>
+            <button mat-raised-button color="primary" class="verti-next-btn mrbt40"
+                [disabled]="!agreeCheckboxControl.value">
+                AUTHORIZE & PAY NOW
+            </button>
+        </form>
+        <span>
+            I authorize Verti Insurance Company to automatically withdraw funds from the account listed when payment is
+            due. This includes payments for Premium, Fees, Authorized Updates, Renewal and Policy Replacement. This
+            authorization is to remain in full force until Verti receives written notice from me of its termination, in
+            such time and manner as to afford Verti reasonable time to act, I may also terminate this authorization by
+            notifying Verti via the Verti Mobile App or by telephone call to my Verti Personal Advisor at least fifteen
+            (15) days prior to the next scheduled withdrawal.
+        </span>
+    </div>
+</div>

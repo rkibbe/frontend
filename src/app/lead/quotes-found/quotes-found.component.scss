@@ -1,0 +1,34 @@
+:host {
+    display: block;
+}
+
+img {
+    width: 80px;
+    height: 80px;
+    align-self: center;
+}
+
+h1 {
+    color: #8b1863;
+    font-size: 24px;
+    letter-spacing: 0.16px;
+    text-align: center;
+    font-weight: normal;
+    margin-bottom: 24px;
+}
+
+.quote-summary-item {
+    margin: 16px 0;
+
+    &.first-quote {
+        margin: 0 0 8px;
+    }
+}
+
+h2 {
+    margin: 32px 0 8px;
+    color: #8b1863;
+    font-size: 18.2px;
+    letter-spacing: 0.32px;
+    font-weight: normal;
+}

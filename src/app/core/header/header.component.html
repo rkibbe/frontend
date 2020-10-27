@@ -1,0 +1,16 @@
+<mat-toolbar class="header-container">
+    <mat-toolbar-row class="logo-inline common-container">
+        <a [attr.href]="'header-link' | translate" class="logo" target="_blank">
+            <img src="./assets/img/logo_Dark.svg" alt="Verti" />
+        </a>
+
+        <div class="here_to_help">
+            <span>{{ 'hereToHelp_text' | translate }}</span>
+            <span>
+                <a color="primary" [attr.href]="'tel:' + contactNumber">
+                    {{ contactNumber }}
+                </a>
+            </span>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

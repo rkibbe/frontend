@@ -1,0 +1,10 @@
+@mixin vehicle-component-deep() {
+    .verti-vehicleadd {
+        .add-another-vehicle-btn {
+            &.mat-stroked-button {
+                white-space: normal;
+                line-height: 1.2em;
+            }
+        }
+    }
+}

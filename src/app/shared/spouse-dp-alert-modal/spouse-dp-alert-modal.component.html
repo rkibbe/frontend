@@ -1,0 +1,16 @@
+<img class="phone-img" [src]="imgSource" width="66">
+<h1>{{title}}</h1>
+<ng-container *ngIf="data==='MORETHANONESAMERELATIONSHIP' else missingPartner;">
+    <p class="card-sub-title">{{this.text}}</p>
+</ng-container>
+<ng-template #missingPartner>
+    <p class="card-sub-title" *ngIf="data==='M' else dp;">Your marital status is <span class="marital">MARRIED</span>.
+    </p>
+    <ng-template #dp>
+        <p class="card-sub-title">Your marital status is <span class="marital">DOMESTIC PARTNER</span>.</p>
+    </ng-template>
+    <p class="card-sub-title mrtp0">Please provide more details.</p>
+</ng-template>
+<button mat-stroked-button id="add-btn" class="verti-btn mrtp24" color="primary" (click)="close()">
+    {{ctaText}}
+</button>

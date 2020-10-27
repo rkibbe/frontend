@@ -1,0 +1,11 @@
+<div class="main-content">
+    <div class="inner-content" fxLayout="column">
+        <img src="./assets/img/Search_Success_Icon.svg" alt="Search Success" class="mrtp24">
+        <h1>Here's what we found.</h1>
+        <verti-recovered-quote-summary-item [quote]="getFirstQuote()" [isPreviousQuote]="false"
+            (continueQuote)="continueQuoteHandler($event)" class="first-quote quote-summary-item">
+        </verti-recovered-quote-summary-item>
+        <button (click)="onStartNewQuoteClick()" mat-stroked-button color="primary" class="verti-next-btn mrtp24">Start
+            A New Quote</button>
+    </div>
+</div>

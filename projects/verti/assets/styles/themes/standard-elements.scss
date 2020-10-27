@@ -1,0 +1,9 @@
+@import '~@angular/material/theming';
+
+@mixin standard-elements-theme($theme) {
+    $primary: map-get($theme, primary);
+
+    a {
+        color: mat-color($primary, darker);
+    }
+}

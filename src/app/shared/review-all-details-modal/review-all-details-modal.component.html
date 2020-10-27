@@ -1,0 +1,319 @@
+<div class="reviewAllDetails">
+    <div class="close-btn">
+        <button mat-icon-button color="primary" class="" tabindex="1" (click)="onCloseClick()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <div class="reviewblock">
+        <div class="overview-block">
+            <div class="review-img-title">
+                <img class="img-fluid" src="./assets/img/review_icon.svg" width="60px" height="60px" />
+                <mat-card-title class="card-title">Review these details</mat-card-title>
+            </div>
+
+            <mat-card-title class="title txt_left bdr">Coverage</mat-card-title>
+            <mat-list class="quick-quote-mat-list">
+                <mat-list-item>
+                    <div class="review_lists">
+                        <div class="heading-imgage">
+                            <span class="shield-icon"><img src="./assets/img/Icon_Shield.svg" alt="vehicle"/></span>
+                            <span class="review-title">
+                                Policy
+                                <small>Policy Effective: {{ policyDate }}</small>
+                            </span>
+                        </div>
+                        <p class="mat-list-para" matLine>
+                            <span class="leftside">Homeowner</span> <span>{{ leadData.residenceOwnershipValue }}</span>
+                        </p>
+                        <p class="mat-list-para" *ngIf="leadData.quote.policyCoverage.bILimit" matLine>
+                            <span class="leftside">Bodily Injury</span>
+                            <span>{{ leadData.quote.policyCoverage.bILimit }}</span>
+                        </p>
+                        <p class="mat-list-para" *ngIf="leadData.quickQuote.currentCarrier.bILimitFormatted" matLine>
+                            <span class="leftside">Prior Bodily Injury Limit</span>
+                            <span>{{ leadData.quickQuote.currentCarrier.bILimitFormatted }}</span>
+                        </p>
+                        <p class="mat-list-para" *ngIf="leadData.quote.policyCoverage.pDLimit" matLine>
+                            <span class="leftside">Property Damage</span>
+                            <span>{{ leadData.quote.policyCoverage.pDLimit }}</span>
+                        </p>
+                        <p class="mat-list-para" *ngIf="leadData.quote.policyCoverage.tort" matLine>
+                            <span class="leftside">Tort</span> <span>{{ leadData.quote.policyCoverage.tort }}</span>
+                        </p>
+                        <p class="mat-list-para" *ngIf="leadData.quote.policyCoverage.uMBILimit" matLine>
+                            <span class="leftside">Uninsured Motorist</span>
+                            <span>{{ leadData.quote.policyCoverage.uMBILimit }}</span>
+                        </p>
+                        <p class="mat-list-para-one" *ngIf="leadData.quote.policyCoverage.selValueStackUMBI" matLine>
+                            <span class="leftside pdlf_30">Stacked Coverage</span>
+                            <span>{{ leadData.quote.policyCoverage.selValueStackUMBI }}</span>
+                        </p>
+                        <p class="mat-list-para" *ngIf="leadData.quote.policyCoverage.uIMBILimit" matLine>
+                            <span class="leftside">Underinsured Motorist</span>
+                            <span>{{ leadData.quote.policyCoverage.uIMBILimit }}</span>
+                        </p>
+                        <p class="mat-list-para-one" *ngIf="leadData.quote.policyCoverage.selValueStackUIMBI" matLine>
+                            <span class="leftside pdlf_30">Stacked Coverage</span>
+                            <span>{{ leadData.quote.policyCoverage.selValueStackUIMBI }}</span>
+                        </p>
+                        <p class="mat-list-para" *ngIf="leadData.quote.policyCoverage.medical" matLine>
+                            <span class="leftside">First Party Benefits</span>
+                            <span>{{ leadData.quote.policyCoverage.medical }}</span>
+                        </p>
+                        <p class="mat-list-para" *ngIf="leadData.quickQuote.currentCarrier.yearsInsuredValue" matLine>
+                            <span class="leftside">Years With Previous Carrier</span>
+                            <span>{{ leadData.quickQuote.currentCarrier.yearsInsuredValue }}</span>
+                            <!-- <span class="leftside">Years With Previous Carrier</span> <span>6mo ≥ 1yr</span> -->
+                        </p>
+                        <p
+                            class="mat-list-para"
+                            *ngIf="leadData.quickQuote.currentCarrier.lapseInCoveragePeriodValue"
+                            matLine
+                        >
+                            <span class="leftside">Lapse Period</span>
+                            <span>{{ leadData.quickQuote.currentCarrier.lapseInCoveragePeriodValue }}</span>
+                        </p>
+                        <p class="mat-list-para" *ngIf="leadData.quote.policyCoverage.identityTheft" matLine>
+                            <span class="leftside">Identity Theft Protection</span>
+                            <span>{{ leadData.quote.policyCoverage.identityTheft }}</span>
+                        </p>
+                        <p class="mat-list-para" matLine>
+                            <span class="leftside">Digital Freedom</span> <span>Yes</span>
+                        </p>
+                    </div>
+                </mat-list-item>
+            </mat-list>
+
+            <mat-list class="quick-quote-mat-list">
+                <mat-card-title class="title txt_left bdr">Driver</mat-card-title>
+
+                <ng-template ngFor let-driver [ngForOf]="driverList">
+                    <ng-container *ngIf="driver.isIncluded">
+                        <mat-list-item class="driver_lists">
+                            <div class="review_lists">
+                                <div class="heading-imgage">
+                                    <span class="dirver-icon"
+                                        ><img src="./assets/img/undefined-1.svg" alt="vehicle"
+                                    /></span>
+                                    <span class="review-title">
+                                        {{ driver.firstName }} {{ driver.lastName }}
+                                        <!-- <small>36 year old male</small> -->
+                                        <small
+                                            >{{ driver.age }} year old
+                                            <span *ngIf="driver.genderCode">{{
+                                                driver.genderCode === 'M' ? 'male' : 'female'
+                                            }}</span>
+                                        </small>
+                                    </span>
+                                </div>
+
+                                <!-- <verti-accident-atfault [accidentFault]="driver.noOfAccidentsAndViolations"></verti-accident-atfault> -->
+                                <ng-container
+                                    *ngIf="
+                                        driver.noOfAccidentsAndViolations.noOfAtFaultAccidents &&
+                                        driver.noOfAccidentsAndViolations.noOfAtFaultAccidents !== 'none'
+                                    "
+                                >
+                                    <p class="mat-list-para" matLine>
+                                        <span class="leftside">Accidents (At fault) </span>
+                                        <span>{{
+                                            +driver.noOfAccidentsAndViolations.noOfAtFaultAccidents.substr(0, 1)
+                                        }}</span>
+                                    </p>
+                                </ng-container>
+                                <ng-container
+                                    *ngIf="
+                                        driver.noOfAccidentsAndViolations.noOfNotAtFaultAccidents &&
+                                        driver.noOfAccidentsAndViolations.noOfNotAtFaultAccidents !== 'none'
+                                    "
+                                >
+                                    <p class="mat-list-para" matLine>
+                                        <span class="leftside">Accidents (Not at fault) </span>
+                                        <span>{{
+                                            +driver.noOfAccidentsAndViolations.noOfNotAtFaultAccidents.substr(0, 1)
+                                        }}</span>
+                                    </p>
+                                </ng-container>
+                                <ng-container
+                                    *ngIf="
+                                        driver.noOfAccidentsAndViolations.noOfMovingViolations &&
+                                        driver.noOfAccidentsAndViolations.noOfMovingViolations !== 'none'
+                                    "
+                                >
+                                    <p class="mat-list-para" matLine>
+                                        <span class="leftside">Moving violations </span>
+                                        <span>{{
+                                            +driver.noOfAccidentsAndViolations.noOfMovingViolations.substr(0, 1)
+                                        }}</span>
+                                    </p>
+                                </ng-container>
+                                <ng-container
+                                    *ngIf="
+                                        driver.noOfAccidentsAndViolations.noOfComprehensiveClaims &&
+                                        driver.noOfAccidentsAndViolations.noOfComprehensiveClaims !== 'none'
+                                    "
+                                >
+                                    <p class="mat-list-para" matLine>
+                                        <span class="leftside">Comprehensive claims </span>
+                                        <span>{{
+                                            +driver.noOfAccidentsAndViolations.noOfComprehensiveClaims.substr(0, 1)
+                                        }}</span>
+                                    </p>
+                                </ng-container>
+                                <p class="mat-list-para" matLine>
+                                    <span class="leftside">Driver Improvement Discount</span>
+                                    <ng-container *ngIf="driver.driverImprovementDiscount; else noDID">
+                                        <span>Yes</span>
+                                    </ng-container>
+                                    <ng-template #noDID>
+                                        <span>No</span>
+                                    </ng-template>
+                                </p>
+                                <p class="mat-list-para" matLine>
+                                    <span class="leftside">Young Driver Discount</span>
+                                    <ng-container *ngIf="driver.youngDriverDiscount; else noYDD">
+                                        <span>Yes</span>
+                                    </ng-container>
+                                    <ng-template #noYDD>
+                                        <span>No</span>
+                                    </ng-template>
+                                </p>
+                                <!-- <p class="mat-list-para" matLine>
+                <span class="leftside">Good Student Discount</span> <span>No</span>
+              </p>
+              <p class="mat-list-para" matLine>
+                <span class="leftside">Driver Safety Course</span> <span>09/10/2017</span>
+              </p> -->
+                            </div>
+                        </mat-list-item>
+                    </ng-container>
+                </ng-template>
+            </mat-list>
+
+            <mat-list class="quick-quote-mat-list">
+                <mat-card-title class="title txt_left bdr">Vehicle</mat-card-title>
+                <!-- <ng-container> -->
+                <ng-template ngFor let-vehicle [ngForOf]="vehicleData">
+                    <ng-container *ngIf="vehicle.isIncluded">
+                        <mat-list-item>
+                            <div class="review_lists">
+                                <div class="heading-imgage">
+                                    <!-- <span class="vehicle-icon"><img src="./assets/img/SD.svg" alt="vehicle"></span> -->
+                                    <span class="vehicle-icon">
+                                        <ng-container *ngIf="vehicle.iconExisted; else noIcon">
+                                            <img
+                                                class="car-position"
+                                                src="./assets/img/{{ vehicle.bodyStyleCode }}.svg"
+                                                alt="vehicle"
+                                            />
+                                        </ng-container>
+                                        <ng-template #noIcon>
+                                            <img class="car-position" src="./assets/img/SD.svg" alt="vehicle" />
+                                        </ng-template>
+                                    </span>
+
+                                    <span class="review-title"
+                                        >{{ vehicle.year }} {{ vehicle.make }} {{ vehicle.model }}
+                                        <small>VIN: {{ vehicle.vinPrefix }}</small>
+                                    </span>
+                                </div>
+                                <p class="mat-list-para" *ngIf="vehicle.compDisplayValue" matLine>
+                                    <span class="leftside">Comprehensive Deductible</span>
+                                    <span>{{ vehicle.compDisplayValue }}</span>
+                                </p>
+                                <p class="mat-list-para" *ngIf="vehicle.collDisplayValue" matLine>
+                                    <span class="leftside">Collision Deductible</span>
+                                    <span>{{ vehicle.collDisplayValue }}</span>
+                                </p>
+                                <p class="mat-list-para" *ngIf="vehicle.rentalDisplayValue" matLine>
+                                    <span class="leftside">Rental</span> <span>{{ vehicle.rentalDisplayValue }}</span>
+                                </p>
+                                <p class="mat-list-para" *ngIf="(vehicle.titleHolder === 'LIEN' ||
+                                vehicle.titleHolder === 'LESSOR')" matLine>
+                                    <span class="leftside">Loan/Lease Coverage</span>
+                                    <ng-container *ngIf="vehicle.selLoanLease; else noLoanLease">
+                                        <span>Yes</span>
+                                    </ng-container>
+                                    <ng-template #noLoanLease>
+                                        <span>No</span>
+                                    </ng-template>
+                                </p>
+                                <p class="mat-list-para" *ngIf="vehicle.primaryUse" matLine>
+                                    <span class="leftside">Primary Use</span> <span>{{ vehicle.primaryUse }}</span>
+                                </p>
+                                <p class="mat-list-para" *ngIf="vehicle.rideShare" matLine>
+                                    <span class="leftside">Used for Rideshare</span>
+                                    <span>{{ vehicle.rideShare }}</span>
+                                </p>
+                                <p class="mat-list-para" *ngIf="vehicle.registeredState" matLine>
+                                    <span class="leftside">Registered in</span>
+                                    <span>{{ vehicle.registeredState }}</span>
+                                </p>
+                                <p class="mat-list-para" *ngIf="vehicle.registeredOwner" matLine>
+                                    <span class="leftside">Registered Owner</span>
+                                    <span>{{ vehicle.registeredOwner }}</span>
+                                </p>
+                                <p class="mat-list-para" *ngIf="vehicle.commuteNYNJ" matLine>
+                                    <span class="leftside">Commute to NY/NJ</span>
+                                    <span>{{ vehicle.commuteNYNJ }}</span>
+                                </p>
+                                <p class="mat-list-para" *ngIf="vehicle.passiveAlarm" matLine>
+                                    <span class="leftside">Passive Alarm or Recovery</span>
+                                    <span>{{ vehicle.passiveAlarm }}</span>
+                                </p>
+                                <p class="mat-list-para" *ngIf="vehicle.garagingAddress" matLine>
+                                    <span class="leftside">Garaging Address</span>
+                                    <span>{{ vehicle.garagingAddress }}</span>
+                                </p>
+                                <p class="mat-list-para" *ngIf="vehicle.roadSideAssistance" matLine>
+                                    <span class="leftside">Roadside Assistance</span>
+                                    <span>{{ vehicle.roadSideAssistance }}</span>
+                                </p>
+                            </div>
+                        </mat-list-item>
+                    </ng-container>
+                </ng-template>
+            </mat-list>
+
+            <p class="para">By clicking 'CONTINUE TO PURCHASE' you verify your information is accurate.</p>
+        </div>
+
+        <div class="overview-block">
+            <!-- <div class="coverage-img">
+        <img src="./assets/img/customize-coverage.svg" alt="">
+      </div>
+      <h3 class="question">Customize your coverage with confidence.</h3>
+      <h6 class="estimates">Our licensed agents will help you get the most out of your insurance.</h6>
+      <div class="customize-list">
+        <ul>
+          <li>Optimize coverages for your unique needs </li>
+          <li>Maximize your discounts </li>
+          <li>Add/remove/modify drivers & vehicles </li>
+        </ul>
+      </div>
+
+      <div fxLayout="column">
+        <button mat-stroked-button class="add-another-vehicle-btn verti-btn mrtp24" (click)="customizeCoverage()"
+          color="primary">Customize
+          Coverage</button>
+      </div> -->
+
+            <div class="minimalist-block mrbt24">
+                <mat-card-title class="card-title">For the true minimalist:</mat-card-title>
+                <p class="para">
+                    For those who prefer financial savings over financial security, state minimum coverage may be for
+                    you. Coverages are much lower than the policy shown above but it is cheap.
+                </p>
+                <p class="para1">State Minimum Coverage Overview:</p>
+                <ul>
+                    <li>Bodily injury coverage: $15K / $30K</li>
+                    <li>Property damage coverage: $5K</li>
+                    <li>Uninsured motorist coverage: $15K / $30K</li>
+                </ul>
+                 <p class="para2">
+          <a href="javascript:void(0)" (click)="minimizeCoverage(true)">Edit Policy Coverages</a>
+        </p> 
+            </div>
+        </div>
+    </div>
+</div>

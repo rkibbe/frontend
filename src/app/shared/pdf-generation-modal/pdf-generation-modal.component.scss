@@ -1,0 +1,60 @@
+:host {
+    // display: flex;
+    flex-direction: column;
+    align-items: center;
+    // max-width: 380px;
+    // @media only screen and (max-width: 375px) {
+    //     max-width: 300px;
+    // }
+    .pdf-generation {
+        display: flex;
+        flex-direction: column;
+        padding: 24px 16px 0;
+        // justify-content: center;
+        h1 {
+            color: #8b1863;
+            font-size: 24px;
+            letter-spacing: 0.16px;
+            margin: 0 0 16px;
+            text-align: center;
+        }
+        .close-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            position: relative;
+            .mat-icon-button.mat-primary {
+                position: absolute;
+                right: 0;
+            }
+        }
+        .timeout-img {
+            width: 100%;
+            max-width: 64px;
+            max-height: 80px;
+            margin: 0 auto 32px;
+        }
+
+        .card-sub-title {
+            color: rgba(0, 0, 0, 0.87);
+            font-size: 14.2px;
+            letter-spacing: 0.25px;
+            line-height: 20px;
+            text-align: center;
+            margin: 0;
+        }
+
+        #try-again-btn {
+            margin-bottom: 26px;
+            width: 100%;
+            max-width: 220px;
+        }
+        .add-another-vehicle-btn {
+            max-width: 280px;
+            width: 100%;
+            @media screen and (max-width: 375px) {
+                max-width: 193px;
+            }
+        }
+    }
+}

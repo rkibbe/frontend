@@ -1,0 +1,18 @@
+<div class="main-content purple-theme">
+    <div class="inner-content">
+        <verti-page-image-title [title]="TITLE"></verti-page-image-title>
+
+        <form [formGroup]="calenderForm" fxLayout="column">
+            <mat-form-field class="for-date-picker" appearance="outline">
+                <mat-label>Policy start date</mat-label>
+                <input matInput readonly [min]="minDate" [max]="maxDate" [matDatepicker]="picker" placeholder="Policy start date"
+                    formControlName="startDate">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker opened="true" #picker></mat-datepicker>
+            </mat-form-field>
+
+            <button mat-raised-button class="verti-next-btn mrtp40 after-text-input" (click)="saveDetails()" [disabled]="!calenderForm.valid"
+                color="primary">NEXT</button>
+        </form>
+    </div>
+</div>

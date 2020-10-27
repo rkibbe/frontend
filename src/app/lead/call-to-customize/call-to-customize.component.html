@@ -1,0 +1,35 @@
+<div class="main-content">
+    <div class="inner-content">
+        <div class="card-container">
+            <div class="coverage-img">
+                <img src="./assets/img/customize-coverage.svg" alt="" />
+            </div>
+            <mat-card-title class="card-title">Customize your coverage with confidence.</mat-card-title>
+            <h6 class="card-summary text-center">Call us now for white glove service</h6>
+            <div class="customize-list">
+                <ul>
+                    <li>Optimize coverages for your unique needs</li>
+                    <li>Maximize your discounts</li>
+                    <li>Add/remove/modify drivers & vehicles</li>
+                </ul>
+            </div>
+            <h3 class="card-number-desktop card-subtitle">
+                Call Verti now:
+                <a class="card-pnum" color="primary" [attr.href]="'tel:' + contactNumber">
+                    {{ contactNumber }}
+                </a>
+                <!-- <a class="card-pnum" href="tel:1-267-310-3021">1-267-310-3021</a> -->
+            </h3>
+            <div class="card-number-mobile">
+                <div class=" card-btn-subtitle mrbt24 mrtp24">
+                    <span class="call_now_txt">
+                        CALL NOW
+                    </span>
+                    <a class="card-pnum" color="primary" [attr.href]="'tel:' + contactNumber">
+                        {{ contactNumber }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

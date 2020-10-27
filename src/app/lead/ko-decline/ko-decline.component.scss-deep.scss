@@ -1,0 +1,7 @@
+@mixin ko-decline-component-deep() {
+    .verti-ko-decline {
+        .mat-card-title {
+            margin-bottom: 0px !important;
+        }
+    }
+}

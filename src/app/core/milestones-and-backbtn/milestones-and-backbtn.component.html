@@ -1,0 +1,8 @@
+<div class="milestone-container common-container" [ngClass]="{ 'no-progress-bar' : hideMileStoneContainer }" fxLayout="row"
+  fxLayoutAlign="start center">
+  <ng-container *ngIf="!hideMileStoneContainer">
+    <verti-back-button [currentRouteIndex]="currentRouteIndex" [flow]="flow"></verti-back-button>
+    <verti-progress-bar class="progress-bar-wrapper" [showFullQuoteProgress]="showFullQuoteProgress"
+      [totalProgressValue]="totalProgressValue"></verti-progress-bar>
+  </ng-container>
+</div>

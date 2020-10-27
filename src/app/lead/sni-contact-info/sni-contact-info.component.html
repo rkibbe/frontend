@@ -1,0 +1,29 @@
+<div class="main-content">
+    <div class="inner-content">
+        <verti-page-image-title imgsource="assets/img/Shake_Icon.svg" imgwidth="103px" imgheight="80px" [title]="title"></verti-page-image-title>
+        <form [formGroup]="formGroup" (submit)="onSubmit()" fxLayout="column">
+            <mat-form-field appearance="outline" [class.invalid-error-txt]="hasEmailError() && showEmailError">
+                <mat-label>Email</mat-label>
+                <input matInput vertiInputMask [formatter]="emailFormatter" type="email" placeholder="e.g. abc@123.com"
+                    formControlName="email" minlength="10" maxlength="50" (blur)="onEmailBlur()">
+                <mat-error *ngIf="hasEmailError() && showEmailError">
+                    Please enter a valid email address
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" [class.invalid-error-txt]="hasPhoneError() && showPhoneError">
+                <mat-label>Phone number</mat-label>
+                <input matInput vertiInputMask [formatter]="phoneFormatter" type="tel" placeholder="e.g. 555-123-4567"
+                    formControlName="phone" (blur)="onPhoneBlur()">
+                <mat-error *ngIf="hasPhoneError() && showPhoneError">
+                    It doesn't look like that is a valid phone number, want to try again?
+                </mat-error>
+            </mat-form-field>
+
+            <div class="button-wrapper">
+                <button mat-raised-button color="primary" [disabled]="!formGroup.valid" class="verti-next-btn mrtp40 after-text-input">Next</button>
+                <a href="javascript:void(0)" class="cancel-anchor mrtp24" (click)="onCancelClick()">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>

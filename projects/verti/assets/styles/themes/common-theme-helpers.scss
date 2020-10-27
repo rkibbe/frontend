@@ -1,0 +1,14 @@
+@import '~@angular/material/theming';
+
+$hover-transition: opacity 0.2s cubic-bezier(0.35, 0, 0.25, 1), background-color 0.2s cubic-bezier(0.35, 0, 0.25, 1);
+
+@mixin verti-clickable-element($color) {
+    &:hover {
+        background-color: rgba(mat-color($color), 0.12);
+        transition: $hover-transition;
+    }
+
+    .mat-ripple-element {
+        background-color: rgba(mat-color($color), 0.12);
+    }
+}

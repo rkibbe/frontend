@@ -1,0 +1,8 @@
+<!-- <verti-back-button></verti-back-button> -->
+<div class="main-content">
+  <div class="inner-content">
+    <verti-page-image-title [imgsource]="imgSource" imgwidth="80px" [title]="title"></verti-page-image-title>
+    <verti-user-marital-status [options]="options" [formGroup]="driverMaritalStatusForm"
+      (formGroupValue)='setDetails($event)' (formSubmit)="saveAndNavigate()"></verti-user-marital-status>
+  </div>
+</div>

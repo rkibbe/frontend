@@ -1,0 +1,44 @@
+[
+    {
+        "code": "S",
+        "name": "Single",
+        "description": "Single",
+        "categories": [],
+        "order": 1
+    },
+    {
+        "code": "M",
+        "name": "Married",
+        "description": "Married",
+        "categories": [],
+        "order": 2
+    },
+    {
+        "code": "C",
+        "name": "Domestic partner",
+        "description": "Domestic partner",
+        "categories": [],
+        "order": 3
+    },
+    {
+        "code": "P",
+        "name": "Separated",
+        "description": "Separated",
+        "categories": [],
+        "order": 4
+    },
+    {
+        "code": "D",
+        "name": "Divorced",
+        "description": "Divorced",
+        "categories": [],
+        "order": 5
+    },
+    {
+        "code": "W",
+        "name": "Widowed",
+        "description": "Widowed",
+        "categories": [],
+        "order": 6
+    }
+]

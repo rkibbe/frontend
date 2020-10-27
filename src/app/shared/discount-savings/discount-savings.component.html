@@ -1,0 +1,38 @@
+<div class="discount-savings" *ngIf="topSection" (click)="scrollTo('goToDiscountSavings')">
+    <div class="saving-policy mrbt32">
+        <span class="saving-icon"></span>
+        <span class="saving-txt">
+            <h4 class="johnny-youre-saving">
+                {{ firstName }}, <b>you’re saving ${{ savingPrice }}</b> on your Verti auto policy!
+            </h4>
+            <span class="i-icon"></span>
+        </span>
+    </div>
+</div>
+<div class="discount-savings" *ngIf="!topSection">
+    <div class="saving-policy mrtp32">
+        <span class="saving-icon"></span>
+        <span class="saving-txt">
+            <h4 class="johnny-youre-saving1">
+                {{ firstName }}, <b>you’re saving ${{ savingPrice }}</b> on your Verti auto policy!
+            </h4>
+        </span>
+    </div>
+    <div class="discount-policy">
+        <span>These discounts & savings have been applied to your policy.</span>
+        <span>
+            <ul>
+                <li>Safe Driver Discount</li>
+                <li>Good Student Discount</li>
+                <li>Home Owner Discount</li>
+                <li>Early Buyer Discount</li>
+            </ul>
+        </span>
+    </div>
+    <div class="promo-statement">
+        To optimize your coverage and maximize discounts, finish your quote by phone.
+    </div>
+    <button mat-stroked-button class="add-another-vehicle-btn verti-btn mrtp24" color="primary">
+        1-888-HI-Verti
+    </button>
+</div>

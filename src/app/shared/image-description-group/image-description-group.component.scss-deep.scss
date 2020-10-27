@@ -1,0 +1,13 @@
+@mixin image-description-group-component-deep() {
+    .verti-image-description-group {
+        .description-group {
+            font-size: 1.1375rem;
+            color: rgba(0, 0, 0, 0.6);
+            margin: 0;
+
+            > :first-child {
+                color: rgba(0, 0, 0, 0.87);
+            }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+.marital-status-group {
+    display: flex;
+    flex-direction: column;
+
+    .mat-button-toggle {
+        margin-bottom: 24px;
+        max-width: 252px;
+        width: 100%;
+
+        &:last-child {
+            margin-bottom: 0px;
+        }
+
+        @media screen and (min-width: 992px) {
+            max-width: 310px;
+        }
+    }
+}

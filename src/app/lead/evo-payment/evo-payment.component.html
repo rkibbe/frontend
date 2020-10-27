@@ -1,0 +1,9 @@
+<div class="evo_payment_container">
+  <h2 class="card-title">{{title}}</h2>
+  <div class="evo_fluid_container">
+    <div class="hide_top_grey"></div>
+    <iframe #evoIframe id="iframe_id" style="border: 0px" width="100%" height="600px" *ngIf="urlReady" [src]="urlString"
+      (load)="iframeContentLoaded()" scrolling="no"></iframe>
+    <!-- <div class="hide_bottom_grey"></div> -->
+  </div>
+</div>

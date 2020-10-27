@@ -1,0 +1,131 @@
+:host {
+    overflow: auto;
+    height: auto;
+    max-height: 100vh;
+    display: block;
+
+    .walmeric-header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 16px 0;
+
+        .vertilogo {
+            display: inline-block;
+            width: 106px;
+            height: 35.4px; // margin:8px 0 0 5px;
+            margin: 0px;
+        }
+
+        .right-section {
+            display: inline-block;
+            cursor: pointer;
+        }
+    }
+
+    .card-container {
+        $container-padding: 24px;
+        padding: 0 $container-padding 20px;
+
+        .card-subtitle {
+            font-weight: 400;
+            color: rgba(121, 68, 68, 0.6);
+            font-size: 12.12px;
+            letter-spacing: 2px;
+            line-height: 16px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .call-verti-now-btn {
+            // color: #8b1863;
+            color: #77777a;
+            font-size: 18.2px;
+            letter-spacing: 0.32px;
+            line-height: 24px;
+            text-align: center;
+            font-weight: 400;
+            a.card-pnum {
+                color: #ff7f00;
+                font-size: 18.2px;
+                letter-spacing: 0.32px;
+                line-height: 24px;
+                text-decoration: none;
+                cursor: pointer;
+                &:hover {
+                    text-decoration: underline;
+                    // font-weight: bold;
+                }
+            }
+        }
+
+        a {
+            text-decoration: none;
+            // display: flex;
+            // flex-direction: column;
+
+            .call-now-btn {
+                margin: 24px 0;
+                width: 100%;
+                max-width: 240px;
+            }
+        }
+
+        a.drp-phone {
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            outline: none;
+            color: #ffffff;
+            letter-spacing: 1.25px;
+            line-height: 16px;
+            text-align: center;
+        }
+
+        .call-verti {
+            font-size: 18.2px;
+            font-weight: 500;
+            color: #8b1863;
+            letter-spacing: 0.15px;
+            line-height: 24px;
+            margin: 0em 0 0.5em;
+            width: 100%;
+            display: block;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .walmeric-input {
+                height: 56px; // padding: 0 10px;
+                border: 1px solid rgba(118, 119, 122, 0.87);
+                border-radius: 4px;
+                width: 100%;
+                padding-left: 4%;
+                color: #000000;
+                font-size: 16px;
+                font-weight: bold;
+                letter-spacing: 0.15px;
+                box-sizing: border-box;
+            }
+
+            .callme-btn {
+                margin: 44px 0 0;
+                width: 100%;
+                max-width: 204px;
+
+                @media all and (min-width: 376px) {
+                    max-width: 240px;
+                }
+            }
+        }
+    }
+
+    @media all and (min-width: 408px) {
+        max-width: 376px;
+    }
+}

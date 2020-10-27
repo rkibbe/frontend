@@ -1,0 +1,18 @@
+.vin-list-info-wrapper {
+    .image-group {
+        margin-right: 8px;
+    }
+
+    .vehicle-icon {
+        width: 50px;
+    }
+}
+.camera-icon {
+    color: #ff7f00;
+}
+
+@media all and (max-width: 500px) {
+    .vin-list-items-wrapper {
+        padding: 0 10px;
+    }
+}

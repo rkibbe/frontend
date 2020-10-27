@@ -1,0 +1,30 @@
+[
+    {
+        "code": "ValidLicense",
+        "description": "Has a valid driver's license and drives listed vehicle(s)"
+    },
+    {
+        "code": "NeverLicensed",
+        "description": "Never licensed to drive"
+    },
+    {
+        "code": "SuspendedLicense",
+        "description": "Has a suspended or revoked driver's license"
+    },
+    {
+        "code": "OwnInsurance",
+        "description": "Has their own insurance"
+    },
+    {
+        "code": "OutofCountry",
+        "description": "Out of the Country"
+    },
+    {
+        "code": "MilitaryDeployed",
+        "description": "Currently Deployed in the military"
+    },
+    {
+        "code": "LearnersPermit",
+        "description": "Has learner's permit and drives listed vehicles(s)"
+    }
+]

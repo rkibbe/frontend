@@ -1,0 +1,37 @@
+<div class="main-content">
+    <div class="inner-content" fxLayout="column">
+        <img src="assets/img/Icon_Title.svg" width="70px" height="80px" />
+
+        <h1 class="title-txt">Who's the title holder?</h1>
+        <p class="subtitle-txt mrbt24">
+            WHEN YOU SWITCH INSURANCE PROVIDERS YOUR LENDER NEEDS TO BE NOTIFIED. GIVE US THEIR INFO and WE'LL HANDLE IT
+            FOR YOU.
+        </p>
+        <verti-image-description-group class="image-description-group mrbt32">
+            <div class="image-group">
+                <img class="vehicle-icon" [src]="vehicleIconUri">
+            </div>
+            <span> {{vehicle?.year}} {{vehicle?.make}} </span>
+            <small *ngIf="vehicle?.isADPF">{{vehicle?.model}}, {{vehicle?.vinPrefix}}</small>
+        </verti-image-description-group>
+        <form [formGroup]="form" (submit)="onSubmit()" fxLayout="column">
+            <mat-form-field appearance="outline">
+                <mat-label>{{ NAME_LABEL }}</mat-label>
+                <input type="text" matInput [matAutocomplete]="auto" formControlName="lienHolder"
+                    placeholder="{{ NAME_LABEL }}" />
+                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                    <mat-option *ngFor="let lienHolder of filteredLienHolders$ | async" [value]="lienHolder">
+                        {{ lienHolder.name }}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+
+            <verti-address-input [formControl]="form.get('address')" [labelConfig]="ADDRESS_LABEL_CONFIG"
+                [placeholderConfig]="ADDRESS_LABEL_CONFIG" [trilliumVerification]="true"></verti-address-input>
+
+            <button mat-raised-button color="primary" [disabled]="!form.valid"
+                class="verti-next-btn mrtp40 after-text-input"> Next
+            </button>
+        </form>
+    </div>
+</div>

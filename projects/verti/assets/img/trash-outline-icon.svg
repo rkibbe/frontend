@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="18px" viewBox="0 0 14 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 54.1 (76490) - https://sketchapp.com -->
+    <title>4945F0EA-39C0-48B8-B712-C59ACF961B20</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M6,19 C6,20.1 6.9,21 8,21 L16,21 C17.1,21 18,20.1 18,19 L18,7 L6,7 L6,19 Z M8,9 L16,9 L16,19 L8,19 L8,9 Z M15.5,4 L14.5,3 L9.5,3 L8.5,4 L5,4 L5,6 L19,6 L19,4 L15.5,4 Z" id="path-1"></path>
+    </defs>
+    <g id="Document-Verifcation" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="DocReview_376px_Upload-/-DeckPgB2-Copy" transform="translate(-335.000000, -355.000000)">
+            <g id="Group" transform="translate(72.000000, 352.000000)">
+                <g id="04_Icons-/-24px-/-Close-/-Filled-Copy" transform="translate(258.000000, 0.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Shape" fill="#000000" fill-rule="nonzero" xlink:href="#path-1"></use>
+                    <g id="color" mask="url(#mask-2)" fill="#FF7F00">
+                        <rect id="Rectangle-2" x="0" y="0" width="24.24" height="24.24"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

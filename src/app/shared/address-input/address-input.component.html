@@ -1,0 +1,23 @@
+<verti-autofill-address
+    *ngIf="form.contains('autofillAddress')"
+    [formControl]="form.get('autofillAddress')"
+    [labelConfig]="labelConfig.autofill"
+    [placeholderConfig]="placeholderConfig.autofill"
+    [addressLine2]="addressLine2"
+    [trilliumVerification]="trilliumVerification"
+    [allowPOBox]="allowPOBox"
+    [readonly]="readonly"
+    (changeToManualAddress)="toggleManualAddress($event)"
+>
+</verti-autofill-address>
+
+<verti-manual-address
+    *ngIf="form.contains('manualAddress')"
+    [formControl]="form.get('manualAddress')"
+    [labelConfig]="labelConfig.manual"
+    [placeholderConfig]="placeholderConfig.manual"
+    [trilliumVerification]="trilliumVerification"
+    [allowPOBox]="allowPOBox"
+    [readonly]="readonly"
+>
+</verti-manual-address>

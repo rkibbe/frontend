@@ -1,0 +1,93 @@
+.subtitle {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12.12px;
+    letter-spacing: 2px;
+    line-height: 16px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    span {
+        font-weight: bold;
+    }
+}
+.review_discounts {
+    color: #ff7f00;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1.25px;
+    line-height: 16px;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.price-status-group {
+    display: flex;
+    flex-direction: column;
+    .mat-button-toggle {
+        border: 1px solid #ff7f00;
+        color: #77777a;
+        margin-bottom: 24px;
+        max-width: 328px;
+        height: 64px !important;
+        width: 100%;
+        font-size: 0.88375rem !important;
+        letter-spacing: 0.078125rem !important;
+        font-weight: 500 !important;
+        line-height: 1.5rem !important;
+        border-radius: 999px !important;
+        padding: 0 !important;
+        align-self: center;
+        &:last-child {
+            margin-bottom: 0px;
+        }
+        @media screen and (min-width: 992px) {
+            max-width: 328px;
+        }
+    }
+    .payment_methods {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        text-transform: none;
+        .leftside {
+            margin-top: 5px;
+            width: 34px;
+            img {
+                width: 100%;
+            }
+        }
+        .rightside {
+            width: 241px;
+            margin-top: 5px;
+            .topSpan {
+                font-size: 16px;
+                font-weight: bold;
+                letter-spacing: 1.43px;
+                line-height: 16px;
+                display: flex;
+                justify-content: space-between;
+                // justify-content: space-around;
+                align-items: center;
+                border-bottom: 1px solid;
+                padding-bottom: 4px;
+            }
+            .bttmSpan {
+                font-size: 10px;
+                letter-spacing: 0.3px;
+                line-height: 24px;
+                text-align: center;
+                // text-transform: none;
+                @media screen and (max-width: 375px) {
+                    font-size: 9px;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 375px) {
+        max-width: 100%;
+    }
+}
+.verti-button-toggle-group-list .mat-button-toggle.mat-button-toggle-checked {
+    color: #ffffff;
+}

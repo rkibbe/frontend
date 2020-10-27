@@ -1,0 +1,46 @@
+<div class="main-content add-vehicle">
+    <div class="inner-content">
+        <div></div>
+        <verti-page-image-title imgsource="assets/img/Icon_AddVehicle2.svg" imgwidth="80px" [title]="title">
+        </verti-page-image-title>
+
+        <div *ngFor="let vehicleselectors of vehiclesTotal">
+            <mat-form-field *ngIf="vehicleselectors && vehicleselectors.length > 0" class="example-chip-list">
+                <mat-chip-list #chipList>
+                    <mat-chip class="modal_txt" *ngFor="let vehicleAdd of vehicleselectors" [selectable]="true"
+                        [removable]="true" (removed)="remove(vehicleAdd)">
+                        {{ vehicleAdd.description }}
+                        <mat-icon matChipRemove>close</mat-icon>
+                    </mat-chip>
+
+                    <input [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                        [matChipInputAddOnBlur]="true" />
+                </mat-chip-list>
+            </mat-form-field>
+        </div>
+
+        <p class="vehicle-input-label" *ngIf="selectedDataIndex < 4">{{ inputLabel }}</p>
+        <div class="datalists" #datalists *ngIf="selectedDataIndex < 4">
+            <mat-list class="cardatestyling" role="list" *ngFor="let vehicleAdd of listData">
+                <mat-list-item role="listitem" (click)="save(vehicleAdd)">{{ vehicleAdd.description }}</mat-list-item>
+            </mat-list>
+        </div>
+
+        <div fxLayout="column">
+            <button *ngIf="selectedDataIndex >= 4" mat-raised-button class="verti-next-btn mrtp40"
+                (click)="saveDetails()" color="primary">
+                {{ buttonTxt }}
+            </button>
+            <!-- <button
+                *ngIf="!hideAddVehicle && selectedDataIndex >= 4"
+                [disabled]="maxVehicleLimit"
+                mat-stroked-button
+                class="add-another-vehicle-btn verti-btn mrtp24"
+                color="primary"
+                (click)="addAnotherVehicle()"
+            >
+                Add another vehicle
+            </button> -->
+        </div>
+    </div>
+</div>

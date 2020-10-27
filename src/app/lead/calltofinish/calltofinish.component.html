@@ -1,0 +1,33 @@
+<div class="main-content">
+    <div class="quick-quote">
+        <section class="affix-top" id="affix" fxLayout="column">
+            <div class="title">{{ leadData.firstName }}, buy with confidence.</div>
+
+            <verti-big-price [price]="premiumPrice" rate="mo"></verti-big-price>
+            <div class="estimates">Price estimate based on a 6-month term.</div>
+            <h6 class="call-us-to-finish-yo mrtp24 mrbt32">
+                CALL US TO FINISH YOUR QUOTE WITH A LICENSED AGENT TO MAXIMIZE YOUR COVERAGE AND DISCOUNTS.
+            </h6>
+
+            <div *ngIf="isWorkingHours" fxLayout="row wrap" fxLayoutAlign="center center"
+                class="call-now-button-wrapper mrbt32">
+                <button mat-raised-button class="verti-next-btn" color="primary">
+                    CALL US NOW
+                    <div>
+                        <a href="tel:1-267-310-3021">1-267-310-3021</a>
+                    </div>
+                </button>
+            </div>
+            <div class="call-verti">
+                <div *ngIf="isWorkingHours">&mdash;OR&mdash;</div>
+                Leave your number, we'll call you back.
+            </div>
+
+            <form class="cmbWalmeric">
+                <input class="walmeric-input" type="text" name="phone" minlength="10" maxlength="10"
+                    placeholder="Your phone number" />
+                <button type="submit" class="mat-stroked-button callme-btn">CALL ME BACK</button>
+            </form>
+        </section>
+    </div>
+</div>

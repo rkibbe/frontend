@@ -1,0 +1,36 @@
+.violation-div {
+    padding-bottom: 48px;
+
+    .verti-ko-questions-lists {
+        padding-bottom: 24px;
+    }
+
+    .answer-toggle-group {
+        max-width: 312px;
+    }
+
+    &:last-child {
+        padding-bottom: 0px;
+    }
+}
+.estimate_premium {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12.12px;
+    letter-spacing: 2px;
+    line-height: 16px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.verti-next-btn {
+    @media all and (max-width: 375px) {
+        max-width: 248px !important;
+    }
+    .button-2txt {
+        display: block;
+        font-size: 0.75em !important;
+        text-transform: none;
+        white-space: normal;
+        line-height: 1.2em;
+    }
+}

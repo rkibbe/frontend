@@ -1,0 +1,37 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    padding: 48px 24px 70px;
+    align-items: center
+}
+
+h1 {
+    color: #8b1863;
+    font-size: 24px;
+    text-align: center;
+    font-weight: normal;
+    margin: 0 0 40px;
+    width:100%
+}
+
+.fpo-border {
+    align-self: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 114px;
+    height: 114px;
+    border-radius: 999px;
+    border: 2px solid #979797;
+}
+
+.fpo {
+    transform: rotate(-30deg);
+    color: #e40b0b;
+    font-size: 48px;
+    letter-spacing: 0.32px;
+    line-height: 63px;
+    text-align: center;
+}

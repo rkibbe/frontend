@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 54.1 (76490) - https://sketchapp.com -->
+    <title>782D80ED-0676-4AE4-87FB-4431C6EBB8CA</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M11.4362815,5.93768224 L10.7099651,5.93768224 L10.4574924,6.18832542 C11.3493797,7.22840318 11.8918301,8.57675376 11.8918301,10.054085 C11.8918301,13.3380596 9.22988966,16 5.94591504,16 C2.66194043,16 0,13.3380596 0,10.054085 C0,6.77011034 2.66194043,4.10816992 5.94591504,4.10816992 C7.42324624,4.10816992 8.77068207,4.64970556 9.81075982,5.54067806 L10.0632325,5.29003488 L10.0632325,4.565548 L14.6351838,0 L15.9990852,1.36390144 L11.4362815,5.93768224 L11.4362815,5.93768224 Z M5.94591504,5.93768224 C3.67183123,5.93768224 1.82951232,7.78000114 1.82951232,10.054085 C1.82951232,12.327254 3.67183123,14.1704877 5.94591504,14.1704877 C8.2190841,14.1704877 10.0623178,12.327254 10.0623178,10.054085 C10.0623178,7.78000114 8.2190841,5.93768224 5.94591504,5.93768224 L5.94591504,5.93768224 Z" id="path-1"></path>
+    </defs>
+    <g id="Advanced-Quick-Quote" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="AdvancedQuote_376px-/-Enchelada" transform="translate(-191.000000, -75.000000)">
+            <g id="06_Navigation-/-Progress-/-Refinement-/-Coverage" transform="translate(0.000000, 64.000000)">
+                <g id="Progress-Stepper">
+                    <g id="Steps" transform="translate(16.000000, 0.000000)">
+                        <g id="Sign" transform="translate(176.000000, 12.000000)">
+                            <g>
+                                <circle id="Sign-Oval" stroke="#8B1863" fill="#ffffff" cx="12" cy="12" r="12"></circle>
+                                <g id="Sign-Icon" transform="translate(3.000000, 3.000000)">
+                                    <mask id="mask-2" fill="white">
+                                        <use xlink:href="#path-1"></use>
+                                    </mask>
+                                    <use id="Signature-Icon" fill="#000000" xlink:href="#path-1"></use>
+                                    <g id="↳-Icon-Color" mask="url(#mask-2)" fill="#8B1863">
+                                        <rect id="Rectangle-2" x="0" y="0" width="18.18" height="18.18"></rect>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,196 @@
+.quick-quote {
+    $max-sticky-header-height: 118px;
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .title {
+        color: #8b1863;
+        font-size: 24px;
+        letter-spacing: 0.16px;
+        line-height: 32px;
+        text-align: center;
+        font-weight: normal;
+    }
+
+    .verti-big-price {
+        font-size: 30px;
+    }
+    a.card-pnum {
+        color: #ff7f00;
+        letter-spacing: 0.32px;
+        line-height: 24px;
+        // text-decoration: none;
+    }
+    .estimates {
+        color: rgba(0, 0, 0, 0.87);
+        font-size: 12.12px;
+        letter-spacing: 2px;
+        line-height: 16px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .affix-top {
+        padding: 0 16px;
+    }
+
+    .sticky {
+        background: #fff;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.13);
+        position: fixed;
+        top: 72px;
+        max-height: $max-sticky-header-height;
+        z-index: 2;
+        left: 0;
+        right: 0;
+        transition: 2s;
+
+        .mobile-view-content {
+            display: flex;
+            flex-direction: row;
+            padding: 7px 0 13px;
+            justify-content: space-between;
+            align-items: center;
+
+            .estimates {
+                font-size: 12.12px;
+                text-align: left;
+                .estimates-span {
+                    display: block;
+                }
+            }
+
+            .verti-big-price {
+                font-size: 21.29px;
+            }
+        }
+
+        .verti-next-btn {
+            height: 2rem !important;
+            min-height: 2rem !important;
+        }
+    }
+
+    .whats-covered {
+        color: #8b1863;
+        font-size: 18.2px;
+        letter-spacing: 0.32px;
+        line-height: 24px;
+        text-align: center;
+        margin-bottom: 8px;
+    }
+    .para,
+    .para2 {
+        color: #77777a;
+        font-size: 12.12px;
+        letter-spacing: 2px;
+        line-height: 16px;
+        text-align: center;
+        text-transform: uppercase;
+        @media only screen and (max-width: 767px) {
+            padding-left: 24px !important;
+            padding-right: 24px !important;
+        }
+    }
+    .para2 {
+        letter-spacing: 0.4px;
+        text-transform: none;
+        text-align: left;
+    }
+    .terms-and-conditions-text {
+        color: #77777a;
+        font-size: 9px;
+        letter-spacing: 0.16px;
+        line-height: 12px;
+        padding-bottom: 16px !important;
+        padding-top: 8px;
+        text-align: left;
+        @media only screen and (max-width: 767px) {
+            padding-left: 24px !important;
+            padding-right: 24px !important;
+        }
+    }
+    // mat list added
+    .quick-quote-mat-list {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        .quick-quote-mat-list-item:first-child {
+            border-top: 1px solid rgba(74, 74, 74, 0.1);
+            margin-top: 16px;
+        }
+        .quick-quote-mat-list-item {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border-bottom: 1px solid rgba(74, 74, 74, 0.1);
+            .mat-list-title {
+                color: rgba(0, 0, 0, 0.87);
+                font-size: 18.2px;
+                letter-spacing: 0.32px;
+                line-height: 24px;
+            }
+            .mat-list-para {
+                color: rgba(0, 0, 0, 0.6);
+                font-size: 14.2px;
+                letter-spacing: 0.25px;
+                line-height: 20px;
+            }
+            .policy-icon {
+                width: 56px;
+                max-width: 56px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: stretch;
+            }
+        }
+        .quick-quote-mat-list-item:last-child {
+            margin-bottom: 8px;
+        }
+    }
+    .sticky-next-coverage {
+        margin-top: $max-sticky-header-height + 16px;
+    }
+    .normal-header-invisable {
+        visibility: hidden;
+    }
+    @media only screen and (max-width: 767px) {
+        .sticky {
+            top: 64px;
+        }
+        .sticky_new_look {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 24px;
+            .sticky_inr {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+    @media only screen and (min-width: 768px) {
+        .sticky {
+            max-height: $max-sticky-header-height - 54px;
+            .sticky_new_look {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                .sticky_inr {
+                    width: 100%;
+                    max-width: 486px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    padding: 1px 0;
+                }
+            }
+        }
+        .verti-big-price {
+            margin: 0 8px 0 24px;
+        }
+    }
+}

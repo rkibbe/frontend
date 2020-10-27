@@ -1,0 +1,37 @@
+<div class="main-content insurance-coverage no-data">
+    <div class="inner-content">
+        <verti-page-image-title [imgsource]="imgSource" imgwidth="80px" [title]="title"></verti-page-image-title>
+        <form [formGroup]="insuranceCoverageForm" fxLayout="column">
+            <mat-button-toggle-group
+                class="verti-button-toggle-group standard-two-choice mrtp40 mrbt24"
+                color="primary"
+                formControlName="coverage"
+                aria-label="Font Style"
+            >
+                <mat-button-toggle [value]="true" (change)="coverageToggle()">Yes</mat-button-toggle>
+                <mat-button-toggle [value]="false" (change)="coverageToggle()">No</mat-button-toggle>
+            </mat-button-toggle-group>
+        </form>
+
+        <ng-container *ngIf="yesValue">
+            <verti-tell-us-bit-more
+                [yearsInsuredOptions]="yearsInsuredExt"
+                [priorPolicyLimitsOptions]="priorPolicyLimitsExt"
+                (formGroupValue)="optionSelected($event)"
+                [selectedYearsInsuredValue]="selectedYearsInsuredValue"
+                [selectedPriorPolicyLimitsValue]="selectedPriorPolicyLimitsValue"
+            ></verti-tell-us-bit-more>
+        </ng-container>
+        <ng-container *ngIf="noValue">
+            <verti-last-time-car-insurance
+                [lapsePeriodExtOptions]="lastActiveInsurance"
+                [yearsInsuredOptions]="yearsInsuredExt"
+                [priorPolicyLimitsOptions]="priorPolicyLimitsExt"
+                (formGroupValue)="optionSelected($event)"
+                [selectedYearsInsuredValue]="selectedYearsInsuredValue"
+                [selectedPriorPolicyLimitsValue]="selectedPriorPolicyLimitsValue"
+                [selectedLapsePeriodExtValue]="selectedLapsePeriodExtValue"
+            ></verti-last-time-car-insurance>
+        </ng-container>
+    </div>
+</div>

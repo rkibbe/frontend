@@ -1,0 +1,18 @@
+{
+    "header-link": "https://www.mapfreinsurance.com/",
+    "termsName": "Terms of use",
+    "terms_link": "https://www.mapfreinsurance.com/en/terms-conditions/",
+    "P_S_name": "Privacy & Security",
+    "P_S_link": "https://www.mapfreinsurance.com/en/privacy-policy/",
+    "hereToHelp_text": "We're here to help",
+    "copy_right_text": "MAPFRE U.S.A Crop. All rights reserved",
+    "screenTitle": {
+        "pni": "Hi, we're MAPFRE.\nWho are you?",
+        "contactInfo": "Where can we send your quote?",
+        "address": "Where do you live?",
+        "proirAddress": "Where did you live previously?"
+    },
+    "screenDesc": {
+        "conatactInfo": "<div>By clicking Continue, you agree that we may access the records necessary to obtain this information. The information collected during the quoting process will be handled in accordance with the <a href='https://www.mapfreinsurance.com/en/privacy-policy/' target='_blank'>MAPFRE Insurance Privacy Policy,</a> <a href='https://www.mapfreinsurance.com/en/quote-disclosure/' target='_blank'>Quote Disclosure</a> and <a href='https://www.mapfreinsurance.com/en/terms-conditions/' target='_blank'>Terms & Conditions.</a> </div><br> <div> MAPFRE Insurance is a brand and service mark of MAPFRE U.S.A Corp. and its affiliates,including The Commerce Insurance Company (Webster,MA) and Citation Insurance Company (Webster,MA)</div>"
+    }
+}

@@ -1,0 +1,31 @@
+<div class="main-content">
+    <div class="inner-content mrtp32">
+        <verti-page-image-title
+            [imgsource]="imgSource"
+            imgwidth="86px"
+            [title]="title"
+            [subTitle]="subTitle"
+        ></verti-page-image-title>
+        <div class="card-container">
+            <div class="first-para">
+                <P>
+                    One of the tools used to verify information like driving, vehicle and credit history shows an alert
+                    on your personal data records.
+                    <b>This could be the result of identity theft, a security freeze, a fraud alert or other issues.</b>
+                </P>
+                <div class="sub-para">
+                    <div class="second-para">
+                        <div>Call us at your soonest convenience.</div>
+                        <div>This is a problem that needs to be addressed.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="call-verti">
+                Call Verti at:
+                <a class="" color="primary" [attr.href]="'tel:' + contactNumber">
+                    {{ contactNumber }}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

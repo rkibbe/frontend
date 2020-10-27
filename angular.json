@@ -1,0 +1,414 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "verti": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "prefix": "verti",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist",
+            "index": "projects/verti/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.app.json",
+            "assets": [
+              "src/favicon.ico",
+              {
+                "glob": "**/*",
+                "input": "projects/verti/assets",
+                "output": "/assets/"
+              }
+            ],
+            "styles": [
+              "projects/verti/theme.scss",
+              "projects/verti/styles.scss"
+            ],
+            "scripts": [
+              "projects/verti/assets/js/libs/createjs-20151126.min.js",
+              "projects/verti/assets/js/VertiSpinner_HTML5.js"
+            ]
+          },
+          "configurations": {
+            "dev": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "projects/verti/environments/environment.ts"
+                }
+              ]
+            },
+            "int": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "projects/verti/environments/environment.int.ts"
+                }
+              ]
+            },
+            "prf": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "projects/verti/environments/environment.prf.ts"
+                }
+              ]
+            },
+            "sit": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "projects/verti/environments/environment.sit.ts"
+                }
+              ]
+            },
+            "ppr": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "projects/verti/environments/environment.ppr.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            },
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "projects/verti/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "verti:build",
+            "proxyConfig": "projects/verti/proxy.conf.json"
+          },
+          "configurations": {
+            "sit": {
+              "browserTarget": "verti:build:sit"
+            },
+            "int": {
+              "browserTarget": "verti:build:int"
+            },
+            "prf": {
+              "browserTarget": "verti:build:prf"
+            },
+            "ppr": {
+              "browserTarget": "verti:build:ppr"
+            },
+            "localhost": {
+              "browserTarget": "verti:build:localhost"
+            },
+            "production": {
+              "browserTarget": "verti:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "verti:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.spec.json",
+            "karmaConfig": "src/karma.conf.js",
+            "styles": [
+              "projects/verti/theme.scss",
+              "projects/verti/styles.scss"
+            ],
+            "scripts": [],
+            "assets": [
+              "src/favicon.ico",
+              {
+                "glob": "**/*",
+                "input": "projects/verti/assets",
+                "output": "/assets/"
+              }
+            ],
+            "codeCoverage": true,
+            "codeCoverageExclude": [
+              "**/calltofinish/**"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "src/tsconfig.app.json",
+              "src/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "verti-e2e": {
+      "root": "e2e/",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "verti:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "verti:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "mapfre": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "prefix": "verti",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist",
+            "index": "projects/mapfre/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.app.json",
+            "assets": [
+              "src/favicon.ico",
+              {
+                "glob": "**/*",
+                "input": "projects/mapfre/assets",
+                "output": "/assets/"
+              }
+            ],
+            "styles": [
+              "projects/mapfre/theme.scss",
+              "projects/mapfre/styles.scss"
+            ],
+            "scripts": [
+              "projects/mapfre/assets/js/libs/createjs-20151126.min.js",
+              "projects/mapfre/assets/js/VertiSpinner_HTML5.js"
+            ]
+          },
+          "configurations": {
+            "dev": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "projects/mapfre/environments/environment.ts"
+                }
+              ]
+            },
+            "int": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "projects/mapfre/environments/environment.int.ts"
+                }
+              ]
+            },
+            "prf": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "projects/mapfre/environments/environment.prf.ts"
+                }
+              ]
+            },
+            "sit": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "projects/mapfre/environments/environment.sit.ts"
+                }
+              ]
+            },
+            "ppr": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "projects/mapfre/environments/environment.ppr.ts"
+                }
+              ]
+            },
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "projects/mapfre/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "mapfre:build",
+            "proxyConfig": "projects/mapfre/proxy.conf.json"
+          },
+          "configurations": {
+            "dev": {
+              "browserTarget": "mapfre:build:dev"
+            },
+            "sit": {
+              "browserTarget": "mapfre:build:sit"
+            },
+            "int": {
+              "browserTarget": "mapfre:build:int"
+            },
+            "prf": {
+              "browserTarget": "mapfre:build:prf"
+            },
+            "ppr": {
+              "browserTarget": "mapfre:build:ppr"
+            },
+            "production": {
+              "browserTarget": "mapfre:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "mapfre:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.spec.json",
+            "karmaConfig": "src/karma.conf.js",
+            "styles": [
+              "projects/mapfre/theme.scss",
+              "projects/mapfre/styles.scss"
+            ],
+            "scripts": [],
+            "assets": [
+              "src/favicon.ico",
+              {
+                "glob": "**/*",
+                "input": "projects/mapfre/assets",
+                "output": "/assets/"
+              }
+            ],
+            "codeCoverage": true,
+            "codeCoverageExclude": [
+              "**/calltofinish/**"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "src/tsconfig.app.json",
+              "src/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "mapfre-e2e": {
+      "root": "e2e/",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "mapfre:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "mapfre:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "verti",
+  "cli": {
+    "warnings": {
+      "typescriptMismatch": false
+    }
+  }
+}

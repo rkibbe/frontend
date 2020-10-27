@@ -1,0 +1,48 @@
+<div class="main-content">
+    <div class="inner-content">
+        <ng-container *ngIf="leadId && isDriverHistoryLandingScreen">
+            <mat-card-title class="card-title">Thanks for choosing Verti!</mat-card-title>
+            <p class="estimate_premium">We have a few quick questions before we can estimate your premium.</p>
+        </ng-container>
+        <mat-card-title class="card-title">In the past 3 years…</mat-card-title>
+        <form [formGroup]="minorViolation" fxLayout="column">
+            <div class="violations-div">
+                <div class="violation-div" *ngFor="let violation of allViolationsList" fxLayout="column">
+                    <verti-ko-questions-lists
+                        class="verti-ko-questions-lists"
+                        [koSubTitleData]="violation.subtitle"
+                        [koListTitleData]="violation.listTitle"
+                        [koListData]="violation.list"
+                    >
+                    </verti-ko-questions-lists>
+
+                    <mat-button-toggle-group
+                        class="verti-button-toggle-group standard-four-choice answer-toggle-group"
+                        [disabled]="isQuoteFinalized"
+                        color="primary"
+                        [formControlName]="violation.formControl"
+                        aria-label="Toggle group"
+                    >
+                        <mat-button-toggle value="none">None</mat-button-toggle>
+                        <mat-button-toggle value="1">1</mat-button-toggle>
+                        <mat-button-toggle value="2">2</mat-button-toggle>
+                        <mat-button-toggle value="3plus">3+</mat-button-toggle>
+                    </mat-button-toggle-group>
+                </div>
+            </div>
+
+            <button mat-raised-button class="verti-next-btn mrtp40" (click)="nextQuestion()" color="primary">
+                Next <span class="button-2txt">I agree to the conditions below</span>
+            </button>
+            <p class="terms-and-conditions-text">
+                By clicking, ‘NEXT’, I consent to be contacted by Verti Insurance Company for insurance product
+                advertisement, telemarketing and service purposes at the phone number and email address I have provided.
+                I agree that such contact may include: calls and text messages placed using an automated telephone
+                dialing system; calls using artificial or pre-recorded voice; and/or email. I recognize that call, text,
+                and data rates may apply depending on my carrier and plan. I understand that this consent is not a
+                condition of purchase and that I can call Verti Insurance Company to discuss my insurance needs by
+                calling the phone number at the top right corner of the screen.
+            </p>
+        </form>
+    </div>
+</div>

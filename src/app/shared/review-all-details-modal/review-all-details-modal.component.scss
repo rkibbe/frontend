@@ -1,0 +1,299 @@
+:host {
+    padding: 0;
+    .reviewAllDetails {
+        padding: 0px 0px 0 24px;
+        position: relative;
+        @media screen and (max-width: 767px) {
+            padding: 16px 8px;
+        }
+        .close-btn {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+        }
+        .reviewblock {
+            overflow-y: auto;
+            height: 460px;
+            max-height: 100vh;
+            display: block;
+            .overview-block {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                width: 100%;
+                .title {
+                    color: #8b1863;
+                    font-size: 24px;
+                    letter-spacing: 0.16px;
+                    line-height: 32px;
+                    text-align: left;
+                    padding: 14px 0 0;
+                    margin-bottom: 0;
+                    font-weight: 300;
+                }
+                .bdr {
+                    border-bottom: 1px solid #d2d2d2;
+                }
+                .review-img-title {
+                    display: flex;
+                    flex-direction: column;
+                    img {
+                        margin: 0 auto;
+                    }
+                    .card-title {
+                        @extend .title;
+                        font-weight: 500;
+                        text-align: center;
+                    }
+                }
+                .mat-list.quick-quote-mat-list {
+                    margin: 0;
+                    padding: 0;
+                    width: 100%;
+                    // .mat-list-item:first-child{
+                    // border-top: 1px solid  rgba(74, 74, 74, 0.1);
+                    // margin-top: 4px;
+                    // }
+                    .mat-list-item {
+                        margin: 4px 0 0;
+                        padding: 5px 0 4px;
+                        list-style: none;
+                        border-bottom: 1px solid rgba(74, 74, 74, 0.1);
+                        .mat-list-item-content {
+                            padding: 0;
+                        }
+                        .mat-list-title {
+                            color: rgba(0, 0, 0, 0.87);
+                            font-size: 14.2px;
+                            font-weight: bold;
+                            letter-spacing: 0.25px;
+                            line-height: 32px;
+                        }
+                        .mat-list-para {
+                            color: rgba(0, 0, 0, 0.87);
+                            font-size: 14.2px;
+                            font-weight: normal;
+                            letter-spacing: 0.25px;
+                            line-height: 32px;
+                            display: flex;
+                            margin: 0;
+                            .leftside {
+                                // width: 243px;
+                                width: 190px;
+                                display: inline-block;
+                                overflow-x: hidden;
+                                margin-right: 20px;
+                                @media screen and (max-width: 375px) {
+                                    width: 157px;
+                                    margin-right: 0px;
+                                    text-overflow: ellipsis;
+                                }
+                            }
+                            .leftside::after {
+                                white-space: nowrap;
+                                content: '. . . . . . . . . . . . . . . . . . . . '
+                                    '. . . . . . . . . . . . . . . . . . . . ';
+                            }
+                        }
+                        .edit_link {
+                            font-size: 14.2px;
+                            letter-spacing: 0.25px;
+                            line-height: 24px;
+                            margin-top: 16px;
+                        }
+                        .policy-icon {
+                            width: 56px;
+                            max-width: 56px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: stretch;
+                        }
+                        .review_lists {
+                            display: flex;
+                            flex-direction: column;
+                            .heading-imgage {
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                margin: 3px 0 6px;
+                                .shield-icon {
+                                    width: 36px;
+                                }
+                                .dirver-icon {
+                                    width: 40px;
+                                }
+                                .vehicle-icon {
+                                    width: 50px;
+                                }
+                                .shield-icon,
+                                .dirver-icon,
+                                .vehicle-icon {
+                                    margin-right: 16px;
+                                    img {
+                                        width: 100%;
+                                    }
+                                }
+                                .review-title {
+                                    color: rgba(0, 0, 0, 0.87);
+                                    font-size: 18.2px;
+                                    letter-spacing: 0.32px;
+                                    line-height: 24px;
+                                    small {
+                                        color: rgba(0, 0, 0, 0.87);
+                                        font-size: 14.2px;
+                                        letter-spacing: 0.25px;
+                                        line-height: 24px;
+                                        display: block;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .mat-list-item:last-child {
+                        margin-bottom: 8px;
+                        border-bottom: none;
+                    }
+                    .mat-list-item-content {
+                        align-items: flex-start !important;
+                    }
+                }
+                .para {
+                    color: rgba(0, 0, 0, 0.8);
+                    font-size: 12.12px;
+                    letter-spacing: 0.4px;
+                    line-height: 16px;
+                    text-align: center;
+                    font-weight: bold;
+                }
+                .coverage-img {
+                    display: block;
+                    text-align: center;
+                    // border-top: 1px solid #d2d2d2;
+                    padding-top: 30px;
+                }
+                .estimates {
+                    color: rgba(0, 0, 0, 0.87);
+                    font-size: 12.12px;
+                    letter-spacing: 2px;
+                    line-height: 16px;
+                    text-align: center;
+                    text-transform: uppercase;
+                    margin: 4px 0 0;
+                }
+                .question {
+                    color: #8b1863;
+                    font-size: 20px;
+                    font-weight: 500;
+                    letter-spacing: 0.17px;
+                    line-height: 26px;
+                    text-align: center;
+                }
+                .customize-list {
+                    display: flex;
+                    flex-direction: column;
+                }
+                .customize-list,
+                .minimalist-block {
+                    align-items: center;
+                    margin-top: 10px;
+                    ul {
+                        color: rgba(0, 0, 0, 0.6);
+                        font-size: 14.2px;
+                        line-height: 20px;
+                        margin: 0;
+                        padding: 0;
+                        li {
+                            list-style: disc;
+                            padding: 0 0 0 10px;
+                            margin: 0;
+                            @media screen and (max-width: 767px) {
+                                padding: 0;
+                            }
+                        }
+                    }
+                }
+                .minimalist-block {
+                    align-items: flex-start;
+                    ul {
+                        margin: 0;
+                        padding: 0;
+                        li {
+                            padding: 0;
+                            margin: 0 0 0 20px;
+                        }
+                    }
+                    .card-title {
+                        @extend .title;
+                        font-weight: 300;
+                        text-align: left;
+                    }
+                    .para,
+                    .para1 {
+                        color: rgba(0, 0, 0, 0.6);
+                        font-size: 14.2px;
+                        letter-spacing: 0.25px;
+                        line-height: 20px;
+                        text-align: left;
+                    }
+                    .para2 {
+                        text-align: center;
+                        text-transform: uppercase;
+                        width: 100%;
+                        a {
+                            text-decoration: none;
+                            color: #ff7f00;
+                            font-size: 14px;
+                            font-weight: 500;
+                            letter-spacing: 1.25px;
+                            line-height: 16px;
+                            text-align: center;
+                        }
+                    }
+                    .para1 {
+                        font-weight: 500;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+    .add-another-vehicle-btn {
+        max-width: 280px;
+        width: 100%;
+        @media screen and (max-width: 375px) {
+            max-width: 193px;
+        }
+    }
+}
+
+.mat-list-para-one {
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 14.2px;
+    font-weight: normal;
+    letter-spacing: 0.25px;
+    line-height: 32px;
+    display: flex !important;
+    margin: 0;
+    .leftside {
+        // width: 243px;
+        width: 160px;
+        display: inline-block;
+        overflow-x: hidden;
+        margin-right: 20px;
+        @media screen and (max-width: 375px) {
+            width: 127px;
+            margin-right: 0px;
+            text-overflow: ellipsis;
+        }
+    }
+    .leftside::after {
+        white-space: nowrap;
+        content: '. . . . . . . . . . . . . . . . . . . . '
+            '. . . . . . . . . . . . . . . . . . . . ';
+    }
+}
+
+.pdlf_30 {
+    padding-left: 30px;
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="40px" viewBox="0 0 32 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 53.1 (72631) - https://sketchapp.com -->
+    <title>0091BAA4-194C-4D2A-B334-61CAE35D2B8D</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M24.1763328,4.75739139 L37.4203695,10.3928302 C37.7663715,10.5401492 38.0411651,10.8517283 38.1488127,11.2191589 C39.9102483,17.1203303 39.8126027,23.8685515 37.5792979,29.846018 C35.3459931,35.8234846 30.9076939,41.032364 24.1233566,43.5960556 C23.8435748,43.7010438 23.529049,43.7010438 23.2492502,43.5960556 C16.464913,41.0323206 12.0267833,35.8234846 9.79330897,29.846018 C7.55983462,23.8685515 7.46235852,17.1207638 9.2237942,11.2191589 C9.33140359,10.8517023 9.60621417,10.5401319 9.95223741,10.3928302 L23.1962741,4.75739139 C23.5604872,4.59991122 23.9147578,4.63039028 24.1763328,4.75739139 Z M23.6863246,7.35836313 L23.6863246,40.9676865 C29.5052246,38.619009 33.2470358,34.1622439 35.2088484,28.9113155 C37.1540478,23.705904 37.2616953,17.7505457 35.8313393,12.5334299 L23.6863246,7.35836313 Z" id="path-1"></path>
+    </defs>
+    <g id="Quick-Quote" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Quick-Quote-Components" transform="translate(-103.000000, -197.000000)">
+            <g id="09_Misc-/-Coverage-Row-/-Policy-Copy-5" transform="translate(79.000000, 173.000000)">
+                <g id="content" transform="translate(16.000000, 8.000000)">
+                    <g id="04_Icons-/-48px-/-Shield" transform="translate(0.000000, 12.000000)">
+                        <g id="Icon">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <use id="Fill-1" fill="#777770" xlink:href="#path-1"></use>
+                            <g id="00_Basics-/-Colors-/-Gray-/-700" mask="url(#mask-2)" fill="#777770">
+                                <rect id="Rectangle-2" x="0" y="0" width="48.48" height="48.48"></rect>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

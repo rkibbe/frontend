@@ -1,0 +1,20 @@
+<div class="main-content ko-decline minor-violation">
+    <div class="inner-content mrtp40">
+        <verti-page-image-title [imgsource]="imgSource" imgwidth="80px" [title]="title"></verti-page-image-title>
+        <div fxLayout="column">
+            <mat-card-subtitle class="ko-decline-subtitle">{{ subtitle }} </mat-card-subtitle>
+            <div class="card-para">
+                <div>
+                    {{ para1 }}
+                </div>
+                <p>
+                    If you have any questions about the factors that triggered this declination please contact us
+
+                    <a color="primary" [attr.href]="'tel:' + contactNumber">
+                        {{ contactNumber }}
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

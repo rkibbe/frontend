@@ -1,0 +1,19 @@
+<div class="main-content ko-question-page">
+    <div class="inner-content">
+        <verti-page-image-title [imgsource]="imgSource" imgwidth="80px" [title]="title" [reversed]="true">
+        </verti-page-image-title>
+        <div class="failure-content">
+            Either something you entered requires clarification or our background processes have a bad case of the
+            hiccups. Whatever
+            the case, a quick call with one of our super cool (and licensed) agents will solve the problem.
+        </div>
+        <div class="call-us-now">
+            Call Verti now:
+            <span class="verti-contact contact-number">
+                <a color="primary" [attr.href]="'tel:' + contactNumber">
+                    {{ contactNumber }}
+                </a>
+            </span>
+        </div>
+    </div>
+</div>

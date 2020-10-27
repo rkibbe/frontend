@@ -1,0 +1,1385 @@
+<div class="main-content quick-quote default_review_main">
+    <div class="inner-content">
+        <!-- sticky header normal view and mobile view starts here -->
+        <section>
+            <div #stickyHead *ngIf="!editPolicy && !editVehicles">
+                <ng-container>
+                    <header *ngIf="stickyHeader" class="affix-top sticky" id="stickyHeader" fxLayout="column">
+                        <div class="mobile-view-content">
+                            <div class="change-view">
+                                <h6 class="estimates">
+                                    ${{ quoteData.fullPremium }} per
+                                    <span class="estimates-span">6-month term</span>
+                                </h6>
+                                <verti-big-price [price]="premiumPrice" rate="mo"></verti-big-price>
+                            </div>
+
+                            <button mat-raised-button class="verti-btn-gradient" (click)="doContinue()" color="primary">
+                                Continue to purchase
+                            </button>
+                        </div>
+                    </header>
+                </ng-container>
+                <ng-container>
+                    <header class="affix-top" id="normalHeader" fxLayout="column">
+                        <h3 class="title txt_center">Your estimated cost:</h3>
+                        <verti-big-price [price]="premiumPrice" rate="mo"></verti-big-price>
+                        <h6 class="estimates">${{ quoteData.fullPremium }} PER 6-MONTH TERM</h6>
+                        <p class="para">
+                            Please <a href="javascript:void(0)" (click)="reviewDetails()">review all details</a> below.
+                            By continuing you are confirming that all of the information below is accurate.
+                        </p>
+                        <button mat-raised-button class="verti-btn-gradient mrbt24 mrtp24" (click)="doContinue()"
+                            color="primary">
+                            Continue to purchase
+                        </button>
+                    </header>
+                </ng-container>
+            </div>
+        </section>
+        <!-- sticky header normal view and mobile view ends here -->
+
+        <!-- default review overview block starts here -->
+        <section>
+            <div class="default_review overview-block" *ngIf="!editPolicy && !editVehicles">
+                <h3 class="title txt_center bdr">Review your coverages:</h3>
+                <mat-list class="quick-quote-mat-list">
+                    <mat-list-item class="mat-multi-line">
+                        <div class="matList_header mrbt24" matLine>
+                            <div class="inner_header">
+                                <span class="perks_icon">
+                                    <img src="./assets/img/Verti_Neuron_Filled.svg" alt="Icon Verti Perks" />
+                                </span>
+                                <span>
+                                    <h3 class="mat-list-title" matLine>Verti Perks</h3>
+                                    <h6 class="mat-list-subtitle">Complementary coverages</h6>
+                                </span>
+                            </div>
+                            <!-- <div class="help_icon">
+                                <img src="./assets/img/Icon_help.svg" alt="Help Icon" />
+                            </div> -->
+                        </div>
+
+                        <p class="mat-list-para" matLine *ngIf="showAccidentForgiveness">
+                            <span class="leftside">
+                                <!-- [matTooltipHideDelay]="hideDelay" -->
+                                <span class="lTitle" matTooltip="With Accident Forgiveness, we don't count your first at-fault accident against you... so your rates won't go up just because of the accident." matTooltipClass="custom_tooltip">
+                                    Accident Forgiveness
+                                </span>
+                                <span class="dots"></span>
+                            </span>
+                            <!-- <span class="rightside"> {{ quoteData.policyCoverage.futureAccident }} </span> -->
+                            <span class="rightside">
+                                <!-- {{ returnBooleanValue(quoteData.policyCoverage.futureAccident) }} -->
+                                Included
+                            </span>
+                        </p>
+                        <p class="mat-list-para" matLine *ngIf="quoteData.policyCoverage.newCarReplacement">
+                            <span class="leftside">
+                                <span class="lTitle" matTooltip="Provides new car replacement in the unfortunate event your new vehicle is totaled."
+                                    matTooltipClass="custom_tooltip">New Car Replacement</span>
+                                <span class="dots"></span>
+                            </span>
+                            <!-- <span class="rightside"> {{ quoteData.policyCoverage.newCarReplacement }} </span> -->
+                            <span class="rightside">
+                                <!-- {{ returnBooleanValue(quoteData.policyCoverage.newCarReplacement) }} -->
+                                Included
+                            </span>
+                        </p>
+                        <p class="mat-list-para" matLine *ngIf="quoteData.policyCoverage.repairAssistance">
+                            <span class="leftside">
+                                <span class="lTitle" matTooltip="Not sure if your damage estimate is reasonable, your vehicle is at the proper repair shop, or just need help understanding what is wrong with your vehicle? This service provides you with a complimentary repair advocate and tech assistance."
+                                    matTooltipClass="custom_tooltip">Repair Assistance</span>
+                                <span class="dots"></span>
+                            </span>
+                            <!-- <span class="rightside"> {{ quoteData.policyCoverage.repairAssistance }} </span> -->
+                            <span class="rightside">
+                                <!-- {{ returnBooleanValue(quoteData.policyCoverage.repairAssistance) }} -->
+                                Included
+                            </span>
+                        </p>
+                    </mat-list-item>
+
+                    <mat-list-item>
+                        <div class="matList_header" matLine>
+                            <div class="inner_header">
+                                <span class="shield_icon">
+                                    <img src="./assets/img/Icon_Shield.svg" alt="Icon Shield" />
+                                </span>
+                                <span>
+                                    <h3 class="mat-list-title" matLine>Policy Coverages</h3>
+                                    <h6 class="mat-list-subtitle">Effective {{ policyDate }}</h6>
+                                </span>
+                            </div>
+                           <!-- <div class="help_icon">
+                                <img src="./assets/img/Icon_help.svg" alt="Help Icon" />
+                            </div> -->
+                        </div>
+                        <h3 class="header-title txt_uppercase" matLine>Liability Protection</h3>
+                        <p class="mat-list-para" matLine [ngClass]="{
+                                boldClass:
+                                    clonedQuoteData.policyCoverage.selCodeBiLimit !==
+                                    quoteData.policyCoverage.selCodeBiLimit
+                            }">
+                            <span class="leftside">
+                                <span class="lTitle" matTooltip="Provides protection from claims for injuries you may have caused to other people in a car accident. It also covers legal defense costs associated with these claims." 
+                                matTooltipClass="custom_tooltip">Bodily Injury</span>
+                                <span class="dots"></span>
+                            </span>
+                            <span class="rightside"> {{ quoteData.policyCoverage.bILimit }} </span>
+                        </p>
+                        <p class="mat-list-para" matLine [ngClass]="{
+                                boldClass:
+                                    clonedQuoteData.policyCoverage.selCodeProperty !==
+                                    quoteData.policyCoverage.selCodeProperty
+                            }">
+                            <span class="leftside">
+                                <span class="lTitle" matTooltip="Provides protection from claims for damage you may have caused to the property of others in a car accident. It also covers legal defense costs associated with these claims."
+                                    matTooltipClass="custom_tooltip">Property Damage</span>
+                                <span class="dots"></span>
+                            </span>
+                            <span class="rightside"> {{ quoteData.policyCoverage.pDLimit }} </span>
+                        </p>
+                        <p class="mat-list-para" matLine [ngClass]="{
+                                boldClass:
+                                    clonedQuoteData.policyCoverage.selCodeTort !== quoteData.policyCoverage.selCodeTort
+                            }">
+                            <span class="leftside">
+                                <span class="lTitle" matTooltip="Choosing a tort option determines when an insured or member of household is able to present a bodily injury claim." matTooltipClass="custom_tooltip">Tort
+                                    Options</span>
+                                <span class="dots"></span>
+                            </span>
+                            <span class="rightside"> {{ quoteData.policyCoverage.tort }} </span>
+                        </p>
+                        <p class="mat-list-para" matLine [ngClass]="{
+                                boldClass:
+                                    clonedQuoteData.policyCoverage.selCodeUMBI !== quoteData.policyCoverage.selCodeUMBI
+                            }">
+                            <span class="leftside">
+                                <span class="lTitle" matTooltip="Provides coverage if you or others covered by your policy are injured in a car accident caused by a driver without insurance."
+                                    matTooltipClass="custom_tooltip">Uninsured Motorist</span>
+                                <span class="dots"></span>
+                            </span>
+                            <span class="rightside"> {{ quoteData.policyCoverage.uMBILimit }} </span>
+                        </p>
+                        <p class="mat-list-para" matLine [ngClass]="{
+                                boldClass:
+                                    clonedQuoteData.policyCoverage.stackedUMBILimit !==
+                                    quoteData.policyCoverage.stackedUMBILimit
+                            }">
+                            <span class="leftside">
+                                <span class="lTitle pdlf_30" matTooltip="If needed, you can combine available limits from other vehicles on the policy."
+                                    matTooltipClass="custom_tooltip">Stacked Coverage</span>
+                                <span class="dots"></span>
+                            </span>
+                            <span class="rightside"> {{ quoteData.policyCoverage.stackedUMBILimit }} </span>
+                        </p>
+                        <p class="mat-list-para" matLine [ngClass]="{
+                                boldClass:
+                                    clonedQuoteData.policyCoverage.selCodeUIMBI !==
+                                    quoteData.policyCoverage.selCodeUIMBI
+                            }">
+                            <span class="leftside">
+                                <span class="lTitle" matTooltip="Provides coverage if you or others covered by your policy are injured in a car accident caused by a driver without enough insurance."
+                                    matTooltipClass="custom_tooltip">Underinsured Motorist</span>
+                                <span class="dots"></span>
+                            </span>
+                            <span class="rightside"> {{ quoteData.policyCoverage.uIMBILimit }} </span>
+                        </p>
+                        <p class="mat-list-para" matLine [ngClass]="{
+                                boldClass:
+                                    clonedQuoteData.policyCoverage.stackedUIMBILimit !==
+                                    quoteData.policyCoverage.stackedUIMBILimit
+                            }">
+                            <span class="leftside">
+                                <span class="lTitle pdlf_30" matTooltip="If needed, you can combine available limits from other vehicles on the policy."
+                                    matTooltipClass="custom_tooltip">Stacked Coverage</span>
+                                <span class="dots"></span>
+                            </span>
+                            <span class="rightside"> {{ quoteData.policyCoverage.stackedUIMBILimit }} </span>
+                        </p>
+                        <p class="mat-list-para" matLine [ngClass]="{
+                                boldClass: clonedQuoteData.policyCoverage.idTheft !== quoteData.policyCoverage.idTheft
+                            }">
+                            <span class="leftside">
+                                <span class="lTitle" matTooltip="We'll help pay expenses caused by identity theft and/or fraud."
+                                    matTooltipClass="custom_tooltip">Identity Theft</span>
+                                <span class="dots"></span>
+                            </span>
+                            <span class="rightside"> {{ quoteData.policyCoverage.identityTheft }} </span>
+                        </p>
+
+                        <h3 class="header-title txt_uppercase" matLine>First Party Benefits</h3>
+                        <p class="mat-list-para" matLine [ngClass]="{
+                                boldClass:
+                                    clonedQuoteData.policyCoverage.selCodeCombined !==
+                                    quoteData.policyCoverage.selCodeCombined
+                            }">
+                            <span class="leftside">
+                                <span class="lTitle" matTooltip="Want to get the coverages below without buying them separately?  This package will cover you for Medical Benefits, Income Loss, Accident Death Benefit, and Funeral."
+                                    matTooltipClass="custom_tooltip">First Party Combined Benefits</span>
+                                <span class="dots"></span>
+                            </span>
+                            <span class="rightside"> {{ quoteData.policyCoverage.combined }} </span>
+                        </p>
+                        <p class="mat-list-para" matLine [ngClass]="{
+                                boldClass:
+                                    clonedQuoteData.policyCoverage.selCodeMedical !==
+                                    quoteData.policyCoverage.selCodeMedical
+                            }" *ngIf="!quoteData.policyCoverage.selCodeCombined">
+                            <span class="leftside">
+                                <span class="lTitle" matTooltip="Pays medical bills for you and others covered by your policy, regardless of who is at fault."
+                                    matTooltipClass="custom_tooltip">Medical Benefits</span>
+                                <span class="dots"></span>
+                            </span>
+                            <span class="rightside"> {{ quoteData.policyCoverage.medical }} </span>
+                        </p>
+                        <p class="mat-list-para" matLine [ngClass]="{
+                                boldClass:
+                                    clonedQuoteData.policyCoverage.selCodeExtraMed !==
+                                    quoteData.policyCoverage.selCodeExtraMed
+                            }" *ngIf="!quoteData.policyCoverage.selCodeCombined">
+                            <span class="leftside">
+                                <span class="lTitle" matTooltip="Pays medical expenses over $100k when you and others covered by your policy are injured."
+                                    matTooltipClass="custom_tooltip">Extraordinary Medical Benefits</span>
+                                <span class="dots"></span>
+                            </span>
+                            <span class="rightside"> {{ quoteData.policyCoverage.extraMedical }} </span>
+                        </p>
+                        <p class="mat-list-para" matLine [ngClass]="{
+                                boldClass:
+                                    clonedQuoteData.policyCoverage.selCodeIncome !==
+                                    quoteData.policyCoverage.selCodeIncome
+                            }" *ngIf="!quoteData.policyCoverage.selCodeCombined">
+                            <span class="leftside">
+                                <span class="lTitle" matTooltip="Pays a portion of lost wages when car accident-related injuries keep you from working." matTooltipClass="custom_tooltip">Income
+                                    Loss</span>
+                                <span class="dots"></span>
+                            </span>
+                            <span class="rightside"> {{ quoteData.policyCoverage.income }} </span>
+                        </p>
+                        <p class="mat-list-para" matLine [ngClass]="{
+                                boldClass:
+                                    clonedQuoteData.policyCoverage.selCodeDeath !==
+                                    quoteData.policyCoverage.selCodeDeath
+                            }" *ngIf="!quoteData.policyCoverage.selCodeCombined">
+                            <span class="leftside">
+                                <span class="lTitle" matTooltip="Provides benefits in case of a car accident-related death."
+                                    matTooltipClass="custom_tooltip">Accidential Death Benefits</span>
+                                <span class="dots"></span>
+                            </span>
+                            <span class="rightside"> {{ quoteData.policyCoverage.death }} </span>
+                        </p>
+                        <p class="mat-list-para" matLine [ngClass]="{
+                                boldClass:
+                                    clonedQuoteData.policyCoverage.selCodeFuneral !==
+                                    quoteData.policyCoverage.selCodeFuneral
+                            }" *ngIf="!quoteData.policyCoverage.selCodeCombined">
+                            <span class="leftside">
+                                <span class="lTitle" matTooltip="Can help pay funeral expenses if you or a family member dies as a result of a car accident."
+                                    matTooltipClass="custom_tooltip">Funeral Benefits</span>
+                                <span class="dots"></span>
+                            </span>
+                            <span class="rightside"> {{ quoteData.policyCoverage.funeral }} </span>
+                        </p>
+                        <h3 class="header-title txt_uppercase" matLine>Other Details</h3>
+                        <p class="mat-list-para" *ngIf="overviewData.currentCarrier.yearsInsuredValue" matLine>
+                            <span class="leftside">
+                                <span class="lTitle" >Years with Previous Carrier</span>
+                                <span class="dots"></span>
+                            </span>
+                            <span class="rightside"> {{ overviewData.currentCarrier.yearsInsuredValue }} </span>
+                        </p>
+                        <!-- <p class="mat-list-para" matLine>
+                            <span class="leftside">
+                                <span class="lTitle" matTooltip="Payment Plan" matTooltipClass="custom_tooltip"
+                                    >Payment Plan</span
+                                >
+                                <span class="dots"></span>
+                            </span>
+                            <span class="rightside"> No </span>
+                        </p> -->
+                        <p class="mat-list-para" matLine>
+                            <span class="leftside">
+                                <span class="lTitle">Digital Freedom</span>
+                                <span class="dots"></span>
+                            </span>
+                            <span class="rightside"> Yes </span>
+                        </p>
+
+                        <div fxLayout="column" matLine>
+                            <button mat-stroked-button class="add-another-vehicle-btn verti-btn mrtp24"
+                                (click)="editPolicyCoverage()" color="primary">
+                                Edit Policy Coverages
+                            </button>
+                        </div>
+                    </mat-list-item>
+
+                    <ng-template ngFor let-vehicle let [ngForOf]="overviewData.vehicles">
+                        <ng-container *ngIf="vehicle.isIncluded">
+                            <ng-container *ngFor="let clonedVehicle of clonedQuickQuoteData.vehicles">
+                                <ng-container *ngIf="clonedVehicle.vehicleID === vehicle.vehicleID">
+                                    <mat-list-item>
+                                        <div class="matList_header mrbt24" matLine>
+                                            <div class="inner_header">
+                                                <div class="car_icon">
+                                                    <ng-container *ngIf="vehicle.iconExisted; else noIcon">
+                                                        <img class="vehicle-icon"
+                                                            src="./assets/img/{{ vehicle.bodyStyleCode }}.svg" />
+                                                    </ng-container>
+                                                    <ng-template #noIcon>
+                                                        <img class="vehicle-icon" src="./assets/img/SD.svg" />
+                                                    </ng-template>
+                                                </div>
+                                                <span>
+                                                    <h3 class="mat-list-title" matLine>
+                                                        {{ vehicle.year }} {{ vehicle.make }} {{ vehicle.model }}
+                                                    </h3>
+                                                    <h6 class="mat-list-subtitle">VIN: {{ vehicle.vin }}</h6>
+                                                </span>
+                                            </div>
+                                          <!--  <div class="help_icon">
+                                                <img src="./assets/img/Icon_help.svg" alt="Help Icon" />
+                                            </div> -->
+                                        </div>
+                                        <p class="mat-list-para" matLine [ngClass]="{
+                                                boldClass: clonedVehicle.selCodeComp !== vehicle.selCodeComp
+                                            }">
+                                            <span class="leftside">
+                                                <span class="lTitle" matTooltip="Pays for theft or damages to your vehicle caused by a fire, flood, vandalism, falling trees, striking animals and more. Your deductible is the amount you agree to pay before your insurance pays."
+                                                    matTooltipClass="custom_tooltip">Comprehensive Deductible</span>
+                                                <span class="dots"></span>
+                                            </span>
+                                            <span class="rightside">{{ vehicle.compDisplayValue }}</span>
+                                        </p>
+                                        <p class="mat-list-para" matLine [ngClass]="{
+                                                boldClass: clonedVehicle.selCodeColl !== vehicle.selCodeColl
+                                            }">
+                                            <span class="leftside">
+                                                <span class="lTitle" matTooltip="Pays to repair damage to your vehicle as a result of a collision with another vehicle or object such as a building, fence or pole. Your deductible is the amount you agree to pay before your insurance pays."
+                                                    matTooltipClass="custom_tooltip">Collision Deductible</span>
+                                                <span class="dots"></span>
+                                            </span>
+                                            <span class="rightside">{{ vehicle.collDisplayValue }}</span>
+                                        </p>
+                                        <p class="mat-list-para" matLine [ngClass]="{
+                                                boldClass: clonedVehicle.selCodeRental !== vehicle.selCodeRental
+                                            }">
+                                            <span class="leftside">
+                                                <span class="lTitle" matTooltip="Pays for alternate transportation expenses when your vehicle is damaged in a collision or comprehensive claim."
+                                                    matTooltipClass="custom_tooltip">Rental</span>
+                                                <span class="dots"></span>
+                                            </span>
+                                            <span class="rightside">{{ vehicle.rentalDisplayValue }}</span>
+                                        </p>
+                                        <p class="mat-list-para" matLine
+                                            *ngIf="vehicle.displayRoadsideAssistance" [ngClass]="{
+                                                boldClass: clonedVehicle.selRoadSide !== vehicle.selRoadSide
+                                            }">
+                                            <span class="leftside">
+                                                <span class="lTitle" matTooltip="Broken down or need roadside assistance? We've got your back with 24/7 coverage."
+                                                    matTooltipClass="custom_tooltip">Roadside Assistance</span>
+                                                <span class="dots"></span>
+                                            </span>
+                                            <span class="rightside">
+                                                {{ returnBooleanValue(vehicle.selRoadSide) }}
+                                            </span>
+                                        </p>
+                                        <p class="mat-list-para" matLine
+                                            *ngIf="(vehicle.titleHolder === 'LIEN' ||
+                                            vehicle.titleHolder === 'LESSOR')" [ngClass]="{
+                                                boldClass: clonedVehicle.selLoanLease !== vehicle.selLoanLease
+                                            }">
+                                            <span class="leftside">
+                                                <span class="lTitle" matTooltip="Provides coverage if there is a gap between what you owe on your vehicle and the actual cash value in a covered total loss."
+                                                    matTooltipClass="custom_tooltip">Loan/Lease Payoff</span>
+                                                <span class="dots"></span>
+                                            </span>
+                                            <span class="rightside">
+                                                {{ returnBooleanValue(vehicle.selLoanLease) }}
+                                            </span>
+                                        </p>
+                                        <p class="mat-list-para" matLine>
+                                            <span class="leftside">
+                                                <span class="lTitle">Registered in</span>
+                                                <span class="dots"></span>
+                                            </span>
+                                            <span class="rightside">{{ vehicle.registeredState }}</span>
+                                        </p>
+                                        <p class="mat-list-para" matLine>
+                                            <span class="leftside">
+                                                <span class="lTitle">Registered Owner</span>
+                                                <span class="dots"></span>
+                                            </span>
+                                            <span class="rightside">{{ vehicle.registeredOwner }}</span>
+                                        </p>
+                                        <p class="mat-list-para" matLine>
+                                            <span class="leftside">
+                                                <span class="lTitle">Commute to NY/NJ</span>
+                                                <span class="dots"></span>
+                                            </span>
+                                            <span class="rightside">{{ vehicle.commuteNYNJ }}</span>
+                                        </p>
+                                        <p class="mat-list-para" matLine>
+                                            <span class="leftside">
+                                                <span class="lTitle">Garaging Address</span>
+                                                <span class="dots"></span>
+                                            </span>
+                                            <span class="rightside">{{ vehicle.garagingAddress }}</span>
+                                        </p>
+                                        <p class="mat-list-para" matLine>
+                                            <span class="leftside">
+                                                <span class="lTitle">Primary Use</span>
+                                                <span class="dots"></span>
+                                            </span>
+                                            <span class="rightside">{{ vehicle.primaryUse }}</span>
+                                        </p>
+                                        <p class="mat-list-para" matLine>
+                                            <span class="leftside">
+                                                <span class="lTitle" >Used for Rideshare</span>
+                                                <span class="dots"></span>
+                                            </span>
+                                            <span class="rightside">{{ vehicle.rideShare }}</span>
+                                        </p>
+                                        <p class="mat-list-para" matLine>
+                                            <span class="leftside">
+                                                <span class="lTitle">Passive Alarm or Recovery</span>
+                                                <span class="dots"></span>
+                                            </span>
+                                            <span class="rightside">{{ vehicle.passiveAlarm }}</span>
+                                        </p>
+                                        <div fxLayout="column" matLine>
+                                            <button mat-stroked-button class="add-another-vehicle-btn verti-btn mrtp24"
+                                                (click)="editVehiclesCoverage()" color="primary">
+                                                Edit Vehicle Coverages
+                                            </button>
+                                        </div>
+                                    </mat-list-item>
+                                </ng-container>
+                            </ng-container>
+                        </ng-container>
+                    </ng-template>
+
+                    <ng-template ngFor let-driver [ngForOf]="driverData">
+                        <mat-list-item class="driver_block_adjust">
+                            <div class="matList_header" matLine>
+                                <div class="inner_header">
+                                    <div class="car_icon">
+                                        <img class="vehicle-icon" src="./assets/img/male-1.svg" />
+                                    </div>
+                                    <span>
+                                        <h3 class="mat-list-title" matLine>
+                                            {{ driver.firstName }} {{ driver.lastName }}
+                                        </h3>
+                                        <h6 class="mat-list-subtitle">
+                                            <small>
+                                                <span *ngIf="driver.age">{{ driver.age }} year old </span>
+                                                <span *ngIf="driver.genderCode">{{ driver.genderCode }}</span>
+                                            </small>
+                                        </h6>
+                                    </span>
+                                </div>
+                             <!--   <div class="help_icon">
+                                    <img src="./assets/img/Icon_help.svg" alt="Help Icon" />
+                                </div> -->
+                            </div>
+                            <p class="mat-list-para mrtp24" matLine>
+                                <span class="leftside">
+                                    <span class="lTitle">
+                                        Good Student Discount
+                                    </span>
+                                    <span class="dots"></span>
+                                </span>
+                                <ng-container *ngIf="driver.youngDriverDiscount; else noDID">
+                                    <span class="rightside">Yes</span>
+                                </ng-container>
+                                <ng-template #noDID>
+                                    <span class="rightside">No</span>
+                                </ng-template>
+                            </p>
+                            <p class="mat-list-para mrtp24" matLine>
+                                <span class="leftside">
+                                    <span class="lTitle">
+                                        Driver Improvement Course
+                                    </span>
+                                    <span class="dots"></span>
+                                </span>
+                                <ng-container *ngIf="driver.driverImprovementDiscount; else noDID">
+                                    <span class="rightside">Yes</span>
+                                </ng-container>
+                                <ng-template #noDID>
+                                    <span class="rightside">No</span>
+                                </ng-template>
+                            </p>
+                        </mat-list-item>
+                    </ng-template>
+                </mat-list>
+            </div>
+        </section>
+        <!-- default review overview block ends here -->
+
+        <!-- edit Policy Coverage editable block starts here -->
+        <!-- <verti-edit-policy-coverage *ngIf="editPolicy">
+        </verti-edit-policy-coverage> -->
+        <section>
+            <div class="editPolicyCoverage" *ngIf="editPolicy">
+                <div class="matList_header" matLine>
+                    <div class="inner_header">
+                        <span class="shield_icon">
+                            <img src="./assets/img/Icon_Shield.svg" alt="Icon Shield" />
+                        </span>
+                        <span>
+                            <h3 class="mat-list-title" matLine>Policy Coverages</h3>
+                            <h6 class="mat-list-subtitle">Effective {{ policyDate }}</h6>
+                        </span>
+                    </div>
+                  <!--  <div class="help_icon">
+                        <img src="./assets/img/Icon_help.svg" alt="Help Icon" />
+                    </div> -->
+                </div>
+                <section>
+                    <h3 class="header-title txt_uppercase mrtp24" matLine>Liability protection</h3>
+                    <section>
+                        <p class="edit-policy-para" #bodily_injury matLine [ngClass]="{
+                                boldClass:
+                                    clonedQuoteData.policyCoverage.selCodeBiLimit !==
+                                    quoteData.policyCoverage.selCodeBiLimit
+                            }">
+                            <span class="leftside">
+                                <span class="lTitle" matTooltip="Provides protection from claims for injuries you may have caused to other people in a car accident. It also covers legal defense costs associated with these claims."
+                                    matTooltipClass="custom_tooltip">Bodily Injury</span>
+                                <span class="dots"></span>
+                            </span>
+                            <span class="rightside_edit_icon" [class.disableMenu]="disabledMenu">
+                                {{ quoteData.policyCoverage.bILimit }}
+                                <img src="./assets/img/Icon_edit.svg" class="edit_icon" alt="Icon_edit"
+                                    [matMenuTriggerFor]="bILimit" aria-label="policyCoverage menu" />
+                            </span>
+                            <mat-menu #bILimit="matMenu" xPosition="before" class="customize_matMenu">
+                                <h3 class="menu-title" matLine (click)="$event.stopPropagation()">
+                                    Bodily Injury Coverage
+                                </h3>
+                                <mat-divider></mat-divider>
+                                <ng-container *ngFor="let coverage of liabilityCoverages">
+                                    <div *ngIf="coverage.code === 'PABodilyInjuryExtCov'">
+                                        <div *ngFor="let item of coverage.options">
+                                            <button mat-menu-item
+                                                class="summary-list-item coverages_lists mat-accent verti-clickable"
+                                                [matRippleUnbounded]="false" mat-ripple
+                                                (click)="selectedPolicyMenu(item, 'selCodeBiLimit')" [ngClass]="{
+                                                    activeBGColor: item.value === quoteData.policyCoverage.bILimit
+                                                }">
+                                                <span class="img_placeholder">
+                                                    <img *ngIf="item.value === quoteData.policyCoverage.bILimit"
+                                                        src="./assets/img/Icon_tick.svg" class="edit_icon"
+                                                        alt="Icon_tick" />
+                                                </span>
+                                                <span>{{ item.value }}</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </mat-menu>
+                        </p>
+                    </section>
+                    <section>
+                        <p class="edit-policy-para" #Property_Damage matLine [ngClass]="{
+                                boldClass:
+                                    clonedQuoteData.policyCoverage.selCodeProperty !==
+                                    quoteData.policyCoverage.selCodeProperty
+                            }">
+                            <span class="leftside">
+                                <span class="lTitle" matTooltip="Provides protection from claims for damage you may have caused to the property of others in a car accident. It also covers legal defense costs associated with these claims."
+                                    matTooltipClass="custom_tooltip">Property Damage</span>
+                                <span class="dots"></span>
+                            </span>
+                            <span class="rightside_edit_icon" [class.disableMenu]="disabledMenu">
+                                {{ quoteData.policyCoverage.pDLimit }}
+                                <img src="./assets/img/Icon_edit.svg" class="edit_icon" alt="Icon_edit"
+                                    [matMenuTriggerFor]="pDLimit" aria-label="policyCoverage menu" />
+                            </span>
+                            <mat-menu #pDLimit="matMenu" xPosition="before" class="customize_matMenu">
+                                <h3 class="menu-title" matLine (click)="$event.stopPropagation()">Property Damage</h3>
+                                <mat-divider></mat-divider>
+                                <ng-container *ngFor="let coverage of liabilityCoverages">
+                                    <div *ngIf="coverage.code === 'PAPropertyDamageExtCov'">
+                                        <div *ngFor="let item of coverage.options">
+                                            <button mat-menu-item
+                                                class="summary-list-item coverages_lists mat-accent verti-clickable"
+                                                [matRippleUnbounded]="false" mat-ripple
+                                                (click)="selectedPolicyMenu(item, 'selCodeProperty')" [ngClass]="{
+                                                    activeBGColor: item.value === quoteData.policyCoverage.pDLimit
+                                                }">
+                                                <span class="img_placeholder">
+                                                    <img *ngIf="item.value === quoteData.policyCoverage.pDLimit"
+                                                        src="./assets/img/Icon_tick.svg" class="edit_icon"
+                                                        alt="Icon_tick" />
+                                                </span>
+                                                <span>{{ item.value }}</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </mat-menu>
+                        </p>
+                    </section>
+                    <section>
+                        <p class="edit-policy-para" #Tort_Options matLine [ngClass]="{
+                                boldClass:
+                                    clonedQuoteData.policyCoverage.selCodeTort !== quoteData.policyCoverage.selCodeTort
+                            }">
+                            <span class="leftside">
+                                <span class="lTitle" matTooltip="Choosing a tort option determines when an insured or member of household is able to present a bodily injury claim."
+                                    matTooltipClass="custom_tooltip">Tort Options</span>
+                                <span class="dots"></span>
+                            </span>
+                            <span class="rightside_edit_icon" [class.disableMenu]="disabledMenu">
+                                {{ quoteData.policyCoverage.tort }}
+                                <img src="./assets/img/Icon_edit.svg" class="edit_icon" alt="Icon_edit"
+                                    [matMenuTriggerFor]="tort" aria-label="policyCoverage menu" />
+                            </span>
+                            <mat-menu #tort="matMenu" xPosition="before" class="customize_matMenu">
+                                <h3 class="menu-title" matLine (click)="$event.stopPropagation()">Tort Options</h3>
+                                <mat-divider></mat-divider>
+                                <ng-container *ngFor="let coverage of liabilityCoverages">
+                                    <div *ngIf="coverage.code === 'PATortExtCov'">
+                                        <div *ngFor="let item of coverage.options">
+                                            <button mat-menu-item
+                                                class="summary-list-item coverages_lists mat-accent verti-clickable"
+                                                [matRippleUnbounded]="false" mat-ripple
+                                                (click)="selectedPolicyMenu(item, 'selCodeTort')" [ngClass]="{
+                                                    activeBGColor: item.value === quoteData.policyCoverage.tort
+                                                }">
+                                                <span class="img_placeholder">
+                                                    <img *ngIf="item.value === quoteData.policyCoverage.tort"
+                                                        src="./assets/img/Icon_tick.svg" class="edit_icon"
+                                                        alt="Icon_tick" />
+                                                </span>
+                                                <span>{{ item.value }}</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </mat-menu>
+                        </p>
+                    </section>
+                    <section>
+                        <p class="edit-policy-para" #Uninsured_Motorist matLine [ngClass]="{
+                                boldClass:
+                                    clonedQuoteData.policyCoverage.selCodeUMBI !== quoteData.policyCoverage.selCodeUMBI
+                            }">
+                            <span class="leftside">
+                                <span class="lTitle" matTooltip="Provides coverage if you or others covered by your policy are injured in a car accident caused by a driver without insurance."
+                                    matTooltipClass="custom_tooltip">Uninsured Motorists</span>
+                                <span class="dots"></span>
+                            </span>
+                            <span class="rightside_edit_icon" [class.disableMenu]="disabledMenu">
+                                {{ quoteData.policyCoverage.uMBILimit }}
+                                <img src="./assets/img/Icon_edit.svg" class="edit_icon" alt="Icon_edit"
+                                    [matMenuTriggerFor]="uMBILimit" aria-label="policyCoverage menu" />
+                            </span>
+                            <mat-menu #uMBILimit="matMenu" xPosition="before" class="customize_matMenu">
+                                <h3 class="menu-title" matLine (click)="$event.stopPropagation()">
+                                    Uninsured Motorists
+                                </h3>
+                                <mat-divider></mat-divider>
+                                <ng-container *ngFor="let coverage of liabilityCoverages">
+                                    <div *ngIf="coverage.code === 'PAUMBICov'">
+                                        <div *ngFor="let item of coverage.options">
+                                            <button mat-menu-item
+                                                class="summary-list-item coverages_lists mat-accent verti-clickable"
+                                                [matRippleUnbounded]="false" mat-ripple
+                                                (click)="selectedPolicyMenu(item, 'selCodeUMBI')" [ngClass]="{
+                                                    activeBGColor: item.value === quoteData.policyCoverage.uMBILimit
+                                                }">
+                                                <span class="img_placeholder">
+                                                    <img *ngIf="item.value === quoteData.policyCoverage.uMBILimit"
+                                                        src="./assets/img/Icon_tick.svg" class="edit_icon"
+                                                        alt="Icon_tick" />
+                                                </span>
+                                                <span>{{ item.value }}</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </mat-menu>
+                        </p>
+                    </section>
+                    <section>
+                        <p class="edit-policy-para" #Stacked_CoverageUMBI matLine [ngClass]="{
+                                boldClass:
+                                    clonedQuoteData.policyCoverage.stackedUMBILimit !==
+                                    quoteData.policyCoverage.stackedUMBILimit
+                            }">
+                            <span class="leftside">
+                                <span class="lTitle pdlf_30" matTooltip="If needed, you can combine available limits from other vehicles on the policy."
+                                    matTooltipClass="custom_tooltip">
+                                    Stacked Coverage
+                                </span>
+                                <span class="dots"></span>
+                            </span>
+                            <span class="rightside_mat_slide">
+                                <mat-slide-toggle [checked]="quoteData.policyCoverage.selCodeStackUMBI"
+                                    [disabled]="!quoteData.policyCoverage.selCodeUMBI || disabledMenu"
+                                    (change)="onChangePolicy($event, 'stackedUMBILimit')"></mat-slide-toggle>
+                            </span>
+                        </p>
+                    </section>
+                    <section>
+                        <p class="edit-policy-para" #Underinsured_Motorist matLine [ngClass]="{
+                                boldClass:
+                                    clonedQuoteData.policyCoverage.selCodeUIMBI !==
+                                    quoteData.policyCoverage.selCodeUIMBI
+                            }">
+                            <span class="leftside">
+                                <span class="lTitle" matTooltip="Provides coverage if you or others covered by your policy are injured in a car accident caused by a driver without enough insurance."
+                                    matTooltipClass="custom_tooltip">Underinsured Motorists</span>
+                                <span class="dots"></span>
+                            </span>
+                            <span class="rightside_edit_icon" [class.disableMenu]="disabledMenu">
+                                {{ quoteData.policyCoverage.uIMBILimit }}
+                                <img src="./assets/img/Icon_edit.svg" class="edit_icon" alt="Icon_edit"
+                                    [matMenuTriggerFor]="uIMBILimit" aria-label="policyCoverage menu" />
+                            </span>
+                            <mat-menu #uIMBILimit="matMenu" xPosition="before" class="customize_matMenu">
+                                <h3 class="menu-title" matLine (click)="$event.stopPropagation()">
+                                    Underinsured Motorists
+                                </h3>
+                                <mat-divider></mat-divider>
+                                <ng-container *ngFor="let coverage of liabilityCoverages">
+                                    <div *ngIf="coverage.code === 'PAUIMBICov'">
+                                        <div *ngFor="let item of coverage.options">
+                                            <button mat-menu-item
+                                                class="summary-list-item coverages_lists mat-accent verti-clickable"
+                                                [matRippleUnbounded]="false" mat-ripple
+                                                (click)="selectedPolicyMenu(item, 'selCodeUIMBI')" [ngClass]="{
+                                                    activeBGColor: item.value === quoteData.policyCoverage.uIMBILimit
+                                                }">
+                                                <span class="img_placeholder">
+                                                    <img *ngIf="item.value === quoteData.policyCoverage.uIMBILimit"
+                                                        src="./assets/img/Icon_tick.svg" class="edit_icon"
+                                                        alt="Icon_tick" />
+                                                </span>
+                                                <span>{{ item.value }}</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </mat-menu>
+                        </p>
+                    </section>
+
+                    <section>
+                        <p class="edit-policy-para" #Stacked_CoverageUIMBI matLine [ngClass]="{
+                                boldClass:
+                                    clonedQuoteData.policyCoverage.stackedUIMBILimit !==
+                                    quoteData.policyCoverage.stackedUIMBILimit
+                            }">
+                            <span class="leftside">
+                                <span class="lTitle pdlf_30" matTooltip="If needed, you can combine available limits from other vehicles on the policy."
+                                    matTooltipClass="custom_tooltip">
+                                    Stacked Coverage
+                                </span>
+                                <span class="dots"></span>
+                            </span>
+                            <span class="rightside_mat_slide">
+                                <mat-slide-toggle [checked]="quoteData.policyCoverage.selCodeStackUIMBI"
+                                    [disabled]="!quoteData.policyCoverage.selCodeUIMBI || disabledMenu"
+                                    (change)="onChangePolicy($event, 'stackedUIMBILimit')"></mat-slide-toggle>
+                            </span>
+                        </p>
+                    </section>
+
+                    <section>
+                        <p class="edit-policy-para" #Identity_Theft matLine [ngClass]="{
+                                boldClass: clonedQuoteData.policyCoverage.idTheft !== quoteData.policyCoverage.idTheft
+                            }">
+                            <span class="leftside">
+                                <span class="lTitle" matTooltip="We'll help pay expenses caused by identity theft and/or fraud."
+                                    matTooltipClass="custom_tooltip">
+                                    Identity Theft
+                                </span>
+                                <span class="dots"></span>
+                            </span>
+                            <span class="rightside_mat_slide">
+                                <mat-slide-toggle [checked]="quoteData.policyCoverage.idTheft" [disabled]="disabledMenu"
+                                    (change)="onChangePolicy($event, 'identityTheft')"></mat-slide-toggle>
+                            </span>
+                        </p>
+                    </section>
+                </section>
+
+                <section>
+                    <h3 class="header-title txt_uppercase" matLine>First Party Benefits</h3>
+                    <section>
+                        <p class="edit-policy-para" #Combined_Benefits matLine [ngClass]="{
+                                boldClass:
+                                    clonedQuoteData.policyCoverage.selCodeCombined !==
+                                    quoteData.policyCoverage.selCodeCombined
+                            }">
+                            <span class="leftside">
+                                <span class="lTitle" matTooltip="Want to get the coverages below without buying them separately?  This package will cover you for Medical Benefits, Income Loss, Accident Death Benefit, and Funeral."
+                                    matTooltipClass="custom_tooltip">First Party Combined Benefits</span>
+                                <span class="dots"></span>
+                            </span>
+                            <span class="rightside_edit_icon" [class.disableMenu]="disabledMenu">
+                                {{ quoteData.policyCoverage.combined }}
+                                <img src="./assets/img/Icon_edit.svg" class="edit_icon" alt="Icon_edit"
+                                    [matMenuTriggerFor]="combined" aria-label="policyCoverage menu" />
+                            </span>
+                            <mat-menu #combined="matMenu" xPosition="before" class="customize_matMenu">
+                                <h3 class="menu-title" matLine (click)="$event.stopPropagation()">
+                                    First Party Combined Benefits
+                                </h3>
+                                <mat-divider></mat-divider>
+                                <ng-container *ngFor="let coverage of firstPartyBenefits">
+                                    <div *ngIf="coverage.code === 'PAPIPPA_COMBINED'">
+                                        <div *ngFor="let item of coverage.options">
+                                            <button mat-menu-item
+                                                class="summary-list-item coverages_lists mat-accent verti-clickable"
+                                                [matRippleUnbounded]="false" mat-ripple
+                                                (click)="selectedPolicyMenu(item, 'selCodeCombined')" [ngClass]="{
+                                                    activeBGColor: item.value === quoteData.policyCoverage.combined
+                                                }">
+                                                <span class="img_placeholder">
+                                                    <img *ngIf="item.value === quoteData.policyCoverage.combined || (item.value === 'I Decline' && quoteData.policyCoverage.combined ==='No Coverage')"
+                                                        src="./assets/img/Icon_tick.svg" class="edit_icon"
+                                                        alt="Icon_tick" />
+                                                </span>
+                                                <span>{{ item.value }}</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </mat-menu>
+                        </p>
+                    </section>
+                    <ng-container *ngIf="!quoteData.policyCoverage.selCodeCombined ">
+                        <section>
+                            <p class="edit-policy-para" #Medical_Benefits matLine [ngClass]="{
+                                    boldClass:
+                                        clonedQuoteData.policyCoverage.selCodeMedical !==
+                                        quoteData.policyCoverage.selCodeMedical
+                                }">
+                                <span class="leftside">
+                                    <span class="lTitle" matTooltip="Pays medical bills for you and others covered by your policy, regardless of who is at fault."
+                                        matTooltipClass="custom_tooltip">Medical Benefits</span>
+                                    <span class="dots"></span>
+                                </span>
+                                <span class="rightside_edit_icon" [class.disableMenu]="disabledMenu">
+                                    {{ quoteData.policyCoverage.medical }}
+                                    <img src="./assets/img/Icon_edit.svg" class="edit_icon" alt="Icon_edit"
+                                        [matMenuTriggerFor]="medical" aria-label="policyCoverage menu" />
+                                </span>
+                                <mat-menu #medical="matMenu" xPosition="before" class="customize_matMenu">
+                                    <h3 class="menu-title" matLine (click)="$event.stopPropagation()">
+                                        Medical Benefits
+                                    </h3>
+                                    <mat-divider></mat-divider>
+                                    <ng-container *ngFor="let coverage of firstPartyBenefits">
+                                        <div *ngIf="coverage.code === 'PAPIPPA_MEDICAL'">
+                                            <div *ngFor="let item of coverage.options">
+                                                <button mat-menu-item
+                                                    class="summary-list-item coverages_lists mat-accent verti-clickable"
+                                                    [matRippleUnbounded]="false" mat-ripple
+                                                    (click)="selectedPolicyMenu(item, 'selCodeMedical')" [ngClass]="{
+                                                        activeBGColor: item.value === quoteData.policyCoverage.medical
+                                                    }">
+                                                    <span class="img_placeholder">
+                                                        <img *ngIf="item.value === quoteData.policyCoverage.medical"
+                                                            src="./assets/img/Icon_tick.svg" class="edit_icon"
+                                                            alt="Icon_tick" />
+                                                    </span>
+                                                    <span>{{ item.value }}</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                </mat-menu>
+                            </p>
+                        </section>
+                        <section>
+                            <p class="edit-policy-para" #Extra_Medical_Benefits matLine [ngClass]="{
+                                    boldClass:
+                                        clonedQuoteData.policyCoverage.selCodeExtraMed !==
+                                        quoteData.policyCoverage.selCodeExtraMed
+                                }">
+                                <span class="leftside">
+                                    <span class="lTitle" matTooltip="Pays medical expenses over $100k when you and others covered by your policy are injured."
+                                        matTooltipClass="custom_tooltip">Extraordinary Medical Benefits</span>
+                                    <span class="dots"></span>
+                                </span>
+                                <span class="rightside_edit_icon" [class.disableMenu]="disabledMenu">
+                                    {{ quoteData.policyCoverage.extraMedical }}
+                                    <img src="./assets/img/Icon_edit.svg" class="edit_icon" alt="Icon_edit"
+                                        [matMenuTriggerFor]="extraMedical" aria-label="policyCoverage menu" />
+                                </span>
+                                <mat-menu #extraMedical="matMenu" xPosition="before" class="customize_matMenu">
+                                    <h3 class="menu-title" matLine (click)="$event.stopPropagation()">
+                                        Extraordinary Medical Benefits
+                                    </h3>
+                                    <mat-divider></mat-divider>
+                                    <ng-container *ngFor="let coverage of firstPartyBenefits">
+                                        <div *ngIf="coverage.code === 'PAPIPPA_EXTRAMED'">
+                                            <div *ngFor="let item of coverage.options">
+                                                <button mat-menu-item
+                                                    class="summary-list-item coverages_lists mat-accent verti-clickable"
+                                                    [matRippleUnbounded]="false" mat-ripple
+                                                    (click)="selectedPolicyMenu(item, 'selCodeExtraMed')" [ngClass]="{
+                                                        activeBGColor:
+                                                            item.value === quoteData.policyCoverage.extraMedical
+                                                    }">
+                                                    <span class="img_placeholder">
+                                                        <img *ngIf="item.value === quoteData.policyCoverage.extraMedical"
+                                                            src="./assets/img/Icon_tick.svg" class="edit_icon"
+                                                            alt="Icon_tick" />
+                                                    </span>
+                                                    <span>{{ item.value }}</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                </mat-menu>
+                            </p>
+                        </section>
+                        <section>
+                            <p class="edit-policy-para" #Income_Loss matLine [ngClass]="{
+                                    boldClass:
+                                        clonedQuoteData.policyCoverage.selCodeIncome !==
+                                        quoteData.policyCoverage.selCodeIncome
+                                }">
+                                <span class="leftside">
+                                    <span class="lTitle" matTooltip="Pays a portion of lost wages when car accident-related injuries keep you from working."
+                                        matTooltipClass="custom_tooltip">Income Loss</span>
+                                    <span class="dots"></span>
+                                </span>
+                                <span class="rightside_edit_icon" [class.disableMenu]="disabledMenu">
+                                    {{ quoteData.policyCoverage.income }}
+                                    <img src="./assets/img/Icon_edit.svg" class="edit_icon" alt="Icon_edit"
+                                        [matMenuTriggerFor]="income" aria-label="policyCoverage menu" />
+                                </span>
+                                <mat-menu #income="matMenu" xPosition="before" class="customize_matMenu">
+                                    <h3 class="menu-title" matLine (click)="$event.stopPropagation()">Income Loss</h3>
+                                    <mat-divider></mat-divider>
+                                    <ng-container *ngFor="let coverage of firstPartyBenefits">
+                                        <div *ngIf="coverage.code === 'PAPIPPA_INCOME'">
+                                            <div *ngFor="let item of coverage.options">
+                                                <button mat-menu-item
+                                                    class="summary-list-item coverages_lists mat-accent verti-clickable"
+                                                    [matRippleUnbounded]="false" mat-ripple
+                                                    (click)="selectedPolicyMenu(item, 'selCodeIncome')" [ngClass]="{
+                                                        activeBGColor: item.value === quoteData.policyCoverage.income
+                                                    }">
+                                                    <span class="img_placeholder">
+                                                        <img *ngIf="item.value === quoteData.policyCoverage.income"
+                                                            src="./assets/img/Icon_tick.svg" class="edit_icon"
+                                                            alt="Icon_tick" />
+                                                    </span>
+                                                    <span>{{ item.value }}</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                </mat-menu>
+                            </p>
+                        </section>
+                        <section>
+                            <p class="edit-policy-para" #Accidential_Death matLine [ngClass]="{
+                                    boldClass:
+                                        clonedQuoteData.policyCoverage.selCodeDeath !==
+                                        quoteData.policyCoverage.selCodeDeath
+                                }">
+                                <span class="leftside">
+                                    <span class="lTitle" matTooltip="Provides benefits in case of a car accident-related death."
+                                        matTooltipClass="custom_tooltip">Accidential Death Benefits</span>
+                                    <span class="dots"></span>
+                                </span>
+                                <span class="rightside_edit_icon" [class.disableMenu]="disabledMenu">
+                                    {{ quoteData.policyCoverage.death }}
+                                    <img src="./assets/img/Icon_edit.svg" class="edit_icon" alt="Icon_edit"
+                                        [matMenuTriggerFor]="death" aria-label="policyCoverage menu" />
+                                </span>
+                                <mat-menu #death="matMenu" xPosition="before" class="customize_matMenu">
+                                    <h3 class="menu-title" matLine (click)="$event.stopPropagation()">
+                                        Accidential Death Benefits
+                                    </h3>
+                                    <mat-divider></mat-divider>
+                                    <ng-container *ngFor="let coverage of firstPartyBenefits">
+                                        <div *ngIf="coverage.code === 'PAPIPPA_DEATH'">
+                                            <div *ngFor="let item of coverage.options">
+                                                <button mat-menu-item
+                                                    class="summary-list-item coverages_lists mat-accent verti-clickable"
+                                                    [matRippleUnbounded]="false" mat-ripple
+                                                    (click)="selectedPolicyMenu(item, 'selCodeDeath')" [ngClass]="{
+                                                        activeBGColor: item.value === quoteData.policyCoverage.death
+                                                    }">
+                                                    <span class="img_placeholder">
+                                                        <img *ngIf="item.value === quoteData.policyCoverage.death"
+                                                            src="./assets/img/Icon_tick.svg" class="edit_icon"
+                                                            alt="Icon_tick" />
+                                                    </span>
+                                                    <span>{{ item.value }}</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                </mat-menu>
+                            </p>
+                        </section>
+                        <section>
+                            <p class="edit-policy-para" #Funeral_Benefits matLine [ngClass]="{
+                                    boldClass:
+                                        clonedQuoteData.policyCoverage.selCodeFuneral !==
+                                        quoteData.policyCoverage.selCodeFuneral
+                                }">
+                                <span class="leftside">
+                                    <span class="lTitle" matTooltip="Can help pay funeral expenses if you or a family member dies as a result of a car accident."
+                                        matTooltipClass="custom_tooltip">Funeral Benefits</span>
+                                    <span class="dots"></span>
+                                </span>
+                                <span class="rightside_edit_icon" [class.disableMenu]="disabledMenu">
+                                    {{ quoteData.policyCoverage.funeral }}
+                                    <img src="./assets/img/Icon_edit.svg" class="edit_icon" alt="Icon_edit"
+                                        [matMenuTriggerFor]="funeral" aria-label="policyCoverage menu" />
+                                </span>
+                                <mat-menu #funeral="matMenu" xPosition="before" class="customize_matMenu">
+                                    <h3 class="menu-title" matLine (click)="$event.stopPropagation()">
+                                        Funeral Benefits
+                                    </h3>
+                                    <mat-divider></mat-divider>
+                                    <ng-container *ngFor="let coverage of firstPartyBenefits">
+                                        <div *ngIf="coverage.code === 'PAPIPPA_FUNERAL'">
+                                            <div *ngFor="let item of coverage.options">
+                                                <button mat-menu-item
+                                                    class="summary-list-item coverages_lists mat-accent verti-clickable"
+                                                    [matRippleUnbounded]="false" mat-ripple
+                                                    (click)="selectedPolicyMenu(item, 'selCodeFuneral')" [ngClass]="{
+                                                        activeBGColor: item.value === quoteData.policyCoverage.funeral
+                                                    }">
+                                                    <span class="img_placeholder">
+                                                        <img *ngIf="item.value === quoteData.policyCoverage.funeral"
+                                                            src="./assets/img/Icon_tick.svg" class="edit_icon"
+                                                            alt="Icon_tick" />
+                                                    </span>
+                                                    <span>{{ item.value }}</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                </mat-menu>
+                            </p>
+                        </section>
+                    </ng-container>
+                </section>
+
+                <div fxLayout="column">
+                    <button mat-stroked-button class="add-another-vehicle-btn verti-btn mrtp24"
+                        (click)="saveRecalculatePrice()" color="primary"
+                        [disabled]="!policyRecalculateButton || disabledMenu">
+                        Save & Recalculate price
+                    </button>
+                </div>
+                <div fxLayout="column" class="mrbt32">
+                    <button mat-stroked-button class="add-another-vehicle-btn verti-btn mrtp24" (click)="back()"
+                        color="primary">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- edit Policy Coverage editable block ends here -->
+
+        <!-- edit Vehicles Coverage editable block starts here -->
+        <section>
+            <div class="editVehiclesCoverage" *ngIf="editVehicles">
+                <ng-template ngFor let-vehicle let [ngForOf]="overviewData.vehicles">
+                    <ng-container *ngIf="vehicle.isIncluded">
+                        <div class="matList_header" matLine>
+                            <div class="inner_header">
+                                <div class="car_icon">
+                                    <ng-container *ngIf="vehicle.iconExisted; else noIcon">
+                                        <img class="vehicle-icon" src="./assets/img/{{ vehicle.bodyStyleCode }}.svg" />
+                                    </ng-container>
+                                    <ng-template #noIcon>
+                                        <img class="vehicle-icon" src="./assets/img/SD.svg" />
+                                    </ng-template>
+                                </div>
+                                <span>
+                                    <h3 class="mat-list-title" matLine>
+                                        {{ vehicle.year }} {{ vehicle.make }} {{ vehicle.model }}
+                                    </h3>
+                                    <h6 class="mat-list-subtitle">VIN: {{ vehicle.vin }}</h6>
+                                </span>
+                            </div>
+                         <!--   <div class="help_icon">
+                                <img src="./assets/img/Icon_help.svg" alt="Help Icon" />
+                            </div> -->
+                        </div>
+                        <section *ngFor="let clonedVehicle of clonedQuickQuoteData.vehicles">
+                            <ng-container *ngIf="clonedVehicle.vehicleID === vehicle.vehicleID">
+                                <!-- clonedQuickQuoteData: {{ clonedVehicle.selCodeComp }}
+                                <br />
+                                vehicle: {{ vehicle.selCodeComp }} -->
+                                <p class="edit-policy-para" #Comprehensive_Deductible [ngClass]="{
+                                        boldClass: clonedVehicle.selCodeComp !== vehicle.selCodeComp
+                                    }">
+                                    <span class="leftside">
+                                        <span class="lTitle" matTooltip="Pays for theft or damages to your vehicle caused by a fire, flood, vandalism, falling trees, striking animals and more. Your deductible is the amount you agree to pay before your insurance pays."
+                                            matTooltipClass="custom_tooltip">
+                                            Comprehensive Deductible
+                                        </span>
+                                        <span class="dots"></span>
+                                    </span>
+                                    <span class="rightside_edit_icon" [class.disableMenu]="disabledMenu">
+                                        {{ vehicle.compDisplayValue }}
+                                        <img src="./assets/img/Icon_edit.svg" class="edit_icon" alt="Icon_edit"
+                                            [matMenuTriggerFor]="compDisplayValue"
+                                            aria-label="Vehicles Coverage menu" />
+                                    </span>
+                                    <mat-menu #compDisplayValue="matMenu" xPosition="before" class="customize_matMenu">
+                                        <h3 class="menu-title" matLine (click)="$event.stopPropagation()">
+                                            Comprehensive Deductible
+                                        </h3>
+                                        <mat-divider></mat-divider>
+                                        <ng-container *ngFor="let coverage of vehicleCoverages">
+                                            <div *ngIf="coverage.code === 'PAComprehensiveCov'">
+                                                <div *ngFor="let item of coverage.options">
+                                                    <button mat-menu-item
+                                                        class="summary-list-item coverages_lists mat-accent verti-clickable"
+                                                        [matRippleUnbounded]="false" mat-ripple
+                                                        (click)="selectedVehicleMenu('compDeductible', item, vehicle)"
+                                                        [ngClass]="{
+                                                            activeBGColor: item.code === vehicle.selCodeComp
+                                                        }">
+                                                        <span class="img_placeholder">
+                                                            <img *ngIf="item.name === vehicle.selValueComp"
+                                                                src="./assets/img/Icon_tick.svg" class="edit_icon"
+                                                                alt="Icon_tick" />
+                                                        </span>
+                                                        <span>{{ item.value }}</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </ng-container>
+                                    </mat-menu>
+                                </p>
+                            </ng-container>
+                        </section>
+
+                        <section *ngFor="let clonedVehicle of clonedQuickQuoteData.vehicles">
+                            <ng-container *ngIf="clonedVehicle.vehicleID === vehicle.vehicleID">
+                                <p class="edit-policy-para" #Collision_Deductible matLine [ngClass]="{
+                                        boldClass: clonedVehicle.selCodeColl !== vehicle.selCodeColl
+                                    }">
+                                    <span class="leftside">
+                                        <span class="lTitle" matTooltip="Pays to repair damage to your vehicle as a result of a collision with another vehicle or object such as a building, fence or pole. Your deductible is the amount you agree to pay before your insurance pays."
+                                            matTooltipClass="custom_tooltip">
+                                            Collision Deductible
+                                        </span>
+                                        <span class="dots"></span>
+                                    </span>
+                                    <span class="rightside_edit_icon" [class.disableMenu]="disabledMenu">
+                                        {{ vehicle.collDisplayValue }}
+                                        <img *ngIf="vehicle.selCodeComp"
+                                            src="./assets/img/Icon_edit.svg" class="edit_icon" alt="Icon_edit"
+                                            [matMenuTriggerFor]="collDisplayValue"
+                                            aria-label="Vehicles Coverage menu" />
+                                    </span>
+                                    <mat-menu #collDisplayValue="matMenu" xPosition="before" class="customize_matMenu">
+                                        <h3 class="menu-title" matLine (click)="$event.stopPropagation()">
+                                            Collision Deductible
+                                        </h3>
+                                        <mat-divider></mat-divider>
+                                        <ng-container *ngFor="let coverage of vehicleCoverages">
+                                            <div *ngIf="coverage.code === 'PACollisionCov'">
+                                                <div *ngFor="let item of coverage.options">
+                                                    <button mat-menu-item
+                                                        class="summary-list-item coverages_lists mat-accent verti-clickable"
+                                                        [matRippleUnbounded]="false" mat-ripple
+                                                        (click)="selectedVehicleMenu('collDeductible', item, vehicle)"
+                                                        [ngClass]="{
+                                                            activeBGColor: item.code === vehicle.selCodeColl
+                                                        }">
+                                                        <span class="img_placeholder">
+                                                            <img *ngIf="item.name === vehicle.selValueColl"
+                                                                src="./assets/img/Icon_tick.svg" class="edit_icon"
+                                                                alt="Icon_tick" />
+                                                        </span>
+                                                        <span>{{ item.value }}</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </ng-container>
+                                    </mat-menu>
+                                </p>
+                            </ng-container>
+                        </section>
+
+                        <section *ngFor="let clonedVehicle of clonedQuickQuoteData.vehicles">
+                            <ng-container *ngIf="clonedVehicle.vehicleID === vehicle.vehicleID">
+                                <p class="edit-policy-para" #rental matLine [ngClass]="{
+                                        boldClass: clonedVehicle.selCodeRental !== vehicle.selCodeRental
+                                    }">
+                                    <span class="leftside">
+                                        <span class="lTitle" matTooltip="Pays for alternate transportation expenses when your vehicle is damaged in a collision or comprehensive claim."
+                                            matTooltipClass="custom_tooltip">
+                                            Rental
+                                        </span>
+                                        <span class="dots"></span>
+                                    </span>
+                                    <span class="rightside_edit_icon" [class.disableMenu]="disabledMenu">
+                                        {{ vehicle.rentalDisplayValue }}
+                                        <img *ngIf="vehicle.selCodeColl"
+                                            src="./assets/img/Icon_edit.svg" class="edit_icon" alt="Icon_edit"
+                                            [matMenuTriggerFor]="rentalDisplayValue"
+                                            aria-label="Vehicles Coverage menu" />
+                                    </span>
+                                    <mat-menu #rentalDisplayValue="matMenu" xPosition="before"
+                                        class="customize_matMenu">
+                                        <h3 class="menu-title" matLine (click)="$event.stopPropagation()">Rental</h3>
+                                        <mat-divider></mat-divider>
+                                        <ng-container *ngFor="let coverage of vehicleCoverages">
+                                            <div *ngIf="coverage.code === 'PARentalCov'">
+                                                <div *ngFor="let item of coverage.options">
+                                                    <button mat-menu-item
+                                                        class="summary-list-item coverages_lists mat-accent verti-clickable"
+                                                        [matRippleUnbounded]="false" mat-ripple
+                                                        (click)="selectedVehicleMenu('rental', item, vehicle)"
+                                                        [ngClass]="{
+                                                            activeBGColor: item.code === vehicle.selCodeRental
+                                                        }">
+                                                        <span class="img_placeholder">
+                                                            <img *ngIf="item.name === vehicle.selValueRental"
+                                                                src="./assets/img/Icon_tick.svg" class="edit_icon"
+                                                                alt="Icon_tick" />
+                                                        </span>
+                                                        <span>{{ item.value }}</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </ng-container>
+                                    </mat-menu>
+                                </p>
+                            </ng-container>
+                        </section>
+                        <!-- loan lease -->
+                        <section *ngIf="(vehicle.titleHolder === 'LIEN' ||
+                        vehicle.titleHolder === 'LESSOR')">
+                            <ng-container *ngFor="let clonedVehicle of clonedQuickQuoteData.vehicles">
+                                <ng-container *ngIf="clonedVehicle.vehicleID === vehicle.vehicleID">
+                                    <p class="edit-policy-para " matLine [ngClass]="{
+                                            boldClass: clonedVehicle.selLoanLease !== vehicle.selLoanLease
+                                        }">
+                                        <span class="leftside">
+                                            <span class="lTitle" matTooltip="Provides coverage if there is a gap between what you owe on your vehicle and the actual cash value in a covered total loss."
+                                                matTooltipClass="custom_tooltip">
+                                                Loan/Lease Payoff
+                                            </span>
+                                            <span class="dots"></span>
+                                        </span>
+                                        <span class="rightside_mat_slide">
+                                            <mat-slide-toggle [checked]="vehicle.selLoanLease"
+                                                [disabled]="!vehicle.selCodeColl"
+                                                (change)="onChange($event, 'selLoanLease', vehicle.vehicleID)">
+                                            </mat-slide-toggle>
+                                        </span>
+                                    </p>
+                                </ng-container>
+                            </ng-container>
+                        </section>
+                        <!-- loan lease -->
+                        <!-- Roadside -->
+                        <section *ngIf="vehicle.displayRoadsideAssistance">
+                            <ng-container *ngFor="let clonedVehicle of clonedQuickQuoteData.vehicles">
+                                <ng-container *ngIf="clonedVehicle.vehicleID === vehicle.vehicleID">
+                                    <p class="edit-policy-para " matLine [ngClass]="{
+                                            boldClass: clonedVehicle.selRoadSide !== vehicle.selRoadSide
+                                        }">
+                                        <span class="leftside">
+                                            <span class="lTitle" matTooltip="Broken down or need roadside assistance? We've got your back with 24/7 coverage."
+                                                matTooltipClass="custom_tooltip">
+                                                Roadside Assistance
+                                            </span>
+                                            <span class="dots"></span>
+                                        </span>
+                                        <span class="rightside_mat_slide">
+                                            <mat-slide-toggle [checked]="vehicle.selRoadSide"
+                                                [disabled]="!vehicle.selCodeComp"
+                                                (change)="onChange($event, 'selRoadSide', vehicle.vehicleID)">
+                                            </mat-slide-toggle>
+                                        </span>
+                                    </p>
+                                </ng-container>
+                            </ng-container>
+                        </section>
+                        <!-- Roadside -->
+                        <!-- applyToAllVehicle -->
+                        <section *ngIf="showApplyToAllVehicle">
+                            <p class="edit-policy-para mrtp32" matLine>
+                                <span class="leftside">
+                                    <span class="lTitle">
+                                        Apply to all vehicles
+                                    </span>
+                                    <span class="dots"></span>
+                                </span>
+                                <span class="rightside_mat_slide">
+                                    <mat-slide-toggle [checked]="vehicle.applyAllVehicles"
+                                        (change)="onChange($event, 'applyToAllVehicle', vehicle)"></mat-slide-toggle>
+                                </span>
+                            </p>
+                        </section>
+                        <!-- applyToAllVehicle -->
+                    </ng-container>
+                </ng-template>
+                <div fxLayout="column">
+                    <button mat-stroked-button class="add-another-vehicle-btn verti-btn mrtp24"
+                        (click)="saveRecalculatePrice()" color="primary" [disabled]="!vehicleRecalculateButton">
+                        Save & Recalculate price
+                    </button>
+                </div>
+                <div fxLayout="column" class="mrbt32">
+                    <button mat-stroked-button class="add-another-vehicle-btn verti-btn mrtp24" (click)="back()"
+                        color="primary">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- edit Vehicles Coverage editable block ends here -->
+
+        <!-- customize your coverage with confidence block starts here -->
+        <section>
+            <div class="overview-block">
+                <div class="coverage-img ">
+                    <img src="./assets/img/customize-coverage.svg" alt="" />
+                </div>
+                <!-- <h3 class="question">Customize your coverage with confidence.</h3> -->
+                <h3 class="question">Customize with confidence.</h3>
+                <!-- <h6 class="estimates">Our licensed agents will help you get the most out of your insurance.</h6> -->
+                <div class="customize-list">
+                    <ul>
+                        <li>Optimize coverages for your unique needs</li>
+                        <li>Maximize your discounts</li>
+                        <li>Add/remove/modify drivers & vehicles</li>
+                    </ul>
+                </div>
+
+                <div fxLayout="column">
+                    <!-- <button
+                        mat-stroked-button
+                        class="add-another-vehicle-btn verti-btn mrtp24"
+                        (click)="openDialog()"
+                        color="primary"
+                    >
+                        Customize Coverage
+                    </button> -->
+                    <button mat-stroked-button class="add-another-vehicle-btn verti-btn mrtp24" (click)="openDialog()"
+                        color="primary">
+                        Talk to an agent
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- customize your coverage with confidence block ends here -->
+    </div>
+</div>

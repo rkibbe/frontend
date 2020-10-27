@@ -1,0 +1,37 @@
+<div fxLayout="column">
+    <verti-page-image-title [title]="title" class="mrbt32"></verti-page-image-title>
+    <form [formGroup]="carInsuranceForm" *ngIf="carInsuranceFormOptions?.length" (ngSubmit)="onSubmit()">
+        <mat-button-toggle-group
+            class="marital-status-group verti-button-toggle-group-list mrbt24"
+            formControlName="carInsurance"
+        >
+            <mat-button-toggle
+                *ngFor="let option of carInsuranceFormOptions"
+                (change)="onButtonToggleClick()"
+                [value]="option"
+            >
+                {{ option.description }}
+            </mat-button-toggle>
+        </mat-button-toggle-group>
+        <div fxLayout="column">
+            <button
+                *ngIf="!show"
+                mat-raised-button
+                class="verti-next-btn mrtp40 after-text-input"
+                [disabled]="!carInsuranceForm.valid"
+                color="primary"
+            >
+                Next
+            </button>
+        </div>
+    </form>
+    <ng-container *ngIf="show">
+        <verti-tell-us-bit-more
+            [yearsInsuredOptions]="yearsInsuredOptions"
+            [priorPolicyLimitsOptions]="priorPolicyLimitsOptions"
+            [selectedYearsInsuredValue]="selectedYearsInsuredValue"
+            [selectedPriorPolicyLimitsValue]="selectedPriorPolicyLimitsValue"
+            (formGroupValue)="optionSelected($event)"
+        ></verti-tell-us-bit-more>
+    </ng-container>
+</div>

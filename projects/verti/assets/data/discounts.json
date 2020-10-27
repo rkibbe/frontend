@@ -1,0 +1,86 @@
+[
+    {
+        "code": "advancedShoppingCredit",
+        "description": "Advance Shopping Credit"
+    },
+    {
+        "code": "afterMarketDeviceDiscount",
+        "description": "AfterMarket Device Discount"
+    },
+    {
+        "code": "antiTheftSystemDiscount",
+        "description": "Anti-Theft Discount"
+    },
+    {
+        "code": "associationDiscount",
+        "description": "Association Discount"
+    },
+    {
+        "code": "betaTester",
+        "description": "Beta Tester Discount"
+    },
+    {
+        "code": "boundOnlineCredit",
+        "description": "Bound Online Credit"
+    },
+    {
+        "code": "claimsFreeDiscount",
+        "description": "Claims Free Discount"
+    },
+    {
+        "code": "directAppraisalAgreement",
+        "description": "Direct Appraisal Agreement"
+    },
+    {
+        "code": "discountCapping",
+        "description": "Discount Capping Applied"
+    },
+    {
+        "code": "driverImprovementDiscount",
+        "description": "Driver Improvement Course Completion Discount"
+    },
+    {
+        "code": "educationDiscount",
+        "description": "Education Discount"
+    },
+    {
+        "code": "fullCoverageDiscount",
+        "description": "Full Coverage Discount"
+    },
+    {
+        "code": "goodPayerDiscount",
+        "description": "Good Payer Discount"
+    },
+    {
+        "code": "hybridElectricDiscount",
+        "description": "Hybrid Electric Discount"
+    },
+    {
+        "code": "loyaltyDiscount",
+        "description": "Loyal Customer Discount"
+    },
+    {
+        "code": "multiPolicyDiscount",
+        "description": "Multi-Policy Discount"
+    },
+    {
+        "code": "passiveRestraintSystemDiscount",
+        "description": "Passive Restraint Discount"
+    },
+    {
+        "code": "timeAtCurrentResidence",
+        "description": "Time At Residence Discount"
+    },
+    {
+        "code": "unacceptableRiskSurcharge",
+        "description": "Unacceptable Risk Surcharge"
+    },
+    {
+        "code": "undisclosedDriverSurcharge",
+        "description": "Undisclosed Driver Surcharge"
+    },
+    {
+        "code": "youngDriverDiscount",
+        "description": "Young Driver Discount"
+    }
+]

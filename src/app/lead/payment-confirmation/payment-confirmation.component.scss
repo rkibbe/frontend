@@ -1,0 +1,57 @@
+h1 {
+    color: #8b1863;
+    font-size: 24px;
+    letter-spacing: 0.16px;
+    line-height: 32px;
+    text-align: center;
+    font-weight: normal;
+    margin: 0 0 24px;
+}
+
+.verti-credit-card {
+    margin-bottom: 24px;
+    align-self: center;
+}
+
+h2 {
+    color: #8b1863;
+    font-size: 18.2px;
+    letter-spacing: 0.32px;
+    line-height: 24px;
+    text-align: center;
+    font-weight: normal;
+    margin: 0;
+}
+
+.verti-big-price {
+    font-size: 30px;
+    margin-bottom: 16px;
+}
+
+p {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 14.2px;
+    letter-spacing: 0.25px;
+    line-height: 20px;
+    text-align: center;
+    margin: 0 0 24px;
+}
+
+span {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12.12px;
+    letter-spacing: 0.4px;
+    line-height: 16px;
+}
+
+.payment-checkbox {
+    margin: 0 0 32px 79px;
+    font-size: 14.2px;
+    color: rgba(0, 0, 0, 0.87);
+    letter-spacing: 0.25px;
+}
+ @media screen and (max-width: 500px) {
+            .payment-checkbox {
+                margin: 0 0 32px 0;
+            }
+        }

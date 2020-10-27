@@ -1,0 +1,242 @@
+[
+    {
+        "code": "FP",
+        "description": "Foreign Operator"
+    },
+    {
+        "code": "AL",
+        "description": "Alabama"
+    },
+    {
+        "code": "AK",
+        "description": "Alaska"
+    },
+    {
+        "code": "AS",
+        "description": "American Samoa"
+    },
+    {
+        "code": "AZ",
+        "description": "Arizona"
+    },
+    {
+        "code": "AR",
+        "description": "Arkansas"
+    },
+    {
+        "code": "CA",
+        "description": "California"
+    },
+    {
+        "code": "CO",
+        "description": "Colorado"
+    },
+    {
+        "code": "CT",
+        "description": "Connecticut"
+    },
+    {
+        "code": "DE",
+        "description": "Delaware"
+    },
+    {
+        "code": "DC",
+        "description": "District of Columbia"
+    },
+    {
+        "code": "FM",
+        "description": "Federated States of Micronesia"
+    },
+    {
+        "code": "FL",
+        "description": "Florida"
+    },
+    {
+        "code": "GA",
+        "description": "Georgia"
+    },
+    {
+        "code": "GU",
+        "description": "Guam"
+    },
+    {
+        "code": "HI",
+        "description": "Hawaii"
+    },
+    {
+        "code": "ID",
+        "description": "Idaho"
+    },
+    {
+        "code": "IL",
+        "description": "Illinois"
+    },
+    {
+        "code": "IN",
+        "description": "Indiana"
+    },
+    {
+        "code": "IA",
+        "description": "Iowa"
+    },
+    {
+        "code": "KS",
+        "description": "Kansas"
+    },
+    {
+        "code": "KY",
+        "description": "Kentucky"
+    },
+    {
+        "code": "LA",
+        "description": "Louisiana"
+    },
+    {
+        "code": "ME",
+        "description": "Maine"
+    },
+    {
+        "code": "MH",
+        "description": "Marshall Islands"
+    },
+    {
+        "code": "MD",
+        "description": "Maryland"
+    },
+    {
+        "code": "MA",
+        "description": "Massachusetts"
+    },
+    {
+        "code": "MI",
+        "description": "Michigan"
+    },
+    {
+        "code": "MN",
+        "description": "Minnesota"
+    },
+    {
+        "code": "MS",
+        "description": "Mississippi"
+    },
+    {
+        "code": "MO",
+        "description": "Missouri"
+    },
+    {
+        "code": "MT",
+        "description": "Montana"
+    },
+    {
+        "code": "NE",
+        "description": "Nebraska"
+    },
+    {
+        "code": "NV",
+        "description": "Nevada"
+    },
+    {
+        "code": "NH",
+        "description": "New Hampshire"
+    },
+    {
+        "code": "NJ",
+        "description": "New Jersey"
+    },
+    {
+        "code": "NM",
+        "description": "New Mexico"
+    },
+    {
+        "code": "NY",
+        "description": "New York"
+    },
+    {
+        "code": "NC",
+        "description": "North Carolina"
+    },
+    {
+        "code": "ND",
+        "description": "North Dakota"
+    },
+    {
+        "code": "MP",
+        "description": "Northern Mariana Islands"
+    },
+    {
+        "code": "OH",
+        "description": "Ohio"
+    },
+    {
+        "code": "OK",
+        "description": "Oklahoma"
+    },
+    {
+        "code": "OR",
+        "description": "Oregon"
+    },
+    {
+        "code": "PW",
+        "description": "Palau"
+    },
+    {
+        "code": "PA",
+        "description": "Pennsylvania"
+    },
+    {
+        "code": "PR",
+        "description": "Puerto Rico"
+    },
+    {
+        "code": "RI",
+        "description": "Rhode Island"
+    },
+    {
+        "code": "SC",
+        "description": "South Carolina"
+    },
+    {
+        "code": "SD",
+        "description": "South Dakota"
+    },
+    {
+        "code": "TN",
+        "description": "Tennessee"
+    },
+    {
+        "code": "TX",
+        "description": "Texas"
+    },
+    {
+        "code": "UT",
+        "description": "Utah"
+    },
+    {
+        "code": "VT",
+        "description": "Vermont"
+    },
+    {
+        "code": "VI",
+        "description": "Virgin Islands"
+    },
+    {
+        "code": "VA",
+        "description": "Virginia"
+    },
+    {
+        "code": "WA",
+        "description": "Washington"
+    },
+    {
+        "code": "WV",
+        "description": "West Virginia"
+    },
+    {
+        "code": "WI",
+        "description": "Wisconsin"
+    },
+    {
+        "code": "WY",
+        "description": "Wyoming"
+    }
+]

@@ -1,0 +1,28 @@
+<div class="main-content">
+    <div class="inner-content" fxLayout="column">
+        <img src="assets/img/Payment Fail Icon.svg" width="80px" height="80px" />
+        <h2>Payment failure.</h2>
+        <span class="subtitle-txt-span">
+            Looks like there was an error processing your payment.
+        </span>
+
+        <button
+            type="button"
+            mat-stroked-button
+            color="primary"
+            class="add-another-vehicle-btn verti-btn mrbt24"
+            (click)="onChangePaymentMethodClick()"
+        >
+            Change payment method
+        </button>
+        <button
+            type="button"
+            mat-stroked-button
+            color="primary"
+            class="add-another-vehicle-btn verti-btn"
+            (click)="onTryCardAgainClick()"
+        >
+            Try the card again
+        </button>
+    </div>
+</div>

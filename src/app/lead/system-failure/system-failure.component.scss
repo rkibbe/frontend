@@ -1,0 +1,33 @@
+.contact-number a {
+    text-decoration: none;
+    color: #ff7f00;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.15px;
+    line-height: 24px;
+    outline: none;
+    cursor: pointer;
+    &:hover {
+        text-decoration: underline;
+        // font-weight: bold;
+    }
+}
+
+.call-us-now {
+    color: #77777a;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.17px;
+    // text-align: right;
+    text-align: center;
+}
+
+.failure-content {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 14.2px;
+    letter-spacing: 0.25px;
+    line-height: 20px;
+    text-align: center;
+    margin-bottom: 32px;
+    margin-top: 24px;
+}

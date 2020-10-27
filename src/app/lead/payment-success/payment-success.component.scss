@@ -1,0 +1,15 @@
+.payment-success {
+    .card-para {
+        color: rgba(0, 0, 0, 0.87);
+        font-size: 12.12px;
+        letter-spacing: 2px;
+        line-height: 16px;
+        text-align: center;
+        width: 320px;
+        margin: 0 auto;
+        text-transform: uppercase;
+        @media all and (max-width: 375px) {
+        width: 300px;
+    }
+    }
+}

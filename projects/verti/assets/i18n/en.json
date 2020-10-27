@@ -1,0 +1,18 @@
+{
+    "header-link": "https://www.verti.com/",
+    "termsName": "Terms of use",
+    "terms_link": "https://www.verti.com/conditions/",
+    "P_S_name": "Privacy & Security",
+    "P_S_link": "https://www.verti.com/privacy-policy/",
+    "copy_right_text": " Verti Insurance Company",
+    "hereToHelp_text": "We're here to help",
+    "screenTitle": {
+        "pni": "Hi, we're Verti.\nWho are you?",
+        "contactInfo": "Where can we send your quote?",
+        "address": "Where do you live?",
+        "proirAddress": "Where did you live previously?"
+    },
+    "screenDesc": {
+        "conatactInfo": " By clicking ‘NEXT’, I consent to be contacted by Verti Insurance Company for insurance product advertisement, telemarketing and service purposes at the phone number and email address I have provided on this form. I agree that such contact may include: calls and text messages placed using an automated telephone dialing system; calls using artificial or pre-recorded voice; and/or email. I recognize that call, text, and data rates may apply depending on my carrier and plan. I understand that this consent is not a condition of purchase and that I can call Verti Insurance Company to discuss my insurance needs by calling the phone number at the top right corner of the screen."
+    }
+}

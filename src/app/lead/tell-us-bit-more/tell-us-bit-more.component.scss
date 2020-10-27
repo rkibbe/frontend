@@ -1,0 +1,19 @@
+.title-contents {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    .help_icon {
+        position: absolute;
+        right: 0;
+        left: auto;
+        top: 2px;
+        cursor: pointer;
+        img {
+            width: 24px;
+            height: 24px;
+            padding-top: 24px;
+        }
+    }
+}

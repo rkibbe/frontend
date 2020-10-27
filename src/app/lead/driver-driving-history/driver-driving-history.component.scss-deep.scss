@@ -1,0 +1,7 @@
+@mixin driver-driving-history-component-deep() {
+    .verti-driver-driving-history {
+        .mat-card-title {
+            margin-bottom: 16px !important;
+        }
+    }
+}

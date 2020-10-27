@@ -1,0 +1,40 @@
+@import '~@angular/material/theming';
+
+$vt-vertipurple: (
+    50: #f1e3ec,
+    100: #dcbad0,
+    200: #c58cb1,
+    300: #a51482,
+    //purple-lt
+        400: #9c3b7a,
+    500: #8b1863,
+    //purple-md
+        600: #83155b,
+    700: #781151,
+    800: #6f094c,
+    //purple-dk
+        900: #5b0835,
+    A100: #ff8ec6,
+    A200: #ff5bac,
+    A400: #ff2892,
+    A700: #ff0e85,
+    contrast: (
+        50: #000000,
+        100: #000000,
+        200: #000000,
+        300: #ffffff,
+        //purple-lt font
+            400: #ffffff,
+        500: #ffffff,
+        //purple-md font
+            600: #ffffff,
+        700: #ffffff,
+        800: #ffffff,
+        //purple-Dk font
+            900: #ffffff,
+        A100: #000000,
+        A200: #000000,
+        A400: #ffffff,
+        A700: #ffffff
+    )
+);

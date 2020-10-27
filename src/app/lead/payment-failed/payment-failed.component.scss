@@ -1,0 +1,27 @@
+img {
+    align-self: center;
+    margin: 0 0 16px;
+}
+h2 {
+    color: #8b1863;
+    font-size: 24px;
+    letter-spacing: 0.16px;
+    text-align: center;
+    font-weight: normal;
+    margin: 0 0 16px;
+}
+.add-another-vehicle-btn {
+    max-width: 280px;
+    width: 100%;
+    @media screen and (max-width: 375px) {
+        max-width: 260px;
+    }
+}
+.subtitle-txt-span {
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 12.12px;
+    letter-spacing: 2px;
+    text-align: center;
+    margin: 0 0 56px;
+    text-transform: uppercase;
+}

@@ -1,0 +1,11 @@
+<h1 class="timeout-modal-heading">{{ title }}</h1>
+<img class="timeout-img" [src]="imgSource" />
+
+<p class="card-sub-title">
+    If this were a staring contest you would've just won. Instead you're going to have to try that last action again.
+    Sorry.
+</p>
+
+<button mat-raised-button id="try-again-btn" class="verti-btn mrtp40" color="primary" (click)="close()">
+    TRY AGAIN
+</button>

@@ -1,0 +1,25 @@
+.summary-list-item-main-content {
+    margin-left: 8px;
+}
+
+.image-group,
+.summary-list-item-end-content {
+    margin-right: 8px;
+}
+
+.vehicle-icon {
+    margin-top: 22px;
+    margin-bottom: 12px;
+    width: 90px;
+}
+
+@media all and (min-width: 376px) {
+    .summary-list-item-main-content {
+        margin-left: 16px;
+    }
+
+    .image-group,
+    .summary-list-item-end-content {
+        margin-right: 16px;
+    }
+}

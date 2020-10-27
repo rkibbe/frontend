@@ -1,0 +1,36 @@
+<form [formGroup]="formGroup" (ngSubmit)="saveDetails()" fxLayout="column">
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>First name</mat-label>
+        <input matInput placeholder="First name" formControlName="firstName" [readonly]='disableInput' vertiNameInput
+            [maxlength]="30">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Last name</mat-label>
+        <input matInput placeholder="Last name" formControlName="lastName" [readonly]='disableInput' vertiNameInput
+            [maxlength]="30">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="outline"
+        [class.invalid-error-txt]="hasDateError() && showDOBError" *ngIf="formGroup.controls.DOB">
+        <mat-label>Date of birth (mm/dd/yyyy)</mat-label>
+        <input #dob matInput type="tel" placeholder="Date of birth (mm/dd/yyyy)" [readonly]='disableInput'
+            formControlName="DOB" vertiInputMask [formatter]="dateFormatter" (blur)="onDOBBlur()">
+        <mat-error *ngIf="hasInvalidDateErr() && showDOBError">Please use MM/DD/YYYY for your birthdate.</mat-error>
+        <mat-error *ngIf="hasDateOutOfRangeErr() && showDOBError">Please enter your full 4 digit birth year.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="outline" *ngIf="formGroup.controls.age">
+        <mat-label>Age</mat-label>
+        <input matInput type="text" placeholder="Age" formControlName="age">
+        <mat-error *ngIf="formGroup?.controls?.age?.hasError('required')">Please enter your age</mat-error>
+    </mat-form-field>
+
+    <mat-button-toggle-group class="verti-button-toggle-group standard-two-choice" color="primary"
+        formControlName="genderCode" aria-label="Font Style">
+        <mat-button-toggle value="M">MALE</mat-button-toggle>
+        <mat-button-toggle value="F">FEMALE</mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <button mat-raised-button class="verti-next-btn mrtp40" [disabled]="!formGroup.valid" color="primary">Next</button>
+</form>

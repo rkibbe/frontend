@@ -1,0 +1,25 @@
+<div class="card-container">
+    <div class="coverage-header">
+        <div class="right-section">
+            <mat-icon color="primary" (click)="close()">close</mat-icon>
+        </div>
+    </div>
+    <div class="coverage-img">
+        <mat-icon color="primary" class="cross-icon">close</mat-icon>
+        <!-- <img src="./assets/img/add-another-file-icon.svg" alt=""> -->
+    </div>
+    <mat-card-title class="card-title">You can only upload .jpg .png or .pdf files.</mat-card-title>
+
+    <webcam [height]="0" [width]="0" *ngIf="showWebcam" (initError)="handleInitError($event)">
+    </webcam>
+
+    <form [formGroup]="form">
+        <div fxLayout="column">
+            <input hidden type="file" name="license" #fileInput (change)="onFileChange($event)" />
+            <button mat-stroked-button class="verti-next-btn mrtp32" color="primary" (click)="fileInput.click()">SELECT
+                FILE</button>
+            <button mat-stroked-button *ngIf="!isDesktopDevice && !hasCameraLoadingError" (click)="openCaptureDialog()"
+                class="verti-next-btn mrtp24" color="primary">TAKE A PHOTO</button>
+        </div>
+    </form>
+</div>

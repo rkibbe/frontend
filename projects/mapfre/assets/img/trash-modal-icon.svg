@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="60px" viewBox="0 0 48 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 54.1 (76490) - https://sketchapp.com -->
+    <title>D4C17419-5ECC-4C17-9BC2-5CAED238CA59</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M20,63.3333333 C20,67 23,70 26.6666667,70 L53.3333333,70 C57,70 60,67 60,63.3333333 L60,23.3333333 L20,23.3333333 L20,63.3333333 Z M26.6666667,30 L53.3333333,30 L53.3333333,63.3333333 L26.6666667,63.3333333 L26.6666667,30 Z M51.6666667,13.3333333 L48.3333333,10 L31.6666667,10 L28.3333333,13.3333333 L16.6666667,13.3333333 L16.6666667,20 L63.3333333,20 L63.3333333,13.3333333 L51.6666667,13.3333333 Z" id="path-1"></path>
+    </defs>
+    <g id="Document-Verifcation" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="DocReview_376px-/-Upload-/-DeleteModal" transform="translate(-164.000000, -224.000000)">
+            <g id="04_Icons-/-24px-/-cloud_upload-/-outline-Copy" transform="translate(148.000000, 214.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Shape" fill="#000000" fill-rule="nonzero" xlink:href="#path-1"></use>
+                <g id="color" mask="url(#mask-2)" fill="#8B1863">
+                    <rect id="Rectangle-2" x="0" y="0" width="80.8" height="80.8"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

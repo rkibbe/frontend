@@ -1,0 +1,16 @@
+<!-- <verti-back-button></verti-back-button> -->
+<div class="main-content ko-question-page no-data">
+  <div class="inner-content">
+    <verti-page-image-title [imgsource]="imgSource" imgwidth="80px" [title]="koTitle"></verti-page-image-title>
+    <form [formGroup]="koQuestionThree" fxLayout="column">
+
+      <mat-button-toggle-group class="verti-button-toggle-group standard-two-choice mrtp40" color="primary"
+        formControlName="licenseRevoked" aria-label="Font Style">
+        <mat-button-toggle value="true" (change)="koQuestion()">Yes</mat-button-toggle>
+        <mat-button-toggle value="false" (change)="koQuestion()">No</mat-button-toggle>
+      </mat-button-toggle-group>
+
+    </form>
+
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div fxLayout="row" class="purple-theme initial-progress-bar progress-bar-container" *ngIf="!showFullQuoteProgress">
+  <mat-progress-bar class="determinate-progress-bars" mode="determinate" [value]="progressBarValue">
+  </mat-progress-bar>
+  <img class="progress-bars-img" id="absolute-id-1" *ngIf="firstMileStone" [ngClass]="{'pointer-events-none': true}"
+    src="{{firstMileStone.imgSource}}" alt="Info">
+  <img class="progress-bars-img" id="absolute-id-2" [ngClass]="{'pointer-events-none': true}" src="{{driverImg}}"
+    alt="Driver">
+  <img class="progress-bars-img" id="absolute-id-3" [ngClass]="{'pointer-events-none': true}" src="{{vehicleImg}}"
+    alt="Vehicle">
+  <img class="progress-bars-img" id="absolute-id-4" [ngClass]="{'pointer-events-none': true}" src="{{quickQuoteImg}}"
+    alt="Finish">
+</div>
+
+<div fxLayout="row" class="purple-theme quick-quote-progress-bar progress-bar-container" *ngIf="showFullQuoteProgress">
+  <mat-progress-bar class="determinate-progress-bars" mode="determinate" [value]="progressBarValue">
+  </mat-progress-bar>
+  <img class="progress-bars-img" id="absolute-id-1" *ngIf="firstMileStone" [ngClass]="{'pointer-events-none': true}"
+    src="{{firstMileStone.imgSource}}" alt="Info">
+  <img class="progress-bars-img" id="absolute-id-2" [ngClass]="{'pointer-events-none': true}" src="{{coverageImg}}"
+    alt="Coverage">
+  <img class="progress-bars-img" id="absolute-id-3" [ngClass]="{'pointer-events-none': true}" src="{{signImg}}"
+    alt="Sign">
+  <img class="progress-bars-img" id="absolute-id-4" [ngClass]="{'pointer-events-none': true}" src="{{cartImg}}"
+    alt="Cart">
+  <img class="progress-bars-img" id="absolute-id-5" [ngClass]="{'pointer-events-none': true}" src="{{finishImg}}"
+    alt="Finish">
+</div>

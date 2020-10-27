@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 54.1 (76490) - https://sketchapp.com -->
+    <title>8316B9D9-CEA8-4068-8DDD-A815EF0A754A</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M12.4124997,9.75 C12.9749997,9.75 13.4699997,9.4425 13.7249997,8.9775 L16.4099996,4.11 C16.6874996,3.615 16.3274996,3 15.7574996,3 L4.65749992,3 L3.95249994,1.5 L1.5,1.5 L1.5,3 L3,3 L5.69999989,8.6925 L4.68749992,10.5225 C4.13999993,11.5275 4.85999991,12.75 5.99999988,12.75 L14.9999996,12.75 L14.9999996,11.25 L5.99999988,11.25 L6.82499986,9.75 L12.4124997,9.75 Z M5.36999989,4.5 L14.4824996,4.5 L12.4124997,8.25 L7.14749983,8.25 L5.36999989,4.5 Z M6.00000018,13.5 C6.82500018,13.5 7.50000018,14.175 7.50000018,15 C7.50000018,15.825 6.82500018,16.5 6.00000018,16.5 C5.17500017,16.5 4.50750017,15.825 4.50750017,15 C4.50750017,14.175 5.17500017,13.5 6.00000018,13.5 Z M13.5000002,13.5 C14.3250002,13.5 15.0000002,14.175 15.0000002,15 C15.0000002,15.825 14.3250002,16.5 13.5000002,16.5 C12.6750002,16.5 12.0075002,15.825 12.0075002,15 C12.0075002,14.175 12.6750002,13.5 13.5000002,13.5 Z" id="path-1"></path>
+    </defs>
+    <g id="Advanced-Quick-Quote" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="AdvancedQuote_768-991px-/-Enchilada" transform="translate(-524.000000, -83.000000)">
+            <g id="Breadcrumbs-/-QQ" transform="translate(0.000000, 72.000000)">
+                <g id="Progress-Stepper">
+                    <g id="Steps" transform="translate(16.000000, 0.000000)">
+                        <g id="Payment" transform="translate(509.093844, 12.000000)">
+                            <g id="Icon">
+                                <circle id="Payment-Oval" stroke="#8B1863" fill-opacity="1" fill="#FFFFFF" cx="12" cy="12" r="12"></circle>
+                                <g id="Payment-Icon" transform="translate(3.000000, 3.000000)">
+                                    <mask id="mask-2" fill="white">
+                                        <use xlink:href="#path-1"></use>
+                                    </mask>
+                                    <g id="Mask" fill-rule="nonzero"></g>
+                                    <g id="↳-Icon-Color" mask="url(#mask-2)" fill="#8B1863">
+                                        <rect id="Rectangle-2" x="0" y="0" width="18.18" height="18.18"></rect>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

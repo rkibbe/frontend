@@ -1,0 +1,26 @@
+[
+    {
+        "code": "SP",
+        "description": "Spouse"
+    },
+    {
+        "code": "ParentExt",
+        "description": "Parent"
+    },
+    {
+        "code": "CH",
+        "description": "Child"
+    },
+    {
+        "code": "DPExt",
+        "description": "Domestic Partner"
+    },
+    {
+        "code": "RoomMateExt",
+        "description": "Roommate"
+    },
+    {
+        "code": "OtherExt",
+        "description": "Other"
+    }
+]

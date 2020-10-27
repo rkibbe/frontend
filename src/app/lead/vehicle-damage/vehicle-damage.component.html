@@ -1,0 +1,34 @@
+<div class="summary-container">
+    <div class="inner-content" fxLayout="column">
+        <verti-page-image-title [imgsource]="imgSource" imgheight="75px" imgwidth="145px" [imgsource2]="imgSource2"
+            imgheight2="26px" imgwidth2="26px" [title]="title" (modalOpen)="onModalOpen()"></verti-page-image-title>
+        <form [formGroup]="vehicleDamageForm" novalidate>
+            <mat-list>
+                <ng-template ngFor let-vehicle [ngForOf]="vehicleData">
+                    <mat-divider></mat-divider>
+                    <mat-list-item mat-ripple [matRippleUnbounded]="false" class="verti-clickable summary-list-item"
+                        (click)="isClickable(vehicle)" [matRippleDisabled]="true">
+                        <verti-image-description-group class="summary-list-item-main-content">
+                            <div class="image-group includable-wrapper">
+                                <ng-container *ngIf="vehicle.iconExisted; else noIcon">
+                                    <img class="vehicle-icon" src="./assets/img/{{vehicle.bodyStyleCode}}.svg">
+                                </ng-container>
+                                <ng-template #noIcon>
+                                    <img class="vehicle-icon" src="./assets/img/SD.svg">
+                                </ng-template>
+                            </div>
+                            <span> {{vehicle.year}} {{vehicle.make}} </span>
+                            <small *ngIf="vehicle.isADPF">{{vehicle.model}}, {{vehicle.vinPrefix}}</small>
+                            <small *ngIf="!vehicle.isADPF">{{vehicle.model}}, {{vehicle.trim}}</small>
+                        </verti-image-description-group>
+                        <div class="summary-list-item-end-content">
+                            <mat-slide-toggle [formControlName]="vehicle.vehicleID" (change)="onChange($event, vehicle)"></mat-slide-toggle>
+                        </div>
+                    </mat-list-item>
+                </ng-template>
+                <mat-divider></mat-divider>
+            </mat-list>
+        </form>
+        <button mat-raised-button class="verti-next-btn mrtp40" (click)="saveDetails()" color="primary">Next</button>
+    </div>
+</div>

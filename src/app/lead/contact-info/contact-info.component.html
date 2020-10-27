@@ -1,0 +1,72 @@
+<div class="main-content">
+    <div class="inner-content">
+        <verti-page-image-title
+            imgsource="assets/img/Icon_contact.svg"
+            imgwidth="80px"
+            imgheight="80px"
+            title="screenTitle.contactInfo"
+        ></verti-page-image-title>
+        <form [formGroup]="contactForm" (ngSubmit)="saveDetails()" fxLayout="column">
+            <mat-form-field
+                [class.invalid-error-txt]="contactForm.get('primaryEmailAddress').hasError('email') && showEmailError"
+                appearance="outline"
+            >
+                <mat-label>Email</mat-label>
+                <input
+                    type="email"
+                    matInput
+                    vertiInputMask
+                    [formatter]="emailFormatter"
+                    placeholder="Email"
+                    formControlName="primaryEmailAddress"
+                    minlength="10"
+                    maxlength="50"
+                    (blur)="onEmailBlur()"
+                />
+                <mat-error *ngIf="contactForm.get('primaryEmailAddress').hasError('email') && showEmailError">
+                    Please enter a valid email address
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field
+                class="phone-form-field"
+                [class.invalid-error-txt]="contactForm.get('phoneNumber').hasError('phone') && showPhoneError"
+                appearance="outline"
+            >
+                <mat-label>Phone number (optional)</mat-label>
+                <span
+                    matPrefix
+                    class="input-prefix"
+                    [class.show-phone-prefix]="showPhonePrefix"
+                    [class.hide-phone-prefix]="!showPhonePrefix"
+                    >+1 &nbsp;</span
+                >
+                <input
+                    type="tel"
+                    matInput
+                    vertiInputMask
+                    [formatter]="phoneFormatter"
+                    placeholder="e.g. 555-123-4567"
+                    formControlName="phoneNumber"
+                    (focus)="onPhoneFocus()"
+                    (blur)="onPhoneBlur()"
+                />
+                <mat-error *ngIf="contactForm.get('phoneNumber').hasError('phone') && showPhoneError">
+                    It doesn't look like that is a valid phone number, want to try again?
+                </mat-error>
+            </mat-form-field>
+
+            <button
+                mat-raised-button
+                class="verti-next-btn mrtp40 after-text-input"
+                color="primary"
+                [disabled]="!contactForm.valid"
+            >
+                Next
+                <span class="button-2txt">I agree to the conditions below</span>
+            </button>
+
+            <p class="terms-and-conditions-text" [innerHTML]="'screenDesc.conatactInfo' | translate">></p>
+        </form>
+    </div>
+</div>

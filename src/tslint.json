@@ -1,0 +1,7 @@
+{
+    "extends": ["../tslint.json", "tslint-sonarts"],
+    "rules": {
+        "directive-selector": [true, "attribute", "verti", "camelCase"],
+        "component-selector": [true, "element", "verti", "kebab-case"]
+    }
+}

@@ -1,0 +1,21 @@
+<div class="main-content">
+    <div class="inner-content" fxLayout="column">
+        <verti-page-image-title imgsource="assets/img/Icon_Billing_Address.svg" imgwidth="74px" imgheight="80px" title="Is your billing address the same as your residential address?"></verti-page-image-title>
+
+        <mat-button-toggle-group class="verti-button-toggle-group standard-two-choice" color="primary" [formControl]="residentialControl">
+            <mat-button-toggle value="Y" (change)="onButtonToggleClick('Y', true)">YES</mat-button-toggle>
+            <mat-button-toggle value="N" (change)="onButtonToggleClick('N', true)">NO</mat-button-toggle>
+        </mat-button-toggle-group>
+
+        <ng-container *ngIf="showAddressForm">
+            <h2 class="enter-your-billing">Enter your billing address.</h2>
+            <form [formGroup]="form" (submit)="onSubmit()" fxLayout="column">
+                <verti-address-input [labelConfig]="addressLabelConfig" [placeholderConfig]="addressLabelConfig"
+                    [addressLine2]="true" [formControl]="addressControl" [trilliumVerification]="true" [allowPOBox]="true"></verti-address-input>
+                <button mat-raised-button color="primary" class="verti-next-btn mrtp40 after-text-input" [disabled]="!addressControl.valid">
+                    SAVE & CONTINUE
+                </button>
+            </form>
+        </ng-container>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+:host {
+    color: #8b1863;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-weight: normal;
+}
+
+.symbol {
+    font-weight: bold;
+    line-height: 1.45;
+    letter-spacing: -0.0153em;
+}
+
+.dollar {
+    font-size: 2em;
+    line-height: 1;
+    letter-spacing: -0.031em;
+}
+
+.change-rate-group {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    .change {
+        font-weight: 500;
+        letter-spacing: -0.0153em;
+
+        &.underline {
+            text-decoration: underline;
+        }
+    }
+
+    .rate {
+        font-size: 0.75em;
+        font-weight: bold;
+        line-height: 0.5;
+        letter-spacing: -0.0117em;
+    }
+
+    .save {
+        font-size: 0.5em;
+        font-weight: bold;
+        letter-spacing: -0.1167em;
+    }
+}

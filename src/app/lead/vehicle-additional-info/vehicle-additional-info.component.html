@@ -1,0 +1,75 @@
+<div class="main-content">
+    <div class="inner-content">
+        <div class="vehicle-description mrbt24">
+            <div class="image-group">
+                <img src="assets/img/vehicle_add_info.png" />
+            </div>
+            <span>
+                2019 Nissan GT-R
+            </span>
+            <small>
+                2DR COUPE AUTOMATIC
+            </small>
+        </div>
+
+        <form [formGroup]="form" *ngIf="form" (ngSubmit)="saveDetails()" fxLayout="column">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Estimated Annual Mileage</mat-label>
+                <input
+                    matInput
+                    placeholder="Estimated Annual Mileage"
+                    formControlName="mileage"
+                    [readonly]="disableInput"
+                    digitsOnly
+                />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Additional anti-theft device</mat-label>
+                <mat-select placeholder="Select" formControlName="antitheft">
+                    <mat-option *ngFor="let option of options" [value]="option.code">
+                        {{ option.description }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div class="discription-content">
+                <div class="discription">Is this vehicle used in a car ride/share program?</div>
+
+                <p class="sub-discription">
+                    Loaned or leased to others for compensation, or used in any capacity to transport passengers for a
+                    fee
+                </p>
+            </div>
+            <mat-button-toggle-group
+                class="verti-button-toggle-group mrbt24 standard-two-choice"
+                color="primary"
+                formControlName="isRideshare"
+                aria-label="Font Style"
+            >
+                <mat-button-toggle value="Y">YES</mat-button-toggle>
+                <mat-button-toggle value="N">NO</mat-button-toggle>
+            </mat-button-toggle-group>
+            <ng-container *ngIf="form.get('isRideshare').value === 'Y'">
+                <div class="feedback-block mrbt24">
+                    <img src="assets/img/rotate-info.svg" />
+                    <div class="text">
+                        TNC (Transportation Network Company) Driver Coverage added to your quote!
+                    </div>
+                </div>
+                <div class="sole-label ">Sole Source of Income</div>
+                <mat-button-toggle-group
+                    class="verti-button-toggle-group standard-two-choice"
+                    color="primary"
+                    formControlName="isSoleIncome"
+                    aria-label="Font Style"
+                >
+                    <mat-button-toggle value="Y">YES</mat-button-toggle>
+                    <mat-button-toggle value="N">NO</mat-button-toggle>
+                </mat-button-toggle-group>
+            </ng-container>
+
+            <button mat-raised-button class="verti-next-btn mrtp40" [disabled]="!form.valid" color="primary">
+                Continue
+            </button>
+        </form>
+    </div>
+</div>

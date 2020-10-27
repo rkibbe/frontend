@@ -1,0 +1,13 @@
+<img [src]="driver.genderImg || 'assets/img/undefined-1.svg'">
+<h1 class="title-txt">
+    Would you like to exclude {{ driver.firstName }} {{ driver.lastName }} on your policy?
+</h1>
+<p class="mrbt24">
+    {{ driver.firstName }} will not be covered under the policy when driving your vehicle.
+</p>
+<button mat-stroked-button tabindex="-1" color="primary" class="verti-next-btn mrbt24" (click)="onExcludeClick()">
+    Exclude {{ driver.firstName }}
+</button>
+<button mat-stroked-button tabindex="-1" color="primary" class="btm-btn verti-next-btn" (click)="onIncludeClick()">
+    Include {{ driver.firstName }}
+</button>

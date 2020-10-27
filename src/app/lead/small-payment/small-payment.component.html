@@ -1,0 +1,17 @@
+<mat-card class="new-mat-card" [ngClass]="smallPlanPayment.theme" (click)="goToMedium()">
+    <div>
+        <h3 class="title">
+            {{ smallPlanPayment.planName }}
+        </h3>
+    </div>
+
+    <div>
+        <h3 class="sub-title">
+            <!-- {{ smallPlanPayment.paymentSchedule[0].value }} -->
+            {{ smallPlanPayment.dueDate }}
+        </h3>
+        <p class="para">
+            {{ smallPlanPayment.textDescription.split(',')[1] }}
+        </p>
+    </div>
+</mat-card>

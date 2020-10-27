@@ -1,0 +1,27 @@
+@import '~@angular/material/theming';
+
+@import 'assets/styles/themes/verti-orange.scss';
+@import 'assets/styles/themes/verti-purple.scss';
+@import 'assets/styles/themes/mat-overrides.scss';
+@import 'assets/styles/themes/buttons.scss';
+@import 'assets/styles/themes/standard-elements.scss';
+
+@import 'src/app/shared/trillium-modal/trillium-modal.component.scss-theme.scss';
+
+@include mat-core();
+
+@mixin custom-components-theme($theme) {
+    @include mat-overrides($theme);
+    @include standard-elements-theme($theme);
+    @include verti-button-theme($theme);
+    @include trillium-modal-component-theme($theme);
+}
+
+$verti-primary: mat-palette($vt-vertiorange, 300, 50, 500);
+$verti-accent: mat-palette($vt-vertipurple);
+
+$verti-theme: mat-light-theme($verti-primary, $verti-accent);
+
+// Default theme
+@include angular-material-theme($verti-theme);
+@include custom-components-theme($verti-theme);

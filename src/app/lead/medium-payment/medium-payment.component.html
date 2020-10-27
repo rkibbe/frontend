@@ -1,0 +1,42 @@
+<mat-card class="new-mat-card" [ngClass]="mediumPlanPayment.theme">
+    <h3 class="title txt_center">{{ mediumPlanPayment.planName }}</h3>
+    <verti-big-price [price]="mediumPlanPayment.dueToday.slice(1)" [rate]="rateValue"></verti-big-price>
+    <h6 class="estimates" [ngClass]="mediumPlanPayment.theme">{{ mediumPlanPayment.textDescription }}</h6>
+    <button
+        mat-raised-button
+        class="verti-btn-gradient-sm mrbt24 mrtp24"
+        (click)="doContinue(mediumPlanPayment.planId)"
+        color="primary"
+    >
+        Select
+        {{
+            mediumPlanPayment.planName.includes(':')
+                ? mediumPlanPayment.planName.split(':')[1]
+                : mediumPlanPayment.planName
+        }}
+    </button>
+
+    <ng-container *ngIf="!paymentSchedule; else showAllSchedules">
+        <verti-dotted-list-item class="mrbt16">
+            <span vertiDottedLeftSide>Total for 6-month policy</span>
+            <span vertiDottedRightSide>{{ mediumPlanPayment.totalAmt }}</span>
+        </verti-dotted-list-item>
+    </ng-container>
+    <ng-template #showAllSchedules>
+        <h3 class="your-payment-schedul">Your payment schedule</h3>
+        <ng-container *ngFor="let payment of mediumPlanPayment.paymentSchedule">
+            <verti-dotted-list-item class="mrbt16">
+                <span vertiDottedLeftSide>{{ payment.key }}</span>
+                <span vertiDottedRightSide>{{ payment.value }}</span>
+            </verti-dotted-list-item>
+        </ng-container>
+        <verti-dotted-list-item class="mrbt24 paymentBold">
+            <span vertiDottedLeftSide>Total for 6-month policy</span>
+            <span vertiDottedRightSide>{{ mediumPlanPayment.totalAmt }}</span>
+        </verti-dotted-list-item>
+    </ng-template>
+
+    <a href="javascript:void(0)" *ngIf="!paymentSchedule" class="link mrbt24 mrtp24" (click)="showPaymentSchedule()">
+        SHOW PAYMENT SCHEDULE
+    </a>
+</mat-card>

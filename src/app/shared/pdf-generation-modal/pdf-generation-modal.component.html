@@ -1,0 +1,18 @@
+<div class="pdf-generation">
+  <div class="close-btn">
+    <button mat-icon-button class="" color="primary" class="" tabindex="1" (click)="close()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <img class="timeout-img" [src]="imgSource">
+  <h1>{{title}}</h1>
+
+  <p class="card-sub-title mrbt24">The file you are trying to view isn’t accessible yet. Try again in a few seconds.
+  </p>
+  <p class="card-sub-title">If this problem persists, you will be able to review all your policy documents in your
+    smartLocker® when you create an account.</p>
+
+  <button mat-stroked-button class="add-another-vehicle-btn verti-btn mrbt32 mrtp40" color="primary" (click)="close()">
+    Continue
+  </button>
+</div>

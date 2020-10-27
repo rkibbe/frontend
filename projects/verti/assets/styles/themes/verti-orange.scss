@@ -1,0 +1,38 @@
+@import '~@angular/material/theming';
+
+$vt-vertiorange: (
+    50: #fff0e0,
+    100: #ffd9b3,
+    200: #ffbf80,
+    300: #ffa100,
+    //orange Lt
+        400: #ff9226,
+    500: #ff7f00,
+    //orange Dk
+        600: #ff7700,
+    700: #ff6c00,
+    800: #ff6200,
+    900: #ff4f00,
+    A100: #ffffff,
+    A200: #fff5f2,
+    A400: #ffcfbf,
+    A700: #ffbca6,
+    contrast: (
+        50: #ffffff,
+        100: #ffffff,
+        200: #ffffff,
+        300: #ffffff,
+        //orange Lt font
+            400: #ffffff,
+        500: #ffffff,
+        //orange Dk font
+            600: #ffffff,
+        700: #ffffff,
+        800: #ffffff,
+        900: #ffffff,
+        A100: #ffffff,
+        A200: #ffffff,
+        A400: #ffffff,
+        A700: #ffffff
+    )
+);

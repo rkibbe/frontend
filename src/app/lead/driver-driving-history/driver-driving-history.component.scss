@@ -1,0 +1,15 @@
+.violation-div {
+    padding-bottom: 48px;
+
+    .verti-ko-questions-lists {
+        padding-bottom: 24px;
+    }
+
+    .answer-toggle-group {
+        max-width: 312px;
+    }
+
+    &:last-child {
+        padding-bottom: 0px;
+    }
+}

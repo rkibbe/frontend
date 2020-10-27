@@ -1,0 +1,97 @@
+<div class="main-content quick-quote" *ngIf="leadData">
+    <div #stickyHead>
+        <ng-container>
+            <header *ngIf="stickyHeader" class="affix-top sticky" id="stickyHeader" fxLayout="column">
+                <div class="sticky_new_look">
+                    <div class="sticky_inr">
+                        <div class="mobile-view-content">
+                            <h6 class="estimates">Estimate for a <span class="estimates-span">6-month term.</span></h6>
+                            <verti-big-price [price]="premiumPrice" rate="mo"></verti-big-price>
+                        </div>
+                        <button mat-raised-button class="verti-next-btn" (click)="doContinue()" color="primary">
+                            continue
+                        </button>
+                    </div>
+                </div>
+            </header>
+        </ng-container>
+        <ng-container>
+            <header class="affix-top" id="normalHeader" fxLayout="column">
+                <h3 class="title">{{ leadData.firstName }}, here's your quick quote estimate:</h3>
+                <verti-big-price [price]="premiumPrice" rate="mo"></verti-big-price>
+                <h6 class="estimates">Estimate for a 6-month term.</h6>
+                <button mat-raised-button class="verti-next-btn mrbt40 mrtp32" (click)="doContinue()" color="primary">
+                    continue
+                </button>
+            </header>
+        </ng-container>
+    </div>
+
+    <div class="inner-content">
+        <main id="sticky_next_coverage">
+            <p class="para2">
+                Price estimate is based on your information and certain assumptions about your circumstances.
+            </p>
+            <p class="terms-and-conditions-text">
+                By clicking ‘CONTINUE’, I consent to be contacted by Verti Insurance Company for insurance product
+                advertisement, telemarketing and service purposes at the phone number I have provided. I agree that
+                such
+                contact may include: calls and text messages placed using an automated telephone dialing system; calls
+                using artificial or pre-recorded voice. I recognize that call, text, and data rates may apply depending
+                on my carrier and plan. I understand that this consent is not a condition of purchase and that I can
+                call Verti Insurance Company to discuss my insurance needs at <a class="card-pnum"
+                    href="tel:1-267-310-3021">1-267-310-3021</a>.
+            </p>
+            <h3 class="whats-covered">What’s covered:</h3>
+            <p class="para">Customize coverages and refine your options in the next few steps.</p>
+
+            <mat-list class="quick-quote-mat-list">
+                <mat-list-item class="quick-quote-mat-list-item">
+                    <span class="policy-icon" matListAvatar>
+                        <img src="./assets/img/Icon_Shield.svg" alt="quick quote" />
+                    </span>
+                    <h3 class="mat-list-title" matLine>Policy Coverage</h3>
+                    <p class="mat-list-para" matLine>Bodily Injury: {{ leadData.quickQuote.bILimit }}</p>
+                    <p class="mat-list-para" matLine>Property Damage: {{ leadData.quickQuote.pDLimit }}</p>
+                </mat-list-item>
+
+                <ng-template ngFor let-vehicle [ngForOf]="vehicleData">
+                    <ng-container *ngIf="vehicle.isIncluded">
+                        <mat-list-item class="quick-quote-mat-list-item">
+                            <span class="policy-icon" matListAvatar>
+                                <ng-container *ngIf="vehicle.iconExisted; else noIcon">
+                                    <img class="car-position" src="./assets/img/{{ vehicle.bodyStyleCode }}.svg" />
+                                </ng-container>
+                                <ng-template #noIcon>
+                                    <img class="car-position" src="./assets/img/SD.svg" />
+                                </ng-template>
+                            </span>
+                            <h3 class="mat-list-title" matLine>
+                                {{ vehicle.year }} {{ vehicle.make }} {{ vehicle.model }}
+                            </h3>
+                            <p class="mat-list-para" matLine>Collision: {{ vehicle.collDisplayValue }}</p>
+                            <p class="mat-list-para" matLine>Comprehensive: {{ vehicle.compDisplayValue }}</p>
+                        </mat-list-item>
+                    </ng-container>
+                </ng-template>
+
+                <ng-template ngFor let-driver [ngForOf]="driverList">
+                    <ng-container *ngIf="driver.isIncluded">
+                        <mat-list-item class="quick-quote-mat-list-item">
+                            <span class="policy-icon" matListAvatar>
+                                <img alt="driver icon" *ngIf="driver.genderImg" [src]="driver.genderImg" />
+                            </span>
+                            <h3 class="mat-list-title" matLine>{{ driver.firstName }} {{ driver.lastName }}</h3>
+                            <p class="mat-list-para" matLine>
+                                <span *ngIf="driver.age">{{ driver.age }} year old </span>
+                                <span *ngIf="driver.genderCode">{{
+                                    driver.genderCode === 'M' ? 'male' : 'female'
+                                    }}</span>
+                            </p>
+                        </mat-list-item>
+                    </ng-container>
+                </ng-template>
+            </mat-list>
+        </main>
+    </div>
+</div>

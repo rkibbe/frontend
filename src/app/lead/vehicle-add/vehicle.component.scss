@@ -1,0 +1,35 @@
+.address-checkbox {
+    font-size: 12px;
+    color: grey;
+}
+
+.example-chip-list {
+    width: 100%;
+}
+
+.datalists {
+    // border: 1px solid  rgba(118, 119, 122, 0.15);
+    border: none;
+    overflow: auto;
+    height: 200px;
+    background: white;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.13);
+}
+
+input.mat-chip-input {
+    display: none !important;
+}
+
+.cardatestyling {
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.add-another-vehicle-btn {
+    max-width: 243px;
+    width: 100%;
+
+    @media screen and (max-width: 375px) {
+        max-width: 193px;
+    }
+}

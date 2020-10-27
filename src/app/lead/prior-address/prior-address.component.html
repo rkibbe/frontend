@@ -1,0 +1,29 @@
+<div class="main-content">
+    <div class="inner-content">
+        <verti-page-image-title
+            imgsource="assets/img/Icon_previosaddress.svg"
+            imgwidth="80px"
+            imgheight="80px"
+            title="screenTitle.proirAddress"
+        ></verti-page-image-title>
+        <form [formGroup]="form" (ngSubmit)="saveDetails()" fxLayout="column">
+            <verti-address-input
+                formControlName="address"
+                [placeholderConfig]="placeHolderConfig"
+                [addressLine2]="true"
+                [allowPOBox]="false"
+                [readonly]="isQuoteCreated"
+                [trilliumVerification]="true"
+            ></verti-address-input>
+
+            <button
+                mat-raised-button
+                class="verti-next-btn mrtp40 after-text-input"
+                [disabled]="!form.valid"
+                color="primary"
+            >
+                Next
+            </button>
+        </form>
+    </div>
+</div>

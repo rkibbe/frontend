@@ -1,0 +1,14 @@
+<div class="body-wrapper mat-app-background">
+    <header>
+        <verti-header [routeName]="routeNameForShowHideName"></verti-header>
+    </header>
+    <verti-milestones-and-backbtn [flow]="flow"></verti-milestones-and-backbtn>
+    <verti-card class="body-content">
+        <div class="header-padding"></div>
+        <router-outlet></router-outlet>
+    </verti-card>
+
+    <footer>
+        <verti-footer></verti-footer>
+    </footer>
+</div>

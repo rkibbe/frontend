@@ -1,0 +1,9 @@
+<div class="main-content">
+    <div class="inner-content">
+        <verti-page-image-title imgsource="assets/img/Icon_MaritalStatus.svg" imgwidth="80px"
+            title="What's your marital status?"></verti-page-image-title>
+        <verti-user-marital-status [options]="options" [formGroup]="maritalStatusForm"
+            (formGroupValue)='onMaritalStatusChange($event)' (formSubmit)="saveAndNavigate()">
+        </verti-user-marital-status>
+    </div>
+</div>

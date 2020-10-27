@@ -1,0 +1,11 @@
+<ng-container [ngSwitch]="cardType">
+    <img *ngSwitchCase="'disc'" src="assets/img/Icon_Discover_Card.svg" alt="Discover"
+        style="width: 41px; height: 41px; top: 0;" />
+    <img *ngSwitchCase="'mc'" src="assets/img/Icon_Master_Card.svg" alt="Master Card"
+        style="width: 37.5px; height: 23.58px; top: 8.71px;" />
+    <img *ngSwitchCase="'visa'" src="assets/img/Icon_Visa.svg" alt="Visa" style="width: 41px; height: 41px; top: 0;" />
+    <img *ngSwitchCase="'amex'" src="assets/img/Icon_American_Express.svg" alt="American Express"
+        style="width: 34.79px; height: 35.22px; top: 2.56px;" />
+</ng-container>
+<span class="card-name">{{ cardHolder }}</span>
+<span class="card-number">{{ cardNumber }}</span>

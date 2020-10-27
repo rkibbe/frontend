@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 54.1 (76490) - https://sketchapp.com -->
+    <title>E381DE4F-2D42-4E2C-ABA2-D930552055F1</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M4.125,10.9176789 C5.09637643,12.9518966 6.70550173,14.5398042 8.625,15.675 L8.625,3.29999998 C7.12087868,3.33736034 5.61823069,3.56457321 4.125,3.97170953 L4.125,10.9176789 Z M3,3.17053789 C7.10976453,1.96687288 10.7298336,1.91966216 14.8421052,3.17053789 L14.8421052,11.3463678 C13.5470029,14.085673 11.559015,15.8395116 8.91979909,17.25 C6.31004012,15.804614 4.26581249,14.1110909 3,11.3463678 L3,3.17053789 Z" id="path-1"></path>
+    </defs>
+    <g id="Advanced-Quick-Quote" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="AdvancedQuote_376px-/-Enchelada" transform="translate(-123.000000, -75.000000)">
+            <g id="06_Navigation-/-Progress-/-Refinement-/-Coverage" transform="translate(0.000000, 64.000000)">
+                <g id="Progress-Stepper">
+                    <g id="Steps" transform="translate(16.000000, 0.000000)">
+                        <g id="Coverage" transform="translate(108.000000, 12.000000)">
+                            <g>
+                                <circle id="Coverage-Oval" stroke="#8B1863" fill="#8B1863" cx="12" cy="12" r="12"></circle>
+                                <g id="Coverage-Icon" transform="translate(3.000000, 3.000000)">
+                                    <mask id="mask-2" fill="white">
+                                        <use xlink:href="#path-1"></use>
+                                    </mask>
+                                    <use id="Fill-1" fill="#000000" xlink:href="#path-1"></use>
+                                    <g id="Color" mask="url(#mask-2)" fill="#FFFFFF">
+                                        <rect id="Rectangle-2" x="0" y="0" width="18.18" height="18.18"></rect>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

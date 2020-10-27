@@ -1,0 +1,8 @@
+<form [formGroup]="formGroup" *ngIf="options?.length" (ngSubmit)="saveDetails()" fxLayout="column">
+    <mat-button-toggle-group class="marital-status-group verti-button-toggle-group-list"
+        formControlName="maritalStatusCode">
+        <mat-button-toggle *ngFor="let option of options" (change)="onButtonToggleClick()" [value]="option.code">
+            {{ option.description }}</mat-button-toggle>
+    </mat-button-toggle-group>
+    <button mat-raised-button class="verti-next-btn mrtp40" [disabled]="!formGroup.valid" color="primary">Next</button>
+</form>

@@ -1,0 +1,18 @@
+<div class="card-container">
+    <div class="coverage-header">
+        <div class="right-section">
+            <mat-icon color="primary" (click)="close()">close</mat-icon>
+        </div>
+    </div>
+    <div class="coverage-img">
+        <img src="./assets/img/add-another-file-icon.svg" alt="" width="56px">
+    </div>
+    <mat-card-title class="card-title">Add another file</mat-card-title>
+    <div fxLayout="column">
+        <input hidden type="file" #fileInput>
+        <button mat-stroked-button class="verti-next-btn mrtp32" color="primary" (click)="fileInput.click()">Select
+            File</button>
+        <button mat-stroked-button class="save-for-later-btn verti-btn mrtp24" color="primary">Take
+            a Photo</button>
+    </div>
+</div>

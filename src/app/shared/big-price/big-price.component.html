@@ -1,0 +1,13 @@
+<span class="symbol">$</span>
+<span class="dollar">{{ dollar }}</span>
+<div class="change-rate-group">
+    <span class="change" [class.underline]="!rate || savings">.{{ change }}</span>
+    <!-- <span class="rate" *ngIf="rate">/{{ rate }}</span> -->
+    <ng-container *ngIf="rate === 'mo'; else todayFlage">
+        <span class="rate">/{{ rate }}</span>
+    </ng-container>
+    <ng-template #todayFlage>
+        <span class="rate">{{ rate }}</span>
+    </ng-template>
+    <span class="save" *ngIf="savings">SAVED</span>
+</div>

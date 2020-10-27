@@ -1,0 +1,7 @@
+@mixin rc-decline-component-deep() {
+    .verti-rc-decline {
+        .mat-card-title {
+            margin-bottom: 0px !important;
+        }
+    }
+}

@@ -1,0 +1,42 @@
+$padding: 24px;
+
+:host {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: $padding;
+    position: relative;
+    max-width: 380px;
+}
+.close-btn {
+    cursor: pointer;
+    align-self: flex-end;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+
+.main-icon {
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 80px;
+    width: auto;
+    height: auto;
+}
+
+.main-text {
+    font-weight: 300;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 24px;
+    letter-spacing: -0.2px;
+    line-height: 28px;
+}
+
+.sub-text {
+    text-align: center;
+    font-weight: 500;
+}

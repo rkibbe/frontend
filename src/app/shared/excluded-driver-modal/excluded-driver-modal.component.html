@@ -1,0 +1,13 @@
+<div class="image-group">
+    <img [src]="driver.genderImg || 'assets/img/undefined-1.svg'">
+    <div class="oval"></div>
+    <div class="line"></div>
+</div>
+<h1 class="title-txt">
+    This driver will be excluded from the insurance policy.
+</h1>
+<p class="mrbt32">
+    Since {{ driver.firstName }} {{ driver.lastName}} is not legally allowed to drive on the road, Verti will exclude {{ driver.firstName }} on your policy.
+    Unfortunately, {{ driver.firstName }} will not be covered under your policy if {{ driver.firstName }} drives your vehicle(s).
+</p>
+<button mat-stroked-button tabindex="-1" color="primary" class="understand-btn verti-next-btn" (click)="onUnderstandClick()">I UNDERSTAND</button>

@@ -1,0 +1,28 @@
+<div class="main-content">
+    <div class="inner-content" fxLayout="column">
+        <verti-page-image-title imgsource="assets/img/Icon_Mailing_Address.svg" imgwidth="64px" imgheight="80px"
+            title="Is your mailing address the same as your residential address?"></verti-page-image-title>
+
+        <p class="residential-address-label">RESIDENTIAL ADDRESS</p>
+        <p class="residential-address-text mrbt32">{{ primaryAddress | address }}</p>
+
+        <mat-button-toggle-group class="verti-button-toggle-group standard-two-choice" color="primary"
+            [formControl]="residentialControl">
+            <mat-button-toggle value="Y" (click)="onButtonToggleClick('Y')">YES</mat-button-toggle>
+            <mat-button-toggle value="N" (click)="onButtonToggleClick('N')">NO</mat-button-toggle>
+        </mat-button-toggle-group>
+
+        <ng-container *ngIf="showAddressForm">
+            <h2 class="enter-your-mailing">Enter your mailing address.</h2>
+            <form [formGroup]="form" (submit)="onSubmit()" fxLayout="column">
+                <verti-address-input [labelConfig]="addressLabelConfig" [placeholderConfig]="addressLabelConfig"
+                    [addressLine2]="true" [trilliumVerification]="true" [allowPOBox]="true"
+                    [formControl]="addressControl"></verti-address-input>
+                <button mat-raised-button color="primary" class="verti-next-btn mrtp40 after-text-input"
+                    [disabled]="!addressControl.valid">
+                    SAVE & CONTINUE
+                </button>
+            </form>
+        </ng-container>
+    </div>
+</div>

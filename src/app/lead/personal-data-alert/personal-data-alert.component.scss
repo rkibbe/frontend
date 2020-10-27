@@ -1,0 +1,57 @@
+:host {
+    display: block;
+    .card-container {
+        padding: 0;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .first-para {
+            color: rgba(0, 0, 0, 0.6);
+            font-size: 14.2px;
+            letter-spacing: 0.25px;
+            line-height: 20px;
+            text-align: center;
+            margin-top: 0px;
+            p {
+                margin-top: 0;
+            }
+        }
+        .second-para {
+            color: rgba(0, 0, 0, 0.6);
+            font-size: 14.2px;
+            letter-spacing: 0.25px;
+            line-height: 20px;
+            text-align: center;
+            margin: auto;
+            max-width: 300px;
+        }
+        .card-summary {
+            color: #8b1863;
+            font-size: 12.12px;
+            letter-spacing: 2px;
+            line-height: 16px;
+            text-align: center;
+        }
+        .sub-para {
+            text-align: center;
+        }
+        .call-verti {
+            color: rgba(0, 0, 0, 0.6);
+            font-size: 24px;
+            letter-spacing: -0.2px;
+            line-height: 28px;
+            text-align: center;
+            margin-top: 24px;
+            font-weight: 300;
+            a {
+                color: #ff7f00;
+                text-decoration: none;
+                cursor: pointer;
+            }
+            @media (max-width: 375px) {
+                font-size: 23px;
+            }
+        }
+    }
+}

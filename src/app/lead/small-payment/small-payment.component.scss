@@ -1,0 +1,29 @@
+.mat-card.new-mat-card {
+    flex-direction: row;
+    cursor: pointer;
+}
+.para {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12.12px;
+    letter-spacing: 2px;
+    line-height: 16px;
+    text-align: right;
+    margin: 0;
+}
+.title {
+    color: #8b1863;
+    font-size: 24px;
+    letter-spacing: -0.2px;
+    line-height: 28px;
+    font-weight: normal;
+    text-align: left;
+    margin: 0;
+}
+.sub-title {
+    color: #8b1863;
+    font-size: 20px;
+    letter-spacing: 0.17px;
+    line-height: 20px;
+    text-align: right;
+    margin: 0 0 8px;
+}

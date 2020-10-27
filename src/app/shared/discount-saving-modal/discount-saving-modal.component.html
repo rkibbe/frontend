@@ -1,0 +1,47 @@
+<div class="card-container">
+    <div class="coverage-header">
+        <div class="right-section">
+            <mat-icon color="primary" (click)="close()">close</mat-icon>
+        </div>
+    </div>
+    <div class="coverage-img">
+        <img src="assets/img/Savings_Icon.svg" alt="" />
+    </div>
+    <mat-card-title class="card-title">Your discounts & savings</mat-card-title>
+    <verti-big-price [price]="savings" [savings]="true"></verti-big-price>
+
+    <p class="discount-summary" *ngFor="let discount of discountsAvailable">{{ discount.description }}<br /></p>
+
+    <mat-card-subtitle class="card-text text-center">
+        Want to see if you qualify for even more savings?! Chat with one of our licensed agents.
+        <!-- WANT TO SEE IF YOU QUALIFY FOR EVEN MORE SAVINGS?! CHAT WITH ONE OF OUR LICENSED AGENTS -->
+        <!-- <a class="card-pnum" color="primary" [attr.href]="'tel:' + appSettings.VERTI_CONTACT_NUMBER.vertiNumber">
+            {{ appSettings.VERTI_CONTACT_NUMBER.vertiNumber }} </a
+        >. -->
+    </mat-card-subtitle>
+    <!-- <button
+        mat-stroked-button
+        class="verti-btn talk-discount-btn"
+        (click)="openWalmaric()"
+        type="submit"
+        color="primary"
+    >
+        LET'S TALK DISCOUNTS
+    </button> -->
+    <!-- <p class="card-text">
+        Contact us:
+        <a class="card-pnum" [attr.href]="'tel:' + appSettings.VERTI_CONTACT_NUMBER.vertiNumber">
+            {{ appSettings.VERTI_CONTACT_NUMBER.vertiNumber }}</a
+        >
+    </p> -->
+    <h3 class="card-subtitle">
+        Call Verti now:
+        <a class="card-pnum" color="primary" [attr.href]="'tel:' + contactNumber">
+            {{ contactNumber }}
+        </a>
+        <!-- <a class="card-pnum" href="tel:1-267-310-3021">1-267-310-3021</a> -->
+    </h3>
+    <div class="close-btn-wrap">
+        <a href="javascript:void(0)" (click)="close()" class="close-text">CLOSE</a>
+    </div>
+</div>

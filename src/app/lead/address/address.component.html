@@ -1,0 +1,26 @@
+<div class="main-content">
+    <div class="inner-content">
+        <verti-page-image-title imgsource="assets/img/Icon_address.svg" imgwidth="80px" imgheight="80px"
+            title="screenTitle.address"></verti-page-image-title>
+
+        <form [formGroup]="addressForm" *ngIf="addressForm" (ngSubmit)="saveDetails()" fxLayout="column">
+            <ng-container *ngFor="let field of fields" [ngSwitch]="field.type">
+                <verti-address-input *ngSwitchCase="'custom'" [formControlName]="field.attribute"
+                    [placeholderConfig]="placeHolderConfig" [addressLine2]="true" [allowPOBox]="false"
+                    [readonly]="isQuoteCreated"></verti-address-input>
+
+                <mat-checkbox *ngSwitchCase="'checkbox'" [formControlName]="field.attribute"
+                    class="address-checkbox mrtp36 after-text-input">
+                    {{field.label}}
+                </mat-checkbox>
+                <mat-form-field appearance="outline" *ngSwitchCase="'text'">
+                    <mat-label>{{field.label}}</mat-label>
+                    <input matInput digitsOnly maxlength="2" [formControlName]="field.attribute">
+                </mat-form-field>
+            </ng-container>
+            <button mat-raised-button class="verti-next-btn mrtp40" [disabled]="!addressForm.valid" color="primary">
+                Next
+            </button>
+        </form>
+    </div>
+</div>

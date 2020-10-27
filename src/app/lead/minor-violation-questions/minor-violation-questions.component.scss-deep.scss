@@ -1,0 +1,7 @@
+@mixin minor-violation-questions-component-deep() {
+    .verti-minor-violation-questions {
+        .mat-card-title {
+            margin-bottom: 16px !important;
+        }
+    }
+}

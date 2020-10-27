@@ -1,0 +1,18 @@
+<div class="main-content ko-question-page">
+    <div class="inner-content">
+        <verti-page-image-title [imgsource]="imgSource" imgwidth="80px" [title]="title" [reversed]="true">
+        </verti-page-image-title>
+        <div class="failure-content">
+            Our agents will be happy to walk you through the rest of the quoting process. Please give us a call to
+            complete your quote.
+        </div>
+        <div class="call-us-now">
+            Call Verti now:
+            <span class="verti-contact contact-number">
+                <a color="primary" [attr.href]="'tel:' + contactNumber">
+                    {{ contactNumber }}
+                </a>
+            </span>
+        </div>
+    </div>
+</div>

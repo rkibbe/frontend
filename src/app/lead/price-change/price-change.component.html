@@ -1,0 +1,34 @@
+<div class="main-content purple-theme">
+    <div class="inner-content">
+        <verti-page-image-title imgsource="assets/img/PriceChange_Icon.svg" imgheight="80px" imgwidth="80px"
+            title="Price change."></verti-page-image-title>
+
+        <div class="price_change">
+            <p class="para">After running our reports, some of the info we found changed your price.</p>
+
+            <ng-container *ngIf="premiumChangeIndicator > 0; else priceDecrease">
+                <mat-card-subtitle class="subtitle">Price change: + {{ priceChange | currency }}/mo.</mat-card-subtitle>
+            </ng-container>
+
+            <ng-template #priceDecrease>
+                <mat-card-subtitle class="subtitle">Price change: - {{ priceChange | currency }}/mo.</mat-card-subtitle>
+            </ng-template>
+
+            <verti-big-price [price]="monthlyPremiumPrice" rate="mo"></verti-big-price>
+
+            <h6 class="estimates">{{ fullPremium | currency }} over a 6-month term</h6>
+
+            <button mat-raised-button class="verti-next-btn mrbt24 mrtp32" (click)="doContinue()" color="primary">
+                Continue
+            </button>
+
+            <p class="para2">
+                We want to make sure you're getting the best price possible, are confident in your coverage, and in us.
+                If you have any questions about what changed your price please contact us
+                <a color="primary" [attr.href]="'tel:' + contactNumber">
+                    {{ contactNumber }}.
+                </a>
+            </p>
+        </div>
+    </div>
+</div>

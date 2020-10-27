@@ -1,0 +1,42 @@
+<mat-form-field appearance="outline">
+    <mat-label>{{ labelConfig.main }}</mat-label>
+    <input type="text" matInput placeholder="{{ placeholderConfig.main }}" [formControl]="form.get('address')"
+        [matAutocomplete]="googleAuto" maxlength="250" [readonly]="readonly" />
+
+    <mat-hint class="mat-error" *ngIf="form.get('address').hasError('poBox')">
+        PO Box can't be used to get a quote.
+    </mat-hint>
+
+    <!-- TODO figure out when this should show -->
+    <mat-hint class="mat-error" *ngIf="googleSuggestionSelectedAtleastOnce && !form.valid">
+        Looks like part of your street address is missing, want to try again?
+    </mat-hint>
+
+    <mat-autocomplete #googleAuto="matAutocomplete" autoActiveFirstOption="true"
+        [displayWith]="displayGooglePrediction()">
+        <ng-container *ngIf="addressPredictions">
+            <ng-container *ngIf="addressPredictions.length === 0">
+                <div class="zero-results-header">
+                    We can't find that address
+                </div>
+                <mat-option class="google-predictions zero-results" [value]="SWITCH_TO_MANUAL_OPTION">
+                    ADD ADDRESS MANUALLY
+                </mat-option>
+            </ng-container>
+
+            <mat-option *ngFor="let prediction of addressPredictions" class="google-predictions" [value]="prediction">
+                {{ prediction.formattedAddress }}
+            </mat-option>
+
+            <mat-option class="powered-by-google" [disabled]="true">
+                <img src="./assets/img/powered_by_google_on_white.png" />
+            </mat-option>
+        </ng-container>
+    </mat-autocomplete>
+</mat-form-field>
+
+<mat-form-field *ngIf="form.get('addressLine2')" appearance="outline">
+    <mat-label>{{ labelConfig.addressLine2 }}</mat-label>
+    <input type="text" matInput placeholder="{{ placeholderConfig.addressLine2 }}"
+        [formControl]="form.get('addressLine2')" minlength="1" maxlength="250" [readonly]="readonly" />
+</mat-form-field>

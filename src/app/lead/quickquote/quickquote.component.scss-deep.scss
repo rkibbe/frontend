@@ -1,0 +1,10 @@
+@mixin quickquote-component-deep() {
+    .verti-quickquote {
+        .sticky_new_look .sticky_inr .verti-next-btn {
+            @media only screen and (min-width: 768px) {
+                width: 100%;
+                max-width: 200px;
+            }
+        }
+    }
+}

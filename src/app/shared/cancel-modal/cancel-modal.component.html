@@ -1,0 +1,17 @@
+<div class="card-container">
+    <div class="coverage-header">
+        <div class="right-section">
+            <mat-icon color="primary" (click)="close()">close</mat-icon>
+        </div>
+    </div>
+    <div class="coverage-img">
+        <img src="./assets/img/trash-modal-icon.svg" alt="" width="56px">
+    </div>
+    <mat-card-title class="card-title">Are you sure you want to cancel the upload?</mat-card-title>
+    <div fxLayout="column">
+        <mat-dialog-actions class="verti-button-toggle-group standard-two-choice mrtp32" color="primary">
+            <button mat-button [mat-dialog-close]="{status: true, fileIndex: data.fileIndex}">YES</button>
+            <button mat-button [mat-dialog-close]="{status: false}">NO</button>
+        </mat-dialog-actions>
+    </div>
+</div>

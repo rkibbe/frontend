@@ -1,0 +1,12 @@
+@mixin review-all-details-modal-component-deep() {
+    .verti-review-all-details-modal {
+        .reviewAllDetails .mat-list .mat-list-item .mat-list-item-content {
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+        .driver_lists {
+            height: auto !important;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+<mat-icon class="close-btn" color="primary" (click)="stayOnThePage()">clear</mat-icon>
+<mat-icon class="main-icon mrbt16" color="primary">error_outline</mat-icon>
+<h1 class="main-text mrbt16">Are you sure you want to leave this page?</h1>
+<span class="sub-text black med-emphasis mrbt40">
+    You may need to start over if you refresh or leave this page.
+</span>
+
+<button tabindex="-1" mat-stroked-button color="primary" class="verti-next-btn mrbt24" (click)="stayOnThePage()">
+    STAY ON THIS PAGE
+</button>
+<button
+    tabindex="-1"
+    mat-stroked-button
+    color="primary"
+    class="verti-next-btn mrbt40 card-bottom"
+    (click)="leaveOnThePage()"
+>
+    LEAVE THIS PAGE
+</button>

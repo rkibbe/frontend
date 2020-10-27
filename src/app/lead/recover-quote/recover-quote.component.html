@@ -1,0 +1,52 @@
+<div class="main-content">
+    <div class="inner-content" fxLayout="column">
+        <verti-page-image-title class="mrtp24" imgsource="./assets/img/Search_Icon.svg" imgwidth="80px"
+            title="Recover Your Quote"></verti-page-image-title>
+        <p class="enter-your-info-label mrbt32">ENTER YOUR INFO TO PICK-UP WHERE YOU LEFT OFF.</p>
+
+        <form [formGroup]="recoverQuoteForm" fxLayout="column">
+            <mat-form-field appearance="outline">
+                <mat-label>{{FIRST_NAME_LABEL}}</mat-label>
+                <input type="text" matInput vertiNameInput formControlName="firstName"
+                    placeholder="{{FIRST_NAME_LABEL}}" [maxlength]="30">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>{{LAST_NAME_LABEL}}</mat-label>
+                <input type="text" matInput vertiNameInput formControlName="lastName" placeholder="{{LAST_NAME_LABEL}}"
+                    [maxlength]="30">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" [class.invalid-error-txt]="hasEmailError() && showEmailError">
+                <mat-label>{{EMAIL_LABEL}}</mat-label>
+                <input type="email" matInput vertiInputMask [formatter]="emailFormatter" formControlName="email"
+                    placeholder="{{EMAIL_LABEL}}" (blur)="onEmailBlur()">
+                <mat-error *ngIf="hasEmailError() && showEmailError">This isn't an email address</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" [class.invalid-error-txt]="hasDOBError() && showDOBError">
+                <mat-label>{{DOB_LABEL}}</mat-label>
+                <input type="tel" matInput formControlName="dob" placeholder="{{DOB_LABEL}}" vertiInputMask
+                    [formatter]="dateFormatter" (blur)="onDOBBlur()">
+                <mat-error *ngIf="hasInvalidDate() && showDOBError">Please use MM/DD/YYYY for your birthdate.
+                </mat-error>
+                <mat-error *ngIf="hasDateOutOfRange() && showDOBError">Please enter your full 4 digit birth year.
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" [class.invalid-error-txt]="hasZipCodeError() && showZipCodeError">
+                <mat-label>{{ZIP_CODE_LABEL}}</mat-label>
+                <input type="tel" matInput formControlName="zipCode" placeholder="{{ZIP_CODE_LABEL}}" maxlength="5"
+                    (input)="validateZipCode($event.target.value)" (blur)="onZipCodeBlur()">
+                <mat-error *ngIf="hasZipCodeError() && showZipCodeError">This isn't a valid zip code</mat-error>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" [disabled]="!recoverQuoteForm.valid"
+                class="verti-next-btn mrtp40 after-text-input" (click)="searchQuotes()">Continue</button>
+            <!--onContinueClick()-->
+            <button mat-stroked-button color="primary" class="verti-next-btn mrtp24"
+                (click)="onStartNewQuoteClick()">Start
+                A New Quote</button>
+        </form>
+    </div>
+</div>

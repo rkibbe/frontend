@@ -1,0 +1,28 @@
+.page-image-title-contents {
+    display: flex;
+    width: 100%;
+    position: relative;
+
+    img {
+        margin: 0 auto;
+    }
+    .imgsource2 {
+        margin: 0 10px 0 auto;
+        cursor: pointer;
+        position: absolute;
+        top: 50px;
+        right: 0px;
+    }
+    .card-title {
+        .subTitle {
+            display: flex;
+            justify-content: center;
+            color: #8b1863;
+            font-size: 12.12px;
+            letter-spacing: 2px;
+            line-height: 16px;
+            text-align: center;
+            margin-top: 8px;
+        }
+    }
+}

@@ -1,0 +1,92 @@
+.discription-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img {
+        height: 48px !important;
+        width: 96px !important;
+    }
+}
+.discription {
+    // height: 24px;
+    // width: 362px;
+    color: #333333;
+    // font-family: 'Noto Sans';
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 24px;
+}
+.sub-discription {
+    // height: 40px;
+    // width: 360px;
+    color: #898a89;
+    // font-family: 'Noto Sans';
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 20px;
+    text-align: center;
+}
+.vehicle-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    span {
+        height: 40px;
+        width: 195px;
+        color: #6c6c6c;
+        // font-family: "Noto Sans";
+        font-size: 24px;
+        letter-spacing: 0;
+        line-height: 40px;
+        text-align: center;
+    }
+    small {
+        // height: 24px;
+        // width: 170px;
+        color: #adaaaa;
+        // font-family: 'Noto Sans';
+        font-size: 16px;
+        font-style: italic;
+        letter-spacing: -0.03px;
+        line-height: 24px;
+    }
+}
+.feedback-block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-sizing: border-box;
+    height: 80px;
+    width: 360px;
+    border: 1px solid #0074cc;
+    align-self: center;
+    background-color: #f4f9fe;
+    .text {
+        color: #4c4c4c;
+        font-size: 14px;
+        font-style: italic;
+        letter-spacing: 0;
+        line-height: 24px;
+    }
+    img {
+        height: 32px;
+        width: 32px;
+        transform: rotate(-180deg);
+        color: #0074c1;
+        font-family: FontAwesome;
+        font-size: 32px;
+        letter-spacing: 0;
+        line-height: 32px;
+        text-align: center;
+        padding: 8px;
+    }
+}
+.sole-label {
+    color: #4c4c4c;
+    // font-family: 'Noto Sans';
+    font-size: 16px;
+    margin-bottom: 8px;
+    letter-spacing: -0.03px;
+    line-height: 24px;
+    align-self: center;
+}

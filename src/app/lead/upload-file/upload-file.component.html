@@ -1,0 +1,56 @@
+<div class="main-content upload-doc-page">
+    <div class="inner-content">
+        <verti-page-image-title [imgsource]="imgSource" imgwidth="80px" [title]="title"></verti-page-image-title>
+        <div class="short-content">{{ short_content }}</div>
+        <mat-list>
+            <ng-template ngFor let-docPreview let-i="index" [ngForOf]="docPreviews">
+                <mat-divider></mat-divider>
+                <mat-list-item mat-ripple [matRippleUnbounded]="false" class="summary-list-item">
+                    <verti-image-description-group class="summary-list-item-main-content verti-image-description-group">
+                        <div class="image-group includable-wrapper">
+                            <img *ngIf="docPreview.file_type === 'application/pdf'" class="driver-icon" [src]="'./assets/img/doc-icon.svg'" />
+                            <img *ngIf="docPreview.file_type !== 'application/pdf'" class="driver-icon" [src]="docPreview.doc_icon.result"
+                                width="50px" />
+                        </div>
+                        <span>{{ docPreview.title }}</span>
+                        <small><span>{{ docPreview.sub_title }}</span></small>
+                    </verti-image-description-group>
+
+                    <div class="summary-list-item-end-content">
+                        <mat-icon *ngIf="uploadResponse.status !== 'progress'" (click)="openDeleteDialog(i)" class="summary-list-item-include-btn active-btn">delete_outline</mat-icon>
+                        <circle-progress *ngIf="uploadResponse.status === 'progress'" [percent]="uploadResponse.message"
+                            [radius]="10" [outerStrokeWidth]="2" [innerStrokeWidth]="2" [space]="-2" [outerStrokeColor]="'#78C000'"
+                            [innerStrokeColor]="'#dddddd'" [animation]="false" [showImage]="true" [animationDuration]="300"></circle-progress>
+                        <svg *ngIf="uploadResponse.status === 'progress'" width="30" height="30" viewBox="0 0 30 34"
+                            style="stroke: black; fill: none; position: absolute;" (click)="openCancelDialog(i)">
+                            <circle cx="15" cy="15" r="7" fill="none" stroke="#ff7f00" stroke-width="2" />
+                            <line x1="12" y1="12" x2="18" y2="18" style="stroke: #ff7f00; stroke-width: 1.5" />
+                            <line x1="18" y1="12" x2="12" y2="18" style="stroke: #ff7f00; stroke-width: 1.5" />
+                        </svg>
+                    </div>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+            </ng-template>
+        </mat-list>
+
+        <webcam [height]="0" [width]="0" *ngIf="showWebcam" [allowCameraSwitch]="allowCameraSwitch" (initError)="handleInitError($event)">
+        </webcam>
+
+        <form [formGroup]="form">
+            <div fxLayout="column">
+                <ng-template [ngIf]="docPreviews.length == 0">
+                    <input hidden type="file" name="license" #fileInput (change)="onFileChange($event)" />
+                    <button mat-stroked-button class="verti-next-btn mrtp32" color="primary" (click)="fileInput.click()">Select
+                        File</button>
+                    <button *ngIf="!isDesktopDevice && !hasCameraLoadingError" mat-stroked-button (click)="openCaptureDialog()"
+                        class="verti-next-btn mrtp24" color="primary">Take a Photo</button>
+                    <a target="_blank" *ngIf="docType === 'drive_hist_proof'" href="https://www.dmv.pa.gov/Information-Centers/Payment/Pages/Payments-and-Fees-Page.aspx"
+                        mat-stroked-button class="save-for-later-btn verti-btn mrtp24" color="primary">Request PA
+                        Driver History</a>
+                </ng-template>
+                <button type="submit" (click)="onSubmit()" *ngIf="docPreviews.length > 0" mat-raised-button class="verti-next-btn mrtp32"
+                    color="primary">Upload</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+@import '~@angular/material/theming';
+
+@mixin standard-elements-theme($theme) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+
+    a {
+        color: mat-color($accent, darker);
+    }
+}

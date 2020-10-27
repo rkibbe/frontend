@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 53.1 (72631) - https://sketchapp.com -->
+    <title>BF014246-EE0C-4D58-9AA6-50C8931E6870</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M13.2854965,3.84028971 C13.2391879,3.66595071 13.07357,3.44802695 12.9106676,3.36957439 C9.92626257,1.93176573 8.22638741,5.27586684 5.1580207,3.52102618 C5.69575197,5.53192203 6.23620293,7.54225999 6.77337631,9.55036642 C9.83895359,11.3024037 11.5416182,7.96109202 14.5226759,9.396181 C14.6888419,9.47735743 14.7787311,9.41089103 14.7324267,9.23327863 C14.2503584,7.43488111 13.7676485,5.63598149 13.2854965,3.84028971 Z M7.24858128,14.9843851 C7.00387797,15.0499531 6.74845996,14.9029316 6.68275112,14.6577029 L3.76561515,3.77080323 C3.7000471,3.52609991 3.84706863,3.2706819 4.09229735,3.20497306 C4.33700066,3.13940501 4.5960965,3.28544107 4.66180534,3.5306698 L7.57923023,14.4186477 C7.64493907,14.6638764 7.49486814,14.918422 7.24858861,14.9844124 L7.24858128,14.9843851 Z" id="path-1"></path>
+    </defs>
+    <g id="Components" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Navigation" transform="translate(-1871.000000, -384.000000)">
+            <g id="06_Navigation-/-Progress-/-QQ-/-Basic-Info-Copy-3" transform="translate(1544.000000, 373.000000)">
+                <g id="Progress-Stepper">
+                    <g id="Steps" transform="translate(76.000000, 12.000000)">
+                        <g id="Finish" transform="translate(252.000000, 0.000000)">
+                            <g>
+                                <circle id="Finish-Oval" stroke="#8B1863" fill="#8B1863" cx="12" cy="12" r="12"></circle>
+                                <g id="Vehicle-Icon" transform="translate(3.000000, 3.000000)">
+                                    <mask id="mask-2" fill="white">
+                                        <use xlink:href="#path-1"></use>
+                                    </mask>
+                                    <use id="Flag" fill="#777770" xlink:href="#path-1"></use>
+                                    <g id="Color" mask="url(#mask-2)" fill="#FFFFFF">
+                                        <rect id="Rectangle-2" x="0" y="0" width="18.18" height="18.18"></rect>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

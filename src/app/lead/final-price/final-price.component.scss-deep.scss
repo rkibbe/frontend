@@ -1,0 +1,7 @@
+@mixin final-price-component-deep() {
+    .verti-final-price {
+        .mat-button-toggle-label-content {
+            display: block;
+        }
+    }
+}

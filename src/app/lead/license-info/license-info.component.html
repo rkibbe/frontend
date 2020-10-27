@@ -1,0 +1,194 @@
+<div class="main-content">
+    <div class="inner-content">
+        <verti-page-image-title [title]="title"></verti-page-image-title>
+        <ng-container *ngIf="fieldsNoDependency.length else noStatus">
+            <form [formGroup]="form" *ngIf="form" (ngSubmit)="onSubmit()" fxLayout="column">
+                <ng-container *ngFor="let field of fieldsNoDependency">
+                    <mat-form-field appearance="outline"
+                        *ngIf="field.type==='select' && ((driver && !driver.isPNI) || (field.attribute !=='licenseStatus' && driver && driver.isPNI)) else textBx">
+                        <mat-label>{{field.label}}</mat-label>
+                        <ng-container *ngIf="field.type==='select' else textBx">
+                            <mat-select [placeholder]="field.placeholder" [formControlName]="field.attribute"
+                                [ngSwitch]="field.attribute">
+                                <ng-container *ngSwitchCase="'licenseStatus'">
+                                    <mat-option *ngFor="let status of statusOptions" [value]="status.code">
+                                        {{ status.description }}
+                                    </mat-option>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'state'">
+                                    <mat-option *ngFor="let status of stateOptions" [value]="status.code">
+                                        {{ status.description }}
+                                    </mat-option>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'licenseYears'">
+                                    <mat-option *ngFor="let status of yearOptions" [value]="status.code">
+                                        {{ status.description }}
+                                    </mat-option>
+                                </ng-container>
+                                <ng-container *ngSwitchDefault>
+                                    <mat-option *ngFor="let status of statusOptions" [value]="status.code">
+                                        {{ status.description }}
+                                    </mat-option>
+                                </ng-container>
+                            </mat-select>
+                        </ng-container>
+
+                    </mat-form-field>
+                    <ng-template #textBx>
+                        <ng-container *ngIf="field.attribute === 'licenseNum' else otherInputs">
+                            <mat-form-field appearance="outline"
+                                [class.invalid-error-txt]="showLicenseNumErrors && licenseNumControl?.hasError('licenseNumber') || licenseNumControl?.hasError('licenseNumberDuplicate')">
+                                <mat-label>{{field.label}}</mat-label>
+                                <input matInput vertiInputMask [formatter]="licenseFormatter"
+                                    [placeholder]="field.placeholder" [formControlName]="field.attribute"
+                                    (blur)="onLicenseNumBlur()" (focus)="onLicenseNumFocus()"
+                                    (input)="onLicenseNumInput()" maxlength="20">
+                                <mat-hint *ngIf="showLicenseNumErrors && licenseNumControl?.status === 'PENDING'">
+                                    Validating...
+                                </mat-hint>
+                                <mat-error *ngIf="showLicenseNumErrors && licenseNumControl?.hasError('licenseNumber')">
+                                    {{ licenseNumErrMsg }}</mat-error>
+                                <mat-error
+                                    *ngIf="showLicenseNumErrors && licenseNumControl?.hasError('licenseNumberDuplicate')">
+                                    {{ duplicateLicenseNumErrMsg }}</mat-error>
+                            </mat-form-field>
+                        </ng-container>
+                        <ng-template #otherInputs>
+                            <mat-form-field appearance="outline" *ngIf="field.attribute !=='licenseStatus'">
+                                <input matInput vertiInputMask [formatter]="licenseFormatter"
+                                    [placeholder]="field.placeholder" [formControlName]="field.attribute"
+                                    maxlength="20">
+                            </mat-form-field>
+                        </ng-template>
+                    </ng-template>
+
+                </ng-container>
+                <div [formGroup]="licenseInfoGroup" *ngIf="form.get('licenseInfoGroup')" fxLayout="column">
+                    <ng-container *ngFor="let field of fieldsDependency">
+                        <mat-form-field appearance="outline" *ngIf="field.type==='select' else textBx">
+                            <mat-label>{{field.label}}</mat-label>
+                            <ng-container *ngIf="field.type==='select' else textBx">
+                                <mat-select [placeholder]="field.placeholder" [formControlName]="field.attribute"
+                                    [ngSwitch]="field.attribute">
+                                    <ng-container *ngSwitchCase="'licenseStatus'">
+                                        <mat-option *ngFor="let status of statusOptions" [value]="status.code">
+                                            {{ status.description }}
+                                        </mat-option>
+                                    </ng-container>
+                                    <ng-container *ngSwitchCase="'state'">
+                                        <mat-option *ngFor="let status of stateOptions" [value]="status.code">
+                                            {{ status.description }}
+                                        </mat-option>
+                                    </ng-container>
+                                    <ng-container *ngSwitchCase="'licenseYears'">
+                                        <mat-option *ngFor="let status of yearOptions" [value]="status.code">
+                                            {{ status.description }}
+                                        </mat-option>
+                                    </ng-container>
+                                    <ng-container *ngSwitchDefault>
+                                        <mat-option *ngFor="let status of statusOptions" [value]="status.code">
+                                            {{ status.description }}
+                                        </mat-option>
+                                    </ng-container>
+                                </mat-select>
+                            </ng-container>
+
+                        </mat-form-field>
+                        <ng-template #textBx>
+                            <ng-container *ngIf="field.attribute === 'licenseNum' else otherInputs">
+                                <mat-form-field appearance="outline"
+                                    [class.invalid-error-txt]="showLicenseNumErrors && licenseNumControl?.hasError('licenseNumber') || licenseNumControl?.hasError('licenseNumberDuplicate')">
+                                    <mat-label>{{field.label}}</mat-label>
+                                    <input matInput vertiInputMask [formatter]="licenseFormatter"
+                                        [placeholder]="field.placeholder" [formControlName]="field.attribute"
+                                        (blur)="onLicenseNumBlur()" (focus)="onLicenseNumFocus()"
+                                        (input)="onLicenseNumInput()" maxlength="20">
+                                    <mat-hint *ngIf="showLicenseNumErrors && licenseNumControl?.status === 'PENDING'">
+                                        Validating...
+                                    </mat-hint>
+                                    <mat-error
+                                        *ngIf="showLicenseNumErrors && licenseNumControl?.hasError('licenseNumber')">
+                                        {{ licenseNumErrMsg }}</mat-error>
+                                    <mat-error
+                                        *ngIf="showLicenseNumErrors && licenseNumControl?.hasError('licenseNumberDuplicate')">
+                                        {{ duplicateLicenseNumErrMsg }}</mat-error>
+                                </mat-form-field>
+                            </ng-container>
+                            <ng-template #otherInputs>
+                                <mat-form-field appearance="outline">
+                                    <input matInput vertiInputMask [formatter]="licenseFormatter"
+                                        [placeholder]="field.placeholder" [formControlName]="field.attribute"
+                                        maxlength="20">
+                                </mat-form-field>
+                            </ng-template>
+                        </ng-template>
+
+                    </ng-container>
+                </div>
+                <button mat-raised-button class="verti-next-btn mrtp40 after-text-input" [disabled]="!form.valid"
+                    color="primary">Next</button>
+            </form>
+        </ng-container>
+        <ng-template #noStatus>
+            <form [formGroup]="licenseInfoGroup" *ngIf="licenseInfoGroup" (ngSubmit)="onSubmit()" fxLayout="column">
+                <ng-container *ngFor="let field of fieldsDependency">
+                    <mat-form-field appearance="outline" *ngIf="field.type==='select' else textBx">
+                        <mat-label>{{field.label}}</mat-label>
+                        <mat-select [placeholder]="field.placeholder" [formControlName]="field.attribute"
+                            [ngSwitch]="field.attribute">
+                            <ng-container *ngSwitchCase="'licenseStatus'">
+                                <mat-option *ngFor="let status of statusOptions" [value]="status.code">
+                                    {{ status.description }}
+                                </mat-option>
+                            </ng-container>
+                            <ng-container *ngSwitchCase="'state'">
+                                <mat-option *ngFor="let status of stateOptions" [value]="status.code">
+                                    {{ status.description }}
+                                </mat-option>
+                            </ng-container>
+                            <ng-container *ngSwitchCase="'licenseYears'">
+                                <mat-option *ngFor="let status of yearOptions" [value]="status.code">
+                                    {{ status.description }}
+                                </mat-option>
+                            </ng-container>
+                            <ng-container *ngSwitchDefault>
+                                <mat-option *ngFor="let status of statusOptions" [value]="status.code">
+                                    {{ status.description }}
+                                </mat-option>
+                            </ng-container>
+                        </mat-select>
+                    </mat-form-field>
+                    <ng-template #textBx>
+                        <ng-container *ngIf="field.attribute === 'licenseNum' else otherInputs">
+                            <mat-form-field appearance="outline"
+                                [class.invalid-error-txt]="showLicenseNumErrors && licenseNumControl?.hasError('licenseNumber') || licenseNumControl?.hasError('licenseNumberDuplicate')">
+                                <mat-label>{{field.label}}</mat-label>
+                                <input matInput vertiInputMask [formatter]="licenseFormatter"
+                                    [placeholder]="field.placeholder" [formControlName]="field.attribute"
+                                    (blur)="onLicenseNumBlur()" (focus)="onLicenseNumFocus()"
+                                    (input)="onLicenseNumInput()" maxlength="20">
+                                <mat-hint *ngIf="showLicenseNumErrors && licenseNumControl?.status === 'PENDING'">
+                                    Validating...
+                                </mat-hint>
+                                <mat-error *ngIf="showLicenseNumErrors && licenseNumControl?.hasError('licenseNumber')">
+                                    {{ licenseNumErrMsg }}</mat-error>
+                                <mat-error
+                                    *ngIf="showLicenseNumErrors && licenseNumControl?.hasError('licenseNumberDuplicate')">
+                                    {{ duplicateLicenseNumErrMsg }}</mat-error>
+                            </mat-form-field>
+                        </ng-container>
+                        <ng-template #otherInputs>
+                            <mat-form-field appearance="outline">
+                                <input matInput vertiInputMask [formatter]="licenseFormatter"
+                                    [placeholder]="field.placeholder" [formControlName]="field.attribute"
+                                    maxlength="20">
+                            </mat-form-field>
+                        </ng-template>
+                    </ng-template>
+                </ng-container>
+                <button mat-raised-button class="verti-next-btn mrtp40 after-text-input"
+                    [disabled]="!licenseInfoGroup.valid" color="primary">Next</button>
+            </form>
+        </ng-template>
+    </div>
+</div>

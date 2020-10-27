@@ -1,0 +1,21 @@
+<div class="footer-wrapper">
+    <div class="skyline_art_pittsburgh_div">
+        <div class="skyline_art_pittsburgh_main_img"></div>
+        <div class="skyline_art_pittsburgh_ext_div">
+            <div class="skyline_art_pittsburgh_ext"></div>
+        </div>
+    </div>
+    <div class="footer-content">
+        <div class="padding"></div>
+        <ul>
+            <li>
+                <a [attr.href]="'terms_link' | translate" target="_blank">{{ 'termsName' | translate }}</a>
+            </li>
+            <li class="seperator">|</li>
+            <li>
+                <a [attr.href]="'P_S_link' | translate" target="_blank">{{ 'P_S_name' | translate }}</a>
+            </li>
+        </ul>
+        <p class="copyright">&#169; {{ currentYear }} {{ 'copy_right_text' | translate }}</p>
+    </div>
+</div>

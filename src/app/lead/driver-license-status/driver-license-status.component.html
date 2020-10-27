@@ -1,0 +1,16 @@
+<!-- <verti-back-button></verti-back-button> -->
+<div class="main-content ko-question-page">
+  <div class="inner-content">
+    <verti-page-image-title [imgsource]="imgSource" imgwidth="80px" [title]="title"></verti-page-image-title>
+    <form [formGroup]="licenseStatusForm" fxLayout="column">
+
+      <mat-button-toggle-group class="verti-button-toggle-group standard-two-choice mrtp40" (click)="saveDetails()" color="primary"
+        formControlName="licenseRevoked" aria-label="Font Style">
+        <mat-button-toggle value="true">Yes</mat-button-toggle>
+        <mat-button-toggle value="false">No</mat-button-toggle>
+      </mat-button-toggle-group>
+
+    </form>
+
+  </div>
+</div>

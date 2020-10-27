@@ -1,0 +1,142 @@
+.sign_forms {
+    .para {
+        color: rgba(0, 0, 0, 0.6);
+        font-size: 14.2px;
+        letter-spacing: 0.25px;
+        line-height: 20px;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        @media only screen and (max-width: 767px) {
+            padding-left: 24px !important;
+            padding-right: 24px !important;
+        }
+    }
+
+    // mat list added
+    .mat-list.sign-forms-mat-list {
+        // margin: 0;
+        // padding: 0;
+        // width: 100%;
+        display: flex;
+        flex-direction: column;
+        /* align-items: center; */
+        margin: 16px 24px 0;
+        .mat-list-item:first-child {
+            border-top: 1px solid rgba(74, 74, 74, 0.1);
+            margin-top: 4px;
+        }
+        .mat-list-item {
+            margin: 0;
+            padding: 0px;
+            list-style: none;
+            height: auto;
+            border-bottom: 1px solid rgba(74, 74, 74, 0.1);
+            .list_inner {
+                padding: 8px 0;
+                width: 100%;
+            }
+            // .mat-list-item-content {
+            //     padding: 0;
+            // }
+            // .mat-list-title {
+            //     color: rgba(0, 0, 0, 0.87);
+            //     font-size: 14.2px;
+            //     font-weight: bold;
+            //     letter-spacing: 0.25px;
+            //     line-height: 32px;
+            // }
+            .heading_checkbox {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                margin: 0;
+                // color: rgba(0, 0, 0, 0.87);
+                // font-size: 14.2px;
+                // font-weight: bold;
+                // letter-spacing: 0.25px;
+                // line-height: 32px;
+                .link {
+                    text-transform: uppercase;
+                    color: #ff7f00;
+                    font-size: 16.19px;
+                    letter-spacing: 0.5px;
+                    line-height: 20px;
+                }
+            }
+            .mat-list-para {
+                // color: rgba(0, 0, 0, 0.87);
+                font-size: 14.2px;
+                font-weight: normal;
+                margin: 0;
+                // letter-spacing: 0.25px;
+                // line-height: 32px;
+                // display: flex;
+                // flex-direction: row;
+                // height: 66.01px;
+                // width: 438px;
+                color: rgba(0, 0, 0, 0.6);
+                letter-spacing: 0.25px;
+                line-height: 20px;
+                margin-top: 5px;
+                // .rightside {
+                //     overflow-x: hidden;
+                //     text-overflow: ellipsis;
+                //     flex-grow: 1;
+                //     flex-basis: 0;
+                //     margin-left: 8px;
+                // }
+
+                // .leftside {
+                //     overflow-x: hidden;
+                //     text-overflow: ellipsis;
+                //     flex-grow: 1;
+                //     flex-basis: 0;
+                //     display: flex;
+                //     flex-direction: row;
+
+                //     .lTitle {
+                //         overflow-x: hidden;
+                //         text-overflow: ellipsis;
+                //         max-width: 100%;
+                //         flex-shrink: 0;
+                //     }
+
+                //     .dots {
+                //         overflow-x: hidden;
+                //         flex-grow: 1;
+                //         flex-basis: auto;
+                //         margin-left: 4px;
+
+                //         &::after {
+                //             white-space: nowrap;
+                //             content: '. . . . . . . . . . . . . . . . . . . . '
+                //                 '. . . . . . . . . . . . . . . . . . . . ';
+                //         }
+                //     }
+                // }
+            }
+            .edit_link {
+                font-size: 14.2px;
+                letter-spacing: 0.25px;
+                line-height: 24px;
+                margin-top: 16px;
+            }
+            .policy-icon {
+                width: 56px;
+                max-width: 56px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: stretch;
+            }
+        }
+        .mat-list-item:last-child {
+            margin-bottom: 8px;
+            border-bottom: 0px;
+        }
+        // .mat-list-item-content {
+        //     align-items: flex-start !important;
+        // }
+    }
+}

@@ -1,0 +1,56 @@
+<div class="main-content">
+    <div class="inner-content" fxLayout="column">
+        <verti-page-image-title imgsource="assets/img/Icon_Payer.svg" imgwidth="110px" imgheight="61px" title="Are you the one paying for the insurance policy?"></verti-page-image-title>
+
+        <mat-button-toggle-group class="verti-button-toggle-group standard-two-choice" color="primary" [formControl]="payerConfirmControl">
+            <mat-button-toggle value="Y" (click)="onButtonToggleClick('Y', true)">YES</mat-button-toggle>
+            <mat-button-toggle value="N" (click)="onButtonToggleClick('N', true)">NO</mat-button-toggle>
+        </mat-button-toggle-group>
+
+        <ng-container *ngIf="showPayerForm">
+            <h2 class="who-s-paying-for-the">Who’s paying for the policy?</h2>
+            <p class="this-individual-will">
+                This individual will be provided information about balances to make future payments.
+            </p>
+            <form [formGroup]="form" (submit)="onSubmit()" fxLayout="column">
+                <mat-form-field appearance="outline">
+                    <mat-label>First name</mat-label>
+                    <input matInput placeholder="First name" [formControlName]="controlNames.firstName" vertiNameInput
+                        maxlength="30" />
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Last name</mat-label>
+                    <input matInput placeholder="Last name" [formControlName]="controlNames.lastName" vertiNameInput
+                        maxlength="30" />
+                </mat-form-field>
+
+                <verti-address-input [labelConfig]="addressLabelConfig" [placeholderConfig]="addressLabelConfig"
+                    [addressLine2]="true" [formControl]="control(controlNames.address)" [trilliumVerification]="true"
+                    [allowPOBox]="true"></verti-address-input>
+
+                <mat-form-field appearance="outline" [class.invalid-error-txt]="showEmailError">
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput vertiInputMask [formatter]="emailFormatter" placeholder="Email"
+                        [formControlName]="controlNames.email" minlength="10" maxlength="50" (blur)="onEmailBlur()" />
+                    <mat-error *ngIf="showEmailError">
+                        Please enter a valid email address
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" [class.invalid-error-txt]="showPhoneError">
+                    <mat-label>Phone number</mat-label>
+                    <input type="tel" matInput vertiInputMask [formatter]="phoneFormatter" placeholder="e.g. 555-123-4567"
+                        [formControlName]="controlNames.phone" (blur)="onPhoneBlur()" />
+                    <mat-error *ngIf="showPhoneError">
+                        It doesn't look like that is a valid phone number, want to try again?
+                    </mat-error>
+                </mat-form-field>
+
+                <button mat-raised-button color="primary" class="verti-next-btn mrtp40 after-text-input" [disabled]="!form.valid">
+                    SAVE & CONTINUE
+                </button>
+            </form>
+        </ng-container>
+    </div>
+</div>

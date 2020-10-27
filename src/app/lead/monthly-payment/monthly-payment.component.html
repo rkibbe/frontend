@@ -1,0 +1,43 @@
+<verti-discount-savings
+    class="cursorPointer"
+    [topSection]="true"
+    [savingPrice]="savingPrice"
+    (scrollToClassName)="scrollTo($event)"
+>
+</verti-discount-savings>
+<h2 class="title">Choose your payment plan.</h2>
+<h2 class="sub-title">— Our most popular payment plans —</h2>
+<div class="monthly-payment-main">
+    <ul class="monthly-card-lists"> 
+        <ng-container *ngFor="let plan of renderMediumPlans">
+            <li *ngIf="plan.displaySize === 'large' || plan.displaySize === 'medium'">
+                <verti-medium-payment
+                    [mediumPlanPayment]="plan"
+                    (selectedPlan)="doContinue($event)"
+                ></verti-medium-payment>
+            </li>
+        </ng-container>
+    </ul>
+    <h2 class="sub-title mrtp24" *ngIf="additionalFlag">— Additional payment plans to consider —</h2>
+    <ul class="monthly-card-lists"> 
+        <ng-container *ngFor="let plan of renderSmallPlans">
+            <li *ngIf="plan.displaySize === 'small'; else mediumplan">
+                <verti-small-payment [smallPlanPayment]="plan" (smallPayment)="toggleOption($event)">
+                </verti-small-payment>
+            </li>
+            <ng-template #mediumplan>
+                <li>
+                    <verti-medium-payment
+                        [mediumPlanPayment]="plan"
+                        (selectedPlan)="doContinue($event)"
+                    ></verti-medium-payment>
+                </li>
+            </ng-template>
+        </ng-container>
+    </ul>
+</div>
+<verti-discount-savings
+    [topSection]="false"
+    [savingPrice]="savingPrice"
+    class="goToDiscountSavings"
+></verti-discount-savings>

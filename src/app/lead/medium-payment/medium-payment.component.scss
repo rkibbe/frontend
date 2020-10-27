@@ -1,0 +1,55 @@
+.medium-payment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.link {
+    text-decoration: none;
+    color: #ff7f00;
+    font-size: 14px;
+    letter-spacing: 1.25px;
+    line-height: 16px;
+    text-align: center;
+    font-weight: 500;
+}
+.estimates {
+    // color: #64a33d;
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 12.12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    line-height: 16px;
+    text-align: center;
+    margin: 8px 0 8px 0;
+    height: 32px;
+}
+.verti-big-price {
+    font-size: 30px;
+}
+.title {
+    color: #8b1863;
+    font-size: 24px;
+    font-weight: normal;
+    letter-spacing: -0.2px;
+    line-height: 28px;
+    text-align: center;
+    margin: 8px 0 4px;
+}
+.verti-dotted-list-item {
+    width: 100%;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 14.2px;
+    letter-spacing: 0.25px;
+    line-height: 28px;
+}
+.paymentBold {
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.87);
+}
+.your-payment-schedul {
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 16.19px;
+    letter-spacing: 0.5px;
+    line-height: 28px;
+    margin: 0;
+}

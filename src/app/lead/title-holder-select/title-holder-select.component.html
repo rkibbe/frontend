@@ -1,0 +1,19 @@
+<div class="main-content">
+    <div class="inner-content" fxLayout='column'>
+        <verti-page-image-title imgsource="assets/img/Icon_Title.svg" imgwidth="62px" imgheight="84px" title="Who holds the vehicle's title?"></verti-page-image-title>
+        
+        <verti-image-description-group class="image-description-group mrbt32">
+            <div class="image-group">
+                <img class="vehicle-icon" [src]="vehicleIconUri">
+            </div>
+            <span> {{vehicle?.year}} {{vehicle?.make}} </span>
+            <small *ngIf="vehicle?.isADPF">{{vehicle?.model}}, {{vehicle?.vinPrefix}}</small>
+        </verti-image-description-group>
+        
+        <mat-button-toggle-group [formControl]="selectControl" class="verti-button-toggle-group-list standard-multi-choice">
+            <mat-button-toggle *ngFor="let titleHolder of titleHolderOptions" [value]="titleHolder.type" (click)="onButtonToggleClick(titleHolder.type)">
+                {{titleHolder.name}}
+            </mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+</div>

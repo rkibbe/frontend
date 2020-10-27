@@ -1,0 +1,18 @@
+diff a/frontend/src/app/lead/last-time-car-insurance/last-time-car-insurance.component.spec.ts b/frontend/src/app/lead/last-time-car-insurance/last-time-car-insurance.component.spec.ts	(rejected hunks)
+@@ -10,7 +10,6 @@
+ import { VertiMaterialModule } from '@shared/verti-material.module';
+ import { Store } from '@ngrx/store';
+ import { By } from '@angular/platform-browser';
+-import { TranslateModule } from '@ngx-translate/core';
+ 
+ describe('LastTimeCarInsuranceComponent', () => {
+     let component: LastTimeCarInsuranceComponent;
+@@ -94,7 +93,7 @@
+         beforeEach(async(() => {
+             TestBed.configureTestingModule({
+                 declarations: [LastTimeCarInsuranceComponent, PageImageTitleComponent, TellUsBitMoreComponent],
+-                imports: [BrowserAnimationsModule,TranslateModule.forRoot(), FormsModule, ReactiveFormsModule, VertiMaterialModule],
++                imports: [BrowserAnimationsModule, FormsModule, ReactiveFormsModule, VertiMaterialModule],
+                 providers: [{ provide: Store, useValue: mockedStore }]
+             }).compileComponents();
+         }));

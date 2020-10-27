@@ -1,0 +1,15 @@
+<div class="main-content">
+    <div class="inner-content" fxLayout="column">
+        <svg-icon class="custom-svg-color title-icon" [src]="driverIcon" [svgStyle]="{ 'width.px': 80, 'height.px': 80}"></svg-icon>
+        <mat-card-title class="card-title">How is {{ driver?.firstName }} {{ driver?.lastName }} related to you?</mat-card-title>
+
+        <form [formGroup]="form" *ngIf="relationshipOptions?.length" fxLayout="column">
+            <mat-button-toggle-group class="verti-button-toggle-group-list standard-multi-choice" formControlName="relationship">
+                <mat-button-toggle *ngFor="let option of relationshipOptions" (click)="onButtonToggleClick(option)"
+                    [value]="option.code">
+                    {{ option.description }}
+                </mat-button-toggle>
+            </mat-button-toggle-group>
+        </form>
+    </div>
+</div>

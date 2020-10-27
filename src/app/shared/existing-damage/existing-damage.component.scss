@@ -1,0 +1,55 @@
+:host {
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    max-width: 360px;
+    width: 100%;
+    .existing-damage-container {
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        @media screen and (max-width: 375px) {
+            max-width: 300px;
+        }
+        .fixed-content {
+            display: inline-flex;
+            justify-content: flex-end;
+            cursor: pointer;
+        }
+        .imgSource {
+            width: 20px;
+            height: 54px;
+            margin: 0 auto 20px;
+        }
+        .title-txt {
+            margin: 0;
+            margin-bottom: 16px;
+            color: #8b1863;
+            font-size: 24px;
+            letter-spacing: 0.16px;
+            line-height: 32px;
+            text-align: center;
+            font-weight: normal;
+        }
+        .common-examples {
+            color: rgba(0, 0, 0, 0.6);
+            font-size: 18.2px;
+            letter-spacing: 0.32px;
+            line-height: 24px;
+            margin: 0 0 10px;
+            font-weight: 450;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+        ul > li {
+            color: rgba(0, 0, 0, 0.6);
+            font-size: 14.2px;
+            letter-spacing: 0.25px;
+            line-height: 20px;
+            margin-left: 40px;
+            padding-bottom: 5px;
+        }
+    }
+}

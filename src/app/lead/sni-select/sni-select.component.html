@@ -1,0 +1,15 @@
+<div class="main-content">
+    <form [formGroup]="sniForm">
+        <div class="inner-content" fxLayout="column">
+            <verti-page-image-title imgsource="assets/img/Shake_Icon.svg" imgwidth="103px" imgheight="80px" title="Should someone else be allowed to modify the insurance policy?"></verti-page-image-title>
+            <p class="subtitle-txt">THE "SECOND NAMED INSURED" HAS FULL CONTROL TO UPDATE AND MODIFY THE INSURANCE
+                POLICY.</p>
+            <mat-button-toggle-group class="verti-button-toggle-group-list standard-multi-choice" formControlName="driverID">
+                <mat-button-toggle [value]="NEGATIVE_RESPONSE" (click)="onButtonToggleClick(NEGATIVE_RESPONSE)">No</mat-button-toggle>
+                <mat-button-toggle *ngFor="let driver of drivers" [value]="driver.driverID" (click)="onButtonToggleClick(driver.driverID)">
+                    {{driver.firstName}} {{driver.lastName}}
+                </mat-button-toggle>
+            </mat-button-toggle-group>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,51 @@
+<div class="main-content ko-question-page">
+    <div class="inner-content doc-verify-wrapper">
+        <verti-page-image-title imgsource="assets/img/doc-verify.svg" imgwidth="80px" title="Visual verification"></verti-page-image-title>
+        <div class="short-content">We need to see an unobstructed visual of the following documents for verification by
+            one of our agents. Good photos matter.</div>
+        <div class="suggestion-content">Upload documents as .PNG .JPG or .PDF files</div>
+
+        <mat-list>
+            <ng-template ngFor let-verifyDoc let-i="index" [ngForOf]="verifyDocs">
+                <mat-divider></mat-divider>
+                <mat-list-item mat-ripple [matRippleUnbounded]="false" class="summary-list-item">
+
+                    <verti-image-description-group class="summary-list-item-main-content verti-image-description-group">
+                        <div class="image-group includable-wrapper">
+                            <img *ngIf="!verifyDoc.uploadStatus" class="driver-icon" [src]="verifyDoc.doc_icon" />
+                            <!-- <img *ngIf="verifyDoc.uploadStatus" class="driver-icon" [src]="verifyDoc.base64code" width="50px" /> -->
+                            <ng-container *ngIf="verifyDoc.fileType !== 'data:application/pdf' else showIcon">
+                                <img *ngIf="verifyDoc.uploadStatus" class="driver-icon" [src]="verifyDoc.preview" width="50px" />
+                            </ng-container>
+                            <ng-template #showIcon>
+                                <img *ngIf="verifyDoc.uploadStatus" class="driver-icon" [src]="'./assets/img/doc-icon.svg'" />
+                            </ng-template>
+                        </div>
+                        <span>{{ verifyDoc.docName }}</span>
+                        <small><span>{{ verifyDoc.displayText }}</span></small>
+                    </verti-image-description-group>
+
+                    <div class="summary-list-item-end-content">
+                        <ng-container *ngIf="verifyDoc.docTypeId==='drive_hist_proof' || verifyDoc.docTypeId==='dl_picture' else noUpload">
+                            <mat-icon *ngIf="!verifyDoc.uploadStatus" class="summary-list-item-include-btn active-btn"
+                                (click)="navigateToFileUpload(+i + 1)">cloud_upload_outline</mat-icon>
+                        </ng-container>
+                        <ng-template #noUpload>
+                            <mat-icon *ngIf="!verifyDoc.uploadStatus" class="summary-list-item-include-btn active-btn"
+                                (click)="callToFinish()">cloud_upload_outline</mat-icon>
+                        </ng-template>
+                        <mat-icon *ngIf="verifyDoc.uploadStatus" class="summary-list-item-include-btn active-btn"
+                            (click)="navigateToFileUpload(+i + 1)">create</mat-icon>
+                    </div>
+                </mat-list-item>
+            </ng-template>
+            <mat-divider></mat-divider>
+        </mat-list>
+
+        <div fxLayout="column">
+            <button mat-raised-button (click)="openSentDialog()" class="verti-next-btn mrtp40" [disabled]="!continueToNext"
+                color="primary">Next</button>
+            <!-- <button mat-stroked-button class="verti-next-btn mrtp24" color="primary">Save for Later</button> -->
+        </div>
+    </div>
+</div>

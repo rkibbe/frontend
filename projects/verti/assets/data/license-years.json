@@ -1,0 +1,30 @@
+[
+    {
+        "code": "LessThan6Months",
+        "description": "Less than 6 months"
+    },
+    {
+        "code": "6MonthsToLessThan1Year",
+        "description": "6 months to less than 1 year"
+    },
+    {
+        "code": "1ToLessThan2Years",
+        "description": "1 to less than 2 years"
+    },
+    {
+        "code": "2ToLessThan3Years",
+        "description": "2 to less than 3 years"
+    },
+    {
+        "code": "3ToLessThan4Years",
+        "description": "3 to less than 4 years"
+    },
+    {
+        "code": "4ToLessThan5Years",
+        "description": "4 to less than 5 years"
+    },
+    {
+        "code": "5PlusYears",
+        "description": "5+ years"
+    }
+]

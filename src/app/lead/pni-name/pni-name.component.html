@@ -1,0 +1,16 @@
+<div class="main-content">
+    <div class="inner-content">
+        <verti-page-image-title
+            class="split-sentences"
+            [imgsource]="imgSource"
+            imgheight="80px"
+            imgwidth="106px"
+            title="screenTitle.pni"
+        ></verti-page-image-title>
+        <verti-user-form
+            [formGroup]="profileForm"
+            (formGroupValue)="saveDetails($event)"
+            [disableInput]="disableInput"
+        ></verti-user-form>
+    </div>
+</div>

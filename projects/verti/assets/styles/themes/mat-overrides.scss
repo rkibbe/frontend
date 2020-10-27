@@ -1,0 +1,32 @@
+@import './common-theme-helpers.scss';
+
+@mixin mat-overrides($theme) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $foreground: map-get($theme, foreground);
+
+    .mat-select-panel {
+        .mat-option {
+            &.mat-selected:not(.mat-option-multiple) {
+                background-color: rgba(mat-color($primary), 0.12);
+                color: mat-color($foreground, text);
+            }
+        }
+    }
+
+    .mat-option {
+        &:focus:not(.mat-option-disabled),
+        &:hover:not(.mat-option-disabled),
+        &.mat-active {
+            background: rgba(mat-color($primary), 0.12);
+        }
+
+        .mat-ripple-element {
+            background: rgba(mat-color($primary), 0.12);
+        }
+
+        &.google-predictions.zero-results {
+            color: mat-color($primary, darker);
+        }
+    }
+}

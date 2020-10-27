@@ -1,0 +1,10 @@
+<div class="koQuestionsList">
+    <mat-card-title *ngIf="koTitleData" class="card-title">{{koTitleData}}</mat-card-title>
+    <mat-card-subtitle *ngIf="koSubTitleData" class="card-sub-header" [class.no-data]="!koListTitleData && !koListData">{{koSubTitleData}}</mat-card-subtitle>
+    <div class="list-content" *ngIf="koListTitleData || koListData">
+        <p class="ko-list-title" *ngIf="koListTitleData">{{koListTitleData}}</p>
+        <ul *ngIf="koListData">
+            <li *ngFor="let item of koListData">{{item}}</li>
+        </ul>
+    </div>
+</div>

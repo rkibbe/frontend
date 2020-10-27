@@ -1,0 +1,17 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.image-description-group {
+    align-self: center;
+    width: 100%;
+    max-width: 300px;
+}
+
+.image-group {
+    position: relative;
+    top: 3px;
+    margin-right: 16px;
+}

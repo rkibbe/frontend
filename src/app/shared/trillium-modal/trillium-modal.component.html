@@ -1,0 +1,38 @@
+<div class="top-content" fxLayout="column">
+    <img src="assets/img/Icon_address.svg" />
+    <p class="modal-title">Select an address to use.</p>
+    <p *ngIf="invalidAddress" class="subtitle2-txt">
+        The address you entered appears to be undeliverable by the U.S. Postal Service.
+    </p>
+    <p *ngIf="partialAddress" class="subtitle2-txt">
+        The U.S. Postal Service doesn’t recognize the address you entered.
+    </p>
+</div>
+
+<ul class="mrbt32">
+    <ng-container *ngIf="partialAddress">
+        <li mat-ripple [matRippleUnbounded]="false" class="verti-clickable" (click)="updateAddress()">
+            <h3>USPS Suggests:</h3>
+            <p class="address-txt">{{uspsSuggestion}}</p>
+            <span class="use-address-label">USE THIS ADDRESS</span>
+        </li>
+        <li mat-ripple [matRippleUnbounded]="false" class="verti-clickable" (click)="useEnteredAddress()">
+            <h3>You entered:</h3>
+            <p class="address-txt">{{userEntered}}</p>
+            <span class="use-address-label">USE THIS ADDRESS</span>
+        </li>
+    </ng-container>
+    <ng-container *ngIf="invalidAddress">
+        <li mat-ripple [matRippleUnbounded]="false" class="verti-clickable" (click)="useEnteredAddress()">
+            <h3>Address not recognized</h3>
+            <p class="address-txt">{{userEntered}}</p>
+            <span class="use-address-label">KEEP THIS ADDRESS</span>
+        </li>
+    </ng-container>
+</ul>
+
+
+<button *ngIf="invalidAddress" tabindex="-1" mat-stroked-button color="primary" class="verti-btn update-address-btn mrbt32"
+    (click)="onClose()">
+    UPDATE MY ADDRESS
+</button>

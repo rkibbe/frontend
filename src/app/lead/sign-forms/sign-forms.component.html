@@ -1,0 +1,54 @@
+<div class="main-content purple-theme">
+  <div class="inner-content">
+    <verti-page-image-title [imgsource]="imgSource" [title]="title" imgheight="80px" imgwidth="80px"></verti-page-image-title>
+
+    <div class="sign_forms">
+      <ng-container *ngIf="!areFormsSigned; else signedTerms">
+
+        <p class="para">Please review the documents below. By clicking "Accept & Sign Forms" you're agreeing to the
+          terms
+          stated. These documents are binding.</p>
+      </ng-container>
+      <ng-template #signedTerms>
+        <p class="para">Please review the documents below. By clicking "Accept & Sign Forms" you're agreeing [✓] to the
+          terms stated. These
+          documents are binding.</p>
+      </ng-template>
+      <form [formGroup]="signFormGroup" (ngSubmit)="saveDetails()">
+        <mat-list class="sign-forms-mat-list">
+          <ng-template ngFor let-signForm [ngForOf]="signFormsData">
+            <mat-list-item>
+              <div class="list_inner">
+                <p class="heading_checkbox">
+                  <span class="link">
+                    <!-- <a href="javascript:void(0)" target="_blank">{{signForm.formName}}</a> -->
+                    <a href="javascript:void(0)" (click)="openPDF(signForm.documentID, signForm.name)">{{signForm.name}}</a>
+                  </span>
+                  <span>
+                    <!-- <input type="checkbox" name="signForm.formName" value="signForm.value" [formControlName]="signForm.formId"> -->
+                    <!-- <mat-checkbox (change)="toggle(signForm.formNumber)" name={{signForm.name}} [formControlName]="signForm.formNumber"
+                      value={{signForm.formValue}}></mat-checkbox> -->
+                    <mat-checkbox (change)="toggle(signForm.formNumber)" name={{signForm.name}} [formControlName]="signForm.formNumber"
+                      [disabled]="areFormsSigned"></mat-checkbox>
+                  </span>
+                </p>
+                <p class="mat-list-para">{{signForm.description}}</p>
+              </div>
+            </mat-list-item>
+          </ng-template>
+
+        </mat-list>
+        <div fxLayout="column">
+          <!-- <button mat-raised-button class="verti-next-btn mrtp40" [disabled]="!signFormGroup.invalid" color="primary">Accept -->
+          <ng-container *ngIf="!areFormsSigned; else signed;">
+            <button mat-raised-button class="verti-next-btn mrtp40" [disabled]="signFormGroup.invalid" color="primary">Accept
+              & Sign Forms</button>
+          </ng-container>
+          <ng-template #signed>
+            <button mat-raised-button class="verti-next-btn mrtp40" [disabled]="signFormGroup.invalid" color="primary">NEXT</button>
+          </ng-template>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<!-- <verti-back-button></verti-back-button> -->
+<div class="main-content" fxLayout="column">
+    <div class="inner-content product-not-found mrtp40">
+        <verti-page-image-title [imgsource]="imgSource" imgwidth="80px" [title]="title"></verti-page-image-title>
+        <p class="sub-text m-top-0">
+            We're still growing, and aren’t everywhere just yet. But if all goes to plan, we’ll be in your area soon.
+        </p>
+
+        <h3 class="card-sub-title">Enter your email to get notified as we expand our service area.</h3>
+
+        <form [formGroup]="noProductsFoundForm" (ngSubmit)="getUpdates()" fxLayout="column">
+            <mat-form-field
+                class="example-full-width"
+                [ngClass]="{ 'invalid-error-txt': invalidEmail }"
+                appearance="outline"
+            >
+                <mat-label>Email</mat-label>
+                <input
+                    type="email"
+                    matInput
+                    placeholder="Email"
+                    formControlName="primaryEmailAddress"
+                    (blur)="onEmailBlur()"
+                    (input)="validateEmail('primaryEmailAddress')"
+                    minlength="10"
+                    maxlength="50"
+                />
+                <mat-error *ngIf="invalidEmail">
+                    Please enter a valid email address
+                </mat-error>
+            </mat-form-field>
+
+            <button
+                mat-raised-button
+                class="verti-next-btn mrtp40 after-text-input"
+                [disabled]="!noProductsFoundForm.valid"
+                color="primary"
+            >
+                GET UPDATES
+            </button>
+            <a class="back-to-home" href="https://www.verti.com">Back to homepage</a>
+        </form>
+    </div>
+</div>

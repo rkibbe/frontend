@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 53.1 (72631) - https://sketchapp.com -->
+    <title>70A42AEA-68B6-47BC-A7DF-51DCA5DB4C7D</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M19,11 L7.83,11 L12.71,6.12 C13.1,5.73 13.1,5.09 12.71,4.7 C12.32,4.31 11.69,4.31 11.3,4.7 L4.71,11.29 C4.32,11.68 4.32,12.31 4.71,12.7 L11.3,19.29 C11.69,19.68 12.32,19.68 12.71,19.29 C13.1,18.9 13.1,18.27 12.71,17.88 L7.83,13 L19,13 C19.55,13 20,12.55 20,12 C20,11.45 19.55,11 19,11 Z" id="path-1"></path>
+    </defs>
+    <g id="Components" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Navigation" transform="translate(-1564.000000, -389.000000)">
+            <g id="06_Navigation-/-Progress-/-QQ-/-Basic-Info-Copy-3" transform="translate(1544.000000, 373.000000)">
+                <g id="Progress-Stepper">
+                    <g id="04_Icons-/-24px-/-Back-/-Rounded" transform="translate(16.000000, 12.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="Path" fill="#000000" fill-rule="nonzero" xlink:href="#path-1"></use>
+                        <g id="00_Basics-/-Colors-/-Gray-/-700" mask="url(#mask-2)" fill="#8B1863">
+                            <rect id="Rectangle-2" x="0" y="0" width="24.24" height="24.24"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

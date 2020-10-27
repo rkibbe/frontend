@@ -1,0 +1,38 @@
+<div class="walmeric-header">
+    <div href="#" class="vertilogo">
+        <img src="./assets/img/Verti_Logo_Alt_MEedit_FPO.svg" alt="Verti" />
+    </div>
+    <div class="right-section">
+        <mat-icon color="primary" (click)="onIconClick('icon')">close</mat-icon>
+    </div>
+</div>
+
+<div class="card-container">
+    <mat-card-title class="card-title"> Give us a call,<br />we're here to help. </mat-card-title>
+    <mat-card-subtitle class="card-subtitle text-center">
+        It's easy. With the magic of the internet your data will travel with you.
+    </mat-card-subtitle>
+
+    <div fxLayout="row wrap" fxLayoutAlign="center center" class="call-now-button-wrapper mrbt32">
+        <!-- <button mat-raised-button class="verti-next-btn" color="primary">
+            Call Verti now<br><a class="drp-phone" href="tel:1-215-608-1547">1-215-608-1547</a>
+        </button> -->
+        <!-- <a mat-raised-button color="primary" class="verti-next-btn" href="tel:1-267-310-3021">
+            <span>Call Verti now</span><br />
+            <span>1-267-310-3021</span>
+        </a> -->
+        <h3 class="call-verti-now-btn">
+            Call Verti now:
+            <a class="card-pnum" color="primary" [attr.href]="'tel:' + contactNumber">
+                {{ contactNumber }}
+            </a>
+        </h3>
+    </div>
+    <!-- 
+    <span class="call-verti">Or leave your phone number and we will call you back:</span>
+
+    <form id="walmeric-dialog-modal-form">
+        <input class="walmeric-input" type="text" name="phone" minlength="10" maxlength="10" placeholder="Your phone number" />
+        <button mat-stroked-button class="verti-btn callme-btn" type="submit" color="primary">CALL ME</button>
+    </form> -->
+</div>

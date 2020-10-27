@@ -1,0 +1,73 @@
+<div class="summary-container">
+    <div class="inner-content" fxLayout="column">
+        <verti-page-image-title [title]="title"></verti-page-image-title>
+        <p class="subtitle-txt">All drivers in your household need to be included.</p>
+
+        <mat-list>
+            <ng-template ngFor let-driver [ngForOf]="driverData" [ngForTrackBy]="trackByFn">
+                <mat-divider></mat-divider>
+                <mat-list-item (click)="isClickable(driver) && handleClick(driver)" mat-ripple
+                    [matRippleDisabled]="!isClickable(driver)" [matRippleUnbounded]="false" class="summary-list-item"
+                    [ngClass]="{
+                        'summary-list-item-not-included': !driver.isIncluded,
+                        'verti-clickable': isClickable(driver)
+                    }">
+                    <verti-image-description-group class="summary-list-item-main-content">
+                        <div class="image-group includable-wrapper">
+                            <mat-icon *ngIf="driver.isIncluded" class="right-mark">check_circle</mat-icon>
+                            <img class="driver-icon" [src]="driver.genderImg" />
+                        </div>
+                        <span> {{ driver.firstName }} {{ driver.lastName }} </span>
+                        <small>
+                            <span *ngIf="driver.age">{{ driver.age }} year old </span>
+                            <span *ngIf="driver.genderCode">{{ driver.genderCode }}</span>
+                        </small>
+                    </verti-image-description-group>
+
+                    <ng-container *ngIf="driver.isPNI; else nonPolicyHolder">
+                        <a class="pni-holder" href="javascript:void(0);">You</a>
+                    </ng-container>
+
+                    <ng-template #nonPolicyHolder>
+                        <div class="summary-list-item-end-content">
+                            <ng-container *ngIf="driver.isIncluded; else notIncluded">
+                                <mat-icon class="summary-list-item-edit-btn" (click)="editDriver($event, driver)">edit
+                                </mat-icon>
+                                <mat-icon class="summary-list-item-remove-btn">close</mat-icon>
+                            </ng-container>
+                            <ng-template #notIncluded>
+                                <mat-icon class="summary-list-item-include-btn" [class.max-limit]="maxDriverLimit">
+                                    add_circle_outline</mat-icon>
+                            </ng-template>
+                        </div>
+                    </ng-template>
+                </mat-list-item>
+            </ng-template>
+
+            <mat-divider></mat-divider>
+
+            <mat-list-item class="summary-list-item-add-btn" [class.verti-clickable]="!maxDriverLimit" mat-ripple
+                [matRippleDisabled]="maxDriverLimit" [matRippleUnbounded]="false"
+                (click)="!maxDriverLimit && addDriver()">
+                <span fxLayout="row">
+                    Add a driver
+                    <mat-icon>add_circle_outline</mat-icon>
+                </span>
+            </mat-list-item>
+
+            <mat-divider></mat-divider>
+        </mat-list>
+        <p *ngIf="maxDriverLimit" class="summary-list-limit-msg">
+            We allow a maximum of 4 drivers per quote online. Please call us at
+            <a color="primary" [attr.href]="'tel:' + contactNumber">
+                {{ contactNumber }}
+            </a>
+            if you need to add more.
+        </p>
+
+        <button mat-raised-button *ngIf="driverData && driverData.length" class="verti-next-btn mrtp40"
+            (click)="saveDetails()" color="primary">
+            NEXT
+        </button>
+    </div>
+</div>

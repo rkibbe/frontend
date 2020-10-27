@@ -1,0 +1,8 @@
+@mixin price-change-component-deep() {
+    .verti-price-change {
+        .card-title,
+        .mat-card-subtitle {
+            margin: 0px 0 10px !important;
+        }
+    }
+}

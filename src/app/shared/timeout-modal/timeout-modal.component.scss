@@ -1,0 +1,35 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 280px;
+
+    h1 {
+        //  color: #006580;
+        font-size: 24px;
+        letter-spacing: 0.16px;
+        margin: 8px 0 0;
+        text-align: center;
+    }
+    .timeout-img {
+        width: 100%;
+        max-width: 11em;
+        margin: 2.5em auto 3.5em;
+    }
+
+    .card-sub-title {
+        color: rgba(0, 0, 0, 0.6);
+        font-size: 14.2px;
+        letter-spacing: 0.25px;
+        line-height: 20px;
+        text-align: center;
+        margin: 0;
+        width: 100%;
+    }
+
+    #try-again-btn {
+        margin-bottom: 26px;
+        width: 100%;
+        max-width: 220px;
+    }
+}

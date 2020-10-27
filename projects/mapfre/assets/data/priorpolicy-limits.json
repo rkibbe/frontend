@@ -1,0 +1,46 @@
+[
+    {
+        "code": "15000_30000",
+        "description": "$15000/$30000"
+    },
+    {
+        "code": "25000_50000",
+        "description": "$25000/$50000"
+    },
+    {
+        "code": "50000_100000",
+        "description": "$50000/$100000"
+    },
+    {
+        "code": "100000_300000",
+        "description": "$100000/$300000"
+    },
+    {
+        "code": "250000_500000",
+        "description": "$250000/$500000"
+    },
+    {
+        "code": "morethan250000_500000",
+        "description": ">$250000/$500000"
+    },
+    {
+        "code": "35csl",
+        "description": "35 CSL"
+    },
+    {
+        "code": "50csl",
+        "description": "50 CSL"
+    },
+    {
+        "code": "100csl",
+        "description": "100 CSL"
+    },
+    {
+        "code": "morethan100csl",
+        "description": ">100 CSL"
+    },
+    {
+        "code": "dontknow",
+        "description": "I don't know"
+    }
+]

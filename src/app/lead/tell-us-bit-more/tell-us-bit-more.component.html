@@ -1,0 +1,33 @@
+<div fxLayout="column">
+    <div class="title-contents mrbt32">
+        <mat-card-title class="card-title">
+            {{ title }}
+        </mat-card-title>
+        <span class="help_icon">
+            <img [src]="imgSource2" />
+        </span>
+    </div>
+
+    <form [formGroup]="form" *ngIf="form" (ngSubmit)="onSubmit()" fxLayout="column">
+        <mat-form-field appearance="outline">
+            <mat-label>Time covered by insurer</mat-label>
+            <mat-select placeholder="Select" formControlName="yearsInsured">
+                <mat-option *ngFor="let yearsInsure of yearsInsuredOptions" [value]="yearsInsure">
+                    {{ yearsInsure.description }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Bodily injury coverage</mat-label>
+            <mat-select placeholder="Select" formControlName="bILimits">
+                <mat-option *ngFor="let priorPolicy of priorPolicyLimitsOptions" [value]="priorPolicy">
+                    {{ priorPolicy.description }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button mat-raised-button class="verti-next-btn mrtp40 after-text-input" [disabled]="!form.valid"
+            color="primary">
+            Next
+        </button>
+    </form>
+</div>

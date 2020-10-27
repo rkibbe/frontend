@@ -1,0 +1,14 @@
+[
+    {
+        "code": "ineverhadalapse",
+        "description": "I never had a lapse"
+    },
+    {
+        "code": "morethan30daysago",
+        "description": "More than 30 days ago"
+    },
+    {
+        "code": "withinthelast30days",
+        "description": "Within the last 30 days"
+    }
+]

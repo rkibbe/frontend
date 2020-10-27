@@ -1,0 +1,101 @@
+<div class="summary-container">
+    <div class="inner-content" fxLayout="column">
+        <verti-page-image-title [imgsource]="imgSource" imgheight="81px" imgwidth="151px" [title]="title">
+        </verti-page-image-title>
+        <!-- <ng-container *ngIf="isCTAEnabled">
+            <div>Get a more accurate price by entering you VIN</div>
+        </ng-container> -->
+        <mat-list class="mrtp24" *ngIf="VINData.length">
+            <form [formGroup]="profileForm">
+                <ng-template ngFor let-vehicle [ngForOf]="VINData">
+                    <mat-list-item matRippleDisabled class="summary-list-item">
+                        <div class="vin-list-items-wrapper" fxFlex="1 1 auto" fxLayout="column">
+                            <verti-image-description-group class="summary-list-item-main-content vin-list-info-wrapper">
+                                <div class="image-group">
+                                    <ng-container *ngIf="vehicle.iconExisted; else noIcon">
+                                        <img class="vehicle-icon" src="./assets/img/{{ vehicle.bodyStyleCode }}.svg" />
+                                    </ng-container>
+                                    <ng-template #noIcon>
+                                        <img class="vehicle-icon" src="./assets/img/SD.svg" />
+                                    </ng-template>
+                                </div>
+                                <small
+                                    >{{ vehicle.year }} {{ vehicle.make }} {{ vehicle.model }},
+                                    {{ vehicle.trim }}</small
+                                >
+                            </verti-image-description-group>
+
+                            <mat-form-field
+                                appearance="outline"
+                                [class.invalid-error-txt]="
+                                    isInvalidVin(vehicle.vehicleID) ||
+                                    isRepeatedVin(vehicle.vehicleID) ||
+                                    isCompleteVin(vehicle.vehicleID) ||
+                                    isInvalidVinRes(vehicle.vehicleID)
+                                "
+                            >
+                                <mat-label *ngIf="isCTAEnabled">VIN (Optional)</mat-label>
+                                <mat-label *ngIf="!isCTAEnabled">VIN</mat-label>
+                                <!-- <ng-container *ngIf="isCTAEnabled; else mandatory">
+                                    <input matInput vertiVinInput placeholder="Optional"
+                                        [formControlName]="vehicle.vehicleID" [maxlength]="17"
+                                        (input)="enteredVINInput(vehicle.vehicleID)">
+                                </ng-container>
+                                <ng-template #mandatory>
+                                    <input matInput vertiVinInput placeholder="VIN"
+                                        [formControlName]="vehicle.vehicleID" [maxlength]="17"
+                                        (input)="enteredVINInput(vehicle.vehicleID)">
+                                </ng-template> -->
+                                <input
+                                    matInput
+                                    vertiVinInput
+                                    [placeholder]="placeHolder"
+                                    [formControlName]="vehicle.vehicleID"
+                                    [maxlength]="17"
+                                    (input)="enteredVINInput(vehicle.vehicleID)"
+                                />
+                                <mat-icon
+                                    matSuffix
+                                    *ngIf="isValidVin(vehicle.vehicleID) && !vehicle.isStubbedVin"
+                                    class="
+                                    right-mark"
+                                    >check_circle</mat-icon
+                                >
+                                <mat-error *ngIf="isCompleteVin(vehicle.vehicleID)">
+                                    You're missing {{ 17 - profileForm.controls[vehicle.vehicleID].value?.length }}
+                                    characters
+                                </mat-error>
+                                <mat-error *ngIf="isRepeatedVin(vehicle.vehicleID)">
+                                    This VIN is already listed
+                                </mat-error>
+                                <mat-error *ngIf="isInvalidVin(vehicle.vehicleID)"> This VIN is invalid </mat-error
+                                ><mat-error *ngIf="isInvalidVinRes(vehicle.vehicleID)">
+                                    Sorry, unable to get VIN details please try again.
+                                </mat-error>
+                                <mat-hint class="hint-text" *ngIf="showHint(vehicle.vehicleID)">
+                                    <span
+                                        >{{ profileForm.controls[vehicle.vehicleID].value?.length }} of 17
+                                        characters</span
+                                    >
+                                </mat-hint>
+                            </mat-form-field>
+                        </div>
+                    </mat-list-item>
+                </ng-template>
+            </form>
+        </mat-list>
+        <button
+            mat-raised-button
+            class="verti-next-btn mrtp40"
+            [disabled]="!isCTAEnabled && !isFormValid()"
+            (click)="saveDetails()"
+            color="primary"
+        >
+            NEXT
+        </button>
+    </div>
+    <!-- <div *ngIf="showCam">
+        <zxing-scanner #scanner *ngIf="scannerEnabled" class="test-class" start="true" [scannerEnabled]="scannerEnabled"
+            [formats]="['CODE_39']" [device]="selectedDevice"></zxing-scanner>
+    </div> -->
+</div>

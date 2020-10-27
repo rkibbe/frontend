@@ -1,0 +1,25 @@
+@import '~@angular/material/theming';
+@import 'assets/styles/themes/common-theme-helpers.scss';
+
+@mixin trillium-modal-component-theme($theme) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+
+    .verti-trillium-modal {
+        .modal-title {
+            color: mat-color($accent);
+        }
+        ul > li {
+            background: #f1f5f7;
+            @include verti-clickable-element($primary);
+
+            h3 {
+                color: mat-color($accent);
+            }
+
+            .use-address-label {
+                color: mat-color($primary, darker);
+            }
+        }
+    }
+}

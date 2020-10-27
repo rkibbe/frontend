@@ -1,0 +1,81 @@
+.error-modal-container {
+    position: relative;
+}
+
+.fixed-content {
+    display: inline-flex;
+    margin-bottom: 1em;
+}
+
+.right-close {
+    padding: 0;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
+}
+
+.card-container .card-title {
+    padding: 0;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 28px !important;
+}
+
+.close-btn {
+    display: flex;
+    margin: 0 auto;
+}
+
+.img-tag {
+    width: 75px;
+    margin: 0 auto;
+    img {
+        width: 100%;
+    }
+}
+
+.primary-button {
+    text-align: center;
+    margin: 0 auto;
+    background-color: #ffa100;
+    color: #ffffff;
+    font-size: 1em;
+    font-weight: 400;
+    letter-spacing: 1.43px;
+    width: 120px;
+}
+
+.uw-img-tag {
+    width: 200px;
+    margin: 0 auto 10px;
+    img {
+        width: 100%;
+    }
+}
+
+.call-us {
+    color: #777770;
+    font-size: 18px;
+    font-weight: normal;
+    letter-spacing: -0.08px;
+    line-height: 26px;
+    margin-bottom: 24px;
+    text-align: center;
+    a {
+        font-size: 24px;
+        font-weight: bold;
+        color: #ff7f00;
+        display: block;
+        text-decoration: none;
+        outline: none;
+    }
+}
+
+.container p {
+    color: #777770;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    line-height: 20px;
+    text-align: left;
+}

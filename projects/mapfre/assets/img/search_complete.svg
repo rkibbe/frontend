@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 54.1 (76490) - https://sketchapp.com -->
+    <title>782D80ED-0676-4AE4-87FB-4431C6EBB8CA</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M5.9,10.1c-2.3,0-4.1-1.8-4.1-4.1c0-2.3,1.8-4.1,4.1-4.1c2.3,0,4.1,1.8,4.1,4.1C10.1,8.2,8.2,10.1,5.9,10.1
+			z M11.4,10.1h-0.7l-0.3-0.3c0.9-1,1.4-2.4,1.4-3.9C11.9,2.7,9.2,0,5.9,0S0,2.7,0,5.9c0,3.3,2.7,5.9,5.9,5.9c1.5,0,2.8-0.5,3.9-1.4
+			l0.3,0.3v0.7l4.6,4.6l1.4-1.4L11.4,10.1z" id="path-1"></path>
+    </defs>
+    <g id="Advanced-Quick-Quote" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="AdvancedQuote_376px-/-Enchelada" transform="translate(-191.000000, -75.000000)">
+            <g id="06_Navigation-/-Progress-/-Refinement-/-Coverage" transform="translate(0.000000, 64.000000)">
+                <g id="Progress-Stepper">
+                    <g id="Steps" transform="translate(16.000000, 0.000000)">
+                        <g id="Sign" transform="translate(176.000000, 12.000000)">
+                            <g>
+                                <circle id="Sign-Oval" stroke="#8B1863" fill="#8B1863" cx="12" cy="12" r="12"></circle>
+                                <g id="Sign-Icon" transform="translate(3.000000, 3.000000)">
+                                    <mask id="mask-2" fill="white">
+                                        <use xlink:href="#path-1"></use>
+                                    </mask>
+                                    <use id="Signature-Icon" fill="#000000" xlink:href="#path-1"></use>
+                                    <g id="↳-Icon-Color" mask="url(#mask-2)" fill="#ffffff">
+                                        <rect id="Rectangle-2" x="0" y="0" width="18.18" height="18.18"></rect>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

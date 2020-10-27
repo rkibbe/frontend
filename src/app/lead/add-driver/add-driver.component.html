@@ -1,0 +1,8 @@
+<!-- <verti-back-button></verti-back-button> -->
+<div class="main-content">
+  <div class="inner-content">
+    <verti-page-image-title [imgsource]="imgSource" imgwidth="80px" [title]="title"></verti-page-image-title>
+    <verti-user-form [formGroup]="addDriverForm" (formGroupValue)='saveDetails($event)'></verti-user-form>
+
+  </div>
+</div>
